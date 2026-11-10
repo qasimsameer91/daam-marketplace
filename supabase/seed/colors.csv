@@ -1,0 +1,394 @@
+model_slug,name,hex,needs_review
+iphone-x,Silver,#E3E4E5,false
+iphone-x,Space Gray,#535150,false
+iphone-xr,Black,#1F2020,false
+iphone-xr,White,#F5F5F0,false
+iphone-xr,Blue,#5EB0E5,false
+iphone-xr,Yellow,#F3D060,false
+iphone-xr,Coral,#EE7762,false
+iphone-xr,(PRODUCT)RED,#BA0C2E,false
+iphone-xs,Gold,#F4E1C9,false
+iphone-xs,Silver,#E3E4E5,false
+iphone-xs,Space Gray,#535150,false
+iphone-xs-max,Gold,#F4E1C9,false
+iphone-xs-max,Silver,#E3E4E5,false
+iphone-xs-max,Space Gray,#535150,false
+iphone-11,Black,#1F2020,false
+iphone-11,White,#F5F5F0,false
+iphone-11,Green,#AEE1CD,false
+iphone-11,Yellow,#FFE681,false
+iphone-11,Purple,#D1CDDA,false
+iphone-11,(PRODUCT)RED,#BA0C2E,false
+iphone-11-pro,Midnight Green,#4E5851,false
+iphone-11-pro,Space Gray,#535150,false
+iphone-11-pro,Silver,#E3E4E5,false
+iphone-11-pro,Gold,#F4E1C9,false
+iphone-11-pro-max,Midnight Green,#4E5851,false
+iphone-11-pro-max,Space Gray,#535150,false
+iphone-11-pro-max,Silver,#E3E4E5,false
+iphone-11-pro-max,Gold,#F4E1C9,false
+iphone-se-2nd-generation,Black,#1F2020,false
+iphone-se-2nd-generation,White,#F5F5F0,false
+iphone-se-2nd-generation,(PRODUCT)RED,#BA0C2E,false
+iphone-12-mini,Black,#1F2020,false
+iphone-12-mini,White,#F5F5F0,false
+iphone-12-mini,Blue,#023B63,false
+iphone-12-mini,Green,#D8EFD5,false
+iphone-12-mini,Purple,#B7AFE6,false
+iphone-12-mini,(PRODUCT)RED,#BA0C2E,false
+iphone-12,Black,#1F2020,false
+iphone-12,White,#F5F5F0,false
+iphone-12,Blue,#023B63,false
+iphone-12,Green,#D8EFD5,false
+iphone-12,Purple,#B7AFE6,false
+iphone-12,(PRODUCT)RED,#BA0C2E,false
+iphone-12-pro,Graphite,#54524F,false
+iphone-12-pro,Silver,#E3E4E5,false
+iphone-12-pro,Gold,#F4E1C9,false
+iphone-12-pro,Pacific Blue,#2E4A5E,false
+iphone-12-pro-max,Graphite,#54524F,false
+iphone-12-pro-max,Silver,#E3E4E5,false
+iphone-12-pro-max,Gold,#F4E1C9,false
+iphone-12-pro-max,Pacific Blue,#2E4A5E,false
+iphone-13-mini,Midnight,#232A31,false
+iphone-13-mini,Starlight,#F9F3EE,false
+iphone-13-mini,Blue,#276787,false
+iphone-13-mini,Pink,#FAE0D8,false
+iphone-13-mini,Green,#394C38,false
+iphone-13-mini,(PRODUCT)RED,#BA0C2E,false
+iphone-13,Midnight,#232A31,false
+iphone-13,Starlight,#F9F3EE,false
+iphone-13,Blue,#276787,false
+iphone-13,Pink,#FAE0D8,false
+iphone-13,Green,#394C38,false
+iphone-13,(PRODUCT)RED,#BA0C2E,false
+iphone-13-pro,Graphite,#54524F,false
+iphone-13-pro,Gold,#F4E1C9,false
+iphone-13-pro,Silver,#E3E4E5,false
+iphone-13-pro,Sierra Blue,#9BB5CE,false
+iphone-13-pro,Alpine Green,#576856,false
+iphone-13-pro-max,Graphite,#54524F,false
+iphone-13-pro-max,Gold,#F4E1C9,false
+iphone-13-pro-max,Silver,#E3E4E5,false
+iphone-13-pro-max,Sierra Blue,#9BB5CE,false
+iphone-13-pro-max,Alpine Green,#576856,false
+iphone-se-3rd-generation,Midnight,#232A31,false
+iphone-se-3rd-generation,Starlight,#F9F3EE,false
+iphone-se-3rd-generation,(PRODUCT)RED,#BA0C2E,false
+iphone-14,Midnight,#232A31,false
+iphone-14,Starlight,#F9F3EE,false
+iphone-14,Blue,#A0B4C7,false
+iphone-14,Purple,#E5DDEA,false
+iphone-14,Yellow,#F9E479,false
+iphone-14,(PRODUCT)RED,#BA0C2E,false
+iphone-14-plus,Midnight,#232A31,false
+iphone-14-plus,Starlight,#F9F3EE,false
+iphone-14-plus,Blue,#A0B4C7,false
+iphone-14-plus,Purple,#E5DDEA,false
+iphone-14-plus,Yellow,#F9E479,false
+iphone-14-plus,(PRODUCT)RED,#BA0C2E,false
+iphone-14-pro,Space Black,#403E3D,false
+iphone-14-pro,Silver,#E3E4E5,false
+iphone-14-pro,Gold,#F4E1C9,false
+iphone-14-pro,Deep Purple,#594F63,false
+iphone-14-pro-max,Space Black,#403E3D,false
+iphone-14-pro-max,Silver,#E3E4E5,false
+iphone-14-pro-max,Gold,#F4E1C9,false
+iphone-14-pro-max,Deep Purple,#594F63,false
+iphone-15,Black,#35393B,false
+iphone-15,Blue,#D5DDDF,false
+iphone-15,Green,#CAD4C5,false
+iphone-15,Yellow,#EDE6C8,false
+iphone-15,Pink,#E3C8CA,false
+iphone-15-plus,Black,#35393B,false
+iphone-15-plus,Blue,#D5DDDF,false
+iphone-15-plus,Green,#CAD4C5,false
+iphone-15-plus,Yellow,#EDE6C8,false
+iphone-15-plus,Pink,#E3C8CA,false
+iphone-15-pro,Black Titanium,#3C3C3D,false
+iphone-15-pro,White Titanium,#F2F1ED,false
+iphone-15-pro,Blue Titanium,#2F4452,false
+iphone-15-pro,Natural Titanium,#BAB4A9,false
+iphone-15-pro-max,Black Titanium,#3C3C3D,false
+iphone-15-pro-max,White Titanium,#F2F1ED,false
+iphone-15-pro-max,Blue Titanium,#2F4452,false
+iphone-15-pro-max,Natural Titanium,#BAB4A9,false
+iphone-16,Black,#1F2020,false
+iphone-16,White,#F5F5F0,false
+iphone-16,Pink,#F2ADDA,false
+iphone-16,Teal,#B0D4D2,false
+iphone-16,Ultramarine,#9AADF6,false
+iphone-16-plus,Black,#1F2020,false
+iphone-16-plus,White,#F5F5F0,false
+iphone-16-plus,Pink,#F2ADDA,false
+iphone-16-plus,Teal,#B0D4D2,false
+iphone-16-plus,Ultramarine,#9AADF6,false
+iphone-16-pro,Black Titanium,#3C3C3D,false
+iphone-16-pro,White Titanium,#F2F1ED,false
+iphone-16-pro,Natural Titanium,#BAB4A9,false
+iphone-16-pro,Desert Titanium,#BFA48F,false
+iphone-16-pro-max,Black Titanium,#3C3C3D,false
+iphone-16-pro-max,White Titanium,#F2F1ED,false
+iphone-16-pro-max,Natural Titanium,#BAB4A9,false
+iphone-16-pro-max,Desert Titanium,#BFA48F,false
+iphone-16e,Black,#1F2020,false
+iphone-16e,White,#F5F5F0,false
+iphone-17,Black,#1F2020,true
+iphone-17,White,#F5F5F0,true
+iphone-17,Mist Blue,#A5BCD9,true
+iphone-17,Sage,#B4BFA4,true
+iphone-17,Lavender,#DCCBEA,true
+iphone-air,Space Black,#403E3D,true
+iphone-air,Cloud White,#F4F3EF,true
+iphone-air,Light Gold,#E9DCC4,true
+iphone-air,Sky Blue,#CFDDEE,true
+iphone-17-pro,Silver,#E3E4E5,true
+iphone-17-pro,Cosmic Orange,#E5753C,true
+iphone-17-pro,Deep Blue,#2F3B4F,true
+iphone-17-pro-max,Silver,#E3E4E5,true
+iphone-17-pro-max,Cosmic Orange,#E5753C,true
+iphone-17-pro-max,Deep Blue,#2F3B4F,true
+galaxy-s20-fe,Cloud Navy,#2B3A55,true
+galaxy-s20-fe,Cloud Mint,#C6E3D6,true
+galaxy-s20-fe,Cloud Red,#C8102E,true
+galaxy-s20-fe,Cloud Lavender,#C9B7DB,true
+galaxy-s20-fe,Cloud White,#F4F3EF,true
+galaxy-s20-fe,Cloud Orange,#F5A16B,true
+galaxy-s21,Phantom Gray,#4A4A4C,false
+galaxy-s21,Phantom White,#F1F1EF,false
+galaxy-s21,Phantom Violet,#B9A6CF,false
+galaxy-s21,Phantom Pink,#F0CFCB,false
+galaxy-s21-plus,Phantom Black,#1C1C1E,false
+galaxy-s21-plus,Phantom Silver,#C9CACC,false
+galaxy-s21-plus,Phantom Violet,#B9A6CF,false
+galaxy-s21-ultra,Phantom Black,#1C1C1E,false
+galaxy-s21-ultra,Phantom Silver,#C9CACC,false
+galaxy-s21-fe,Graphite,#54524F,false
+galaxy-s21-fe,White,#F5F5F0,false
+galaxy-s21-fe,Olive,#8A8D6B,false
+galaxy-s21-fe,Lavender,#DCCBEA,false
+galaxy-s22,Phantom Black,#1C1C1E,false
+galaxy-s22,Phantom White,#F1F1EF,false
+galaxy-s22,Green,#AEE1CD,false
+galaxy-s22,Pink Gold,#E8C4B8,false
+galaxy-s22-plus,Phantom Black,#1C1C1E,false
+galaxy-s22-plus,Phantom White,#F1F1EF,false
+galaxy-s22-plus,Green,#AEE1CD,false
+galaxy-s22-plus,Pink Gold,#E8C4B8,false
+galaxy-s22-ultra,Phantom Black,#1C1C1E,false
+galaxy-s22-ultra,Phantom White,#F1F1EF,false
+galaxy-s22-ultra,Burgundy,#6D2E3A,false
+galaxy-s22-ultra,Green,#AEE1CD,false
+galaxy-s23,Phantom Black,#1C1C1E,false
+galaxy-s23,Cream,#F1E6D6,false
+galaxy-s23,Green,#AEE1CD,false
+galaxy-s23,Lavender,#DCCBEA,false
+galaxy-s23-plus,Phantom Black,#1C1C1E,false
+galaxy-s23-plus,Cream,#F1E6D6,false
+galaxy-s23-plus,Green,#AEE1CD,false
+galaxy-s23-plus,Lavender,#DCCBEA,false
+galaxy-s23-ultra,Phantom Black,#1C1C1E,false
+galaxy-s23-ultra,Cream,#F1E6D6,false
+galaxy-s23-ultra,Green,#AEE1CD,false
+galaxy-s23-ultra,Lavender,#DCCBEA,false
+galaxy-s23-fe,Mint,#C9E4D6,false
+galaxy-s23-fe,Cream,#F1E6D6,false
+galaxy-s23-fe,Graphite,#54524F,false
+galaxy-s23-fe,Purple,#D1C4E9,false
+galaxy-s24,Onyx Black,#1F2125,false
+galaxy-s24,Marble Grey,#C8C7C4,false
+galaxy-s24,Cobalt Violet,#4B4A7A,false
+galaxy-s24,Amber Yellow,#F4DE8C,false
+galaxy-s24-plus,Onyx Black,#1F2125,false
+galaxy-s24-plus,Marble Grey,#C8C7C4,false
+galaxy-s24-plus,Cobalt Violet,#4B4A7A,false
+galaxy-s24-plus,Amber Yellow,#F4DE8C,false
+galaxy-s24-ultra,Titanium Black,#2D2D2F,false
+galaxy-s24-ultra,Titanium Gray,#8B8B8D,false
+galaxy-s24-ultra,Titanium Violet,#5A5470,false
+galaxy-s24-ultra,Titanium Yellow,#E6D9A8,false
+galaxy-s24-fe,Blue,#4A7FB5,true
+galaxy-s24-fe,Graphite,#54524F,true
+galaxy-s24-fe,Gray,#8E8E93,true
+galaxy-s24-fe,Mint,#C9E4D6,true
+galaxy-s24-fe,Yellow,#F7E37A,true
+galaxy-s25,Navy,#2B3346,false
+galaxy-s25,Icyblue,#CBDDEB,false
+galaxy-s25,Mint,#C9E4D6,false
+galaxy-s25,Silver Shadow,#C4C6C8,false
+galaxy-s25-plus,Navy,#2B3346,false
+galaxy-s25-plus,Icyblue,#CBDDEB,false
+galaxy-s25-plus,Mint,#C9E4D6,false
+galaxy-s25-plus,Silver Shadow,#C4C6C8,false
+galaxy-s25-ultra,Titanium Silverblue,#A9B6C4,false
+galaxy-s25-ultra,Titanium Black,#2D2D2F,false
+galaxy-s25-ultra,Titanium Gray,#8B8B8D,false
+galaxy-s25-ultra,Titanium Whitesilver,#E7E7E5,false
+galaxy-s25-edge,Titanium Silver,#C8C8C6,true
+galaxy-s25-edge,Titanium Jetblack,#1E1E20,true
+galaxy-s25-edge,Titanium Icyblue,#C5D4E0,true
+galaxy-s25-fe,Navy,#2B3346,true
+galaxy-s25-fe,Icyblue,#CBDDEB,true
+galaxy-s25-fe,Jetblack,#1E1E20,true
+galaxy-s25-fe,White,#F5F5F0,true
+galaxy-note10,Aura Glow,#D8D8E0,false
+galaxy-note10,Aura Black,#111111,false
+galaxy-note10,Aura White,#F5F5F5,false
+galaxy-note10-plus,Aura Glow,#D8D8E0,false
+galaxy-note10-plus,Aura Black,#111111,false
+galaxy-note10-plus,Aura White,#F5F5F5,false
+galaxy-note20,Mystic Bronze,#C3A08A,false
+galaxy-note20,Mystic Gray,#5E5E62,false
+galaxy-note20,Mystic Green,#A3C1AD,false
+galaxy-note20-ultra,Mystic Bronze,#C3A08A,false
+galaxy-note20-ultra,Mystic Black,#1E1E1E,false
+galaxy-note20-ultra,Mystic White,#EDEDED,false
+galaxy-z-flip3,Cream,#F1E6D6,false
+galaxy-z-flip3,Green,#AEE1CD,false
+galaxy-z-flip3,Lavender,#DCCBEA,false
+galaxy-z-flip3,Phantom Black,#1C1C1E,false
+galaxy-z-fold3,Phantom Black,#1C1C1E,false
+galaxy-z-fold3,Phantom Green,#4F5B4F,false
+galaxy-z-fold3,Phantom Silver,#C9CACC,false
+galaxy-z-flip4,Bora Purple,#C1B2D9,false
+galaxy-z-flip4,Graphite,#54524F,false
+galaxy-z-flip4,Pink Gold,#E8C4B8,false
+galaxy-z-flip4,Blue,#4A7FB5,false
+galaxy-z-fold4,Graygreen,#7B8A7E,false
+galaxy-z-fold4,Phantom Black,#1C1C1E,false
+galaxy-z-fold4,Beige,#E8DCC8,false
+galaxy-z-flip5,Mint,#C9E4D6,false
+galaxy-z-flip5,Graphite,#54524F,false
+galaxy-z-flip5,Cream,#F1E6D6,false
+galaxy-z-flip5,Lavender,#DCCBEA,false
+galaxy-z-fold5,Icy Blue,#C9DCEB,false
+galaxy-z-fold5,Phantom Black,#1C1C1E,false
+galaxy-z-fold5,Cream,#F1E6D6,false
+galaxy-z-flip6,Blue,#4A7FB5,false
+galaxy-z-flip6,Mint,#C9E4D6,false
+galaxy-z-flip6,Silver Shadow,#C4C6C8,false
+galaxy-z-flip6,Yellow,#F7E37A,false
+galaxy-z-fold6,Silver Shadow,#C4C6C8,false
+galaxy-z-fold6,Pink,#F9D9DB,false
+galaxy-z-fold6,Navy,#2B3346,false
+galaxy-z-flip7,Blue Shadow,#3E5368,true
+galaxy-z-flip7,Jetblack,#1E1E20,true
+galaxy-z-flip7,Coralred,#E06A5C,true
+galaxy-z-fold7,Blue Shadow,#3E5368,true
+galaxy-z-fold7,Silver Shadow,#C4C6C8,true
+galaxy-z-fold7,Jetblack,#1E1E20,true
+galaxy-a52,Awesome Black,#2A2A2C,false
+galaxy-a52,Awesome White,#F2F2F0,false
+galaxy-a52,Awesome Blue,#8FB3D9,false
+galaxy-a52,Awesome Violet,#C8B8E0,false
+galaxy-a52s-5g,Awesome Black,#2A2A2C,true
+galaxy-a52s-5g,Awesome White,#F2F2F0,true
+galaxy-a52s-5g,Awesome Mint,#C5E3D3,true
+galaxy-a52s-5g,Awesome Violet,#C8B8E0,true
+galaxy-a72,Awesome Black,#2A2A2C,false
+galaxy-a72,Awesome White,#F2F2F0,false
+galaxy-a72,Awesome Blue,#8FB3D9,false
+galaxy-a72,Awesome Violet,#C8B8E0,false
+galaxy-a53-5g,Awesome Black,#2A2A2C,false
+galaxy-a53-5g,Awesome White,#F2F2F0,false
+galaxy-a53-5g,Awesome Blue,#8FB3D9,false
+galaxy-a53-5g,Awesome Peach,#F4C9B4,false
+galaxy-a73-5g,Awesome Gray,#6E6F72,false
+galaxy-a73-5g,Awesome Mint,#C5E3D3,false
+galaxy-a73-5g,Awesome White,#F2F2F0,false
+galaxy-a34-5g,Awesome Lime,#D9E7A0,false
+galaxy-a34-5g,Awesome Graphite,#3D3F42,false
+galaxy-a34-5g,Awesome Violet,#C8B8E0,false
+galaxy-a34-5g,Awesome Silver,#D8D9DB,false
+galaxy-a54-5g,Awesome Lime,#D9E7A0,false
+galaxy-a54-5g,Awesome Graphite,#3D3F42,false
+galaxy-a54-5g,Awesome Violet,#C8B8E0,false
+galaxy-a54-5g,Awesome White,#F2F2F0,false
+galaxy-a35-5g,Awesome Iceblue,#C7DCEB,false
+galaxy-a35-5g,Awesome Lilac,#CBB8DA,false
+galaxy-a35-5g,Awesome Navy,#2C3550,false
+galaxy-a35-5g,Awesome Lemon,#F2E8A0,false
+galaxy-a55-5g,Awesome Iceblue,#C7DCEB,false
+galaxy-a55-5g,Awesome Lilac,#CBB8DA,false
+galaxy-a55-5g,Awesome Navy,#2C3550,false
+galaxy-a55-5g,Awesome Lemon,#F2E8A0,false
+galaxy-a36-5g,Awesome Black,#2A2A2C,true
+galaxy-a36-5g,Awesome Lavender,#CFC3E6,true
+galaxy-a36-5g,Awesome White,#F2F2F0,true
+galaxy-a36-5g,Awesome Lime,#D9E7A0,true
+galaxy-a56-5g,Awesome Graphite,#3D3F42,true
+galaxy-a56-5g,Awesome Lightgray,#D5D6D8,true
+galaxy-a56-5g,Awesome Olive,#8F947A,true
+galaxy-a56-5g,Awesome Pink,#F1C9D3,true
+pixel-4-xl,Just Black,#1B1B1B,false
+pixel-4-xl,Clearly White,#F2F2F0,false
+pixel-4-xl,Oh So Orange,#F28C5B,false
+pixel-4a,Just Black,#1B1B1B,false
+pixel-4a,Barely Blue,#BFD7EA,false
+pixel-5,Just Black,#1B1B1B,false
+pixel-5,Sorta Sage,#B7C7B0,false
+pixel-6,Stormy Black,#2B2B2D,false
+pixel-6,Kinda Coral,#F2B3A3,false
+pixel-6,Sorta Seafoam,#C5E0D8,false
+pixel-6-pro,Stormy Black,#2B2B2D,false
+pixel-6-pro,Cloudy White,#ECECE8,false
+pixel-6-pro,Sorta Sunny,#F5E3A1,false
+pixel-6a,Charcoal,#3C3D3F,false
+pixel-6a,Chalk,#EDEAE3,false
+pixel-6a,Sage,#B4BFA4,false
+pixel-7,Obsidian,#1F1F1F,false
+pixel-7,Snow,#F1F1EE,false
+pixel-7,Lemongrass,#E3E7B5,false
+pixel-7-pro,Obsidian,#1F1F1F,false
+pixel-7-pro,Snow,#F1F1EE,false
+pixel-7-pro,Hazel,#8C8F7E,false
+pixel-7a,Charcoal,#3C3D3F,false
+pixel-7a,Snow,#F1F1EE,false
+pixel-7a,Sea,#A9C3D3,false
+pixel-7a,Coral,#F2826A,false
+pixel-fold,Obsidian,#1F1F1F,false
+pixel-fold,Porcelain,#EEE9E0,false
+pixel-8,Obsidian,#1F1F1F,false
+pixel-8,Hazel,#8C8F7E,false
+pixel-8,Rose,#E9C6C1,false
+pixel-8,Mint,#C9E4D6,false
+pixel-8-pro,Obsidian,#1F1F1F,false
+pixel-8-pro,Porcelain,#EEE9E0,false
+pixel-8-pro,Bay,#9DB6D6,false
+pixel-8-pro,Mint,#C9E4D6,false
+pixel-8a,Obsidian,#1F1F1F,false
+pixel-8a,Porcelain,#EEE9E0,false
+pixel-8a,Bay,#9DB6D6,false
+pixel-8a,Aloe,#C6E3C0,false
+pixel-9,Obsidian,#1F1F1F,false
+pixel-9,Porcelain,#EEE9E0,false
+pixel-9,Wintergreen,#CFE3D3,false
+pixel-9,Peony,#F2C4D3,false
+pixel-9-pro,Obsidian,#1F1F1F,false
+pixel-9-pro,Porcelain,#EEE9E0,false
+pixel-9-pro,Hazel,#8C8F7E,false
+pixel-9-pro,Rose Quartz,#F1D4D2,false
+pixel-9-pro-xl,Obsidian,#1F1F1F,false
+pixel-9-pro-xl,Porcelain,#EEE9E0,false
+pixel-9-pro-xl,Hazel,#8C8F7E,false
+pixel-9-pro-xl,Rose Quartz,#F1D4D2,false
+pixel-9-pro-fold,Obsidian,#1F1F1F,false
+pixel-9-pro-fold,Porcelain,#EEE9E0,false
+pixel-9a,Obsidian,#1F1F1F,false
+pixel-9a,Porcelain,#EEE9E0,false
+pixel-9a,Iris,#B9B7E3,false
+pixel-9a,Peony,#F2C4D3,false
+pixel-10,Obsidian,#1F1F1F,true
+pixel-10,Frost,#DCE5EE,true
+pixel-10,Indigo,#3F4A80,true
+pixel-10,Lemongrass,#E3E7B5,true
+pixel-10-pro,Obsidian,#1F1F1F,true
+pixel-10-pro,Porcelain,#EEE9E0,true
+pixel-10-pro,Moonstone,#8F9AA6,true
+pixel-10-pro,Jade,#C9DFD0,true
+pixel-10-pro-xl,Obsidian,#1F1F1F,true
+pixel-10-pro-xl,Porcelain,#EEE9E0,true
+pixel-10-pro-xl,Moonstone,#8F9AA6,true
+pixel-10-pro-xl,Jade,#C9DFD0,true
+pixel-10-pro-fold,Moonstone,#8F9AA6,true
+pixel-10-pro-fold,Jade,#C9DFD0,true

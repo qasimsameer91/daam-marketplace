@@ -1,0 +1,333 @@
+brand_slug,series,name,slug,release_year,supports_battery_health,popularity,needs_review
+apple,iPhone,iPhone X,iphone-x,2017,true,45,false
+apple,iPhone,iPhone XR,iphone-xr,2018,true,60,false
+apple,iPhone,iPhone XS,iphone-xs,2018,true,45,false
+apple,iPhone,iPhone XS Max,iphone-xs-max,2018,true,60,false
+apple,iPhone,iPhone 11,iphone-11,2019,true,85,false
+apple,iPhone,iPhone 11 Pro,iphone-11-pro,2019,true,70,false
+apple,iPhone,iPhone 11 Pro Max,iphone-11-pro-max,2019,true,80,false
+apple,iPhone,iPhone SE (2nd generation),iphone-se-2nd-generation,2020,true,40,false
+apple,iPhone,iPhone 12 mini,iphone-12-mini,2020,true,40,false
+apple,iPhone,iPhone 12,iphone-12,2020,true,80,false
+apple,iPhone,iPhone 12 Pro,iphone-12-pro,2020,true,70,false
+apple,iPhone,iPhone 12 Pro Max,iphone-12-pro-max,2020,true,80,false
+apple,iPhone,iPhone 13 mini,iphone-13-mini,2021,true,40,false
+apple,iPhone,iPhone 13,iphone-13,2021,true,85,false
+apple,iPhone,iPhone 13 Pro,iphone-13-pro,2021,true,75,false
+apple,iPhone,iPhone 13 Pro Max,iphone-13-pro-max,2021,true,90,false
+apple,iPhone,iPhone SE (3rd generation),iphone-se-3rd-generation,2022,true,30,false
+apple,iPhone,iPhone 14,iphone-14,2022,true,75,false
+apple,iPhone,iPhone 14 Plus,iphone-14-plus,2022,true,55,false
+apple,iPhone,iPhone 14 Pro,iphone-14-pro,2022,true,80,false
+apple,iPhone,iPhone 14 Pro Max,iphone-14-pro-max,2022,true,90,false
+apple,iPhone,iPhone 15,iphone-15,2023,true,75,false
+apple,iPhone,iPhone 15 Plus,iphone-15-plus,2023,true,55,false
+apple,iPhone,iPhone 15 Pro,iphone-15-pro,2023,true,80,false
+apple,iPhone,iPhone 15 Pro Max,iphone-15-pro-max,2023,true,90,false
+apple,iPhone,iPhone 16,iphone-16,2024,true,70,false
+apple,iPhone,iPhone 16 Plus,iphone-16-plus,2024,true,50,false
+apple,iPhone,iPhone 16 Pro,iphone-16-pro,2024,true,75,false
+apple,iPhone,iPhone 16 Pro Max,iphone-16-pro-max,2024,true,85,false
+apple,iPhone,iPhone 16e,iphone-16e,2025,true,45,false
+apple,iPhone,iPhone 17,iphone-17,2025,true,60,false
+apple,iPhone,iPhone Air,iphone-air,2025,true,50,false
+apple,iPhone,iPhone 17 Pro,iphone-17-pro,2025,true,65,false
+apple,iPhone,iPhone 17 Pro Max,iphone-17-pro-max,2025,true,75,false
+samsung,Galaxy S,Galaxy S20 FE,galaxy-s20-fe,2020,false,45,false
+samsung,Galaxy S,Galaxy S21,galaxy-s21,2021,false,50,false
+samsung,Galaxy S,Galaxy S21+,galaxy-s21-plus,2021,false,40,false
+samsung,Galaxy S,Galaxy S21 Ultra,galaxy-s21-ultra,2021,false,65,false
+samsung,Galaxy S,Galaxy S21 FE,galaxy-s21-fe,2022,false,45,false
+samsung,Galaxy S,Galaxy S22,galaxy-s22,2022,false,50,false
+samsung,Galaxy S,Galaxy S22+,galaxy-s22-plus,2022,false,40,false
+samsung,Galaxy S,Galaxy S22 Ultra,galaxy-s22-ultra,2022,false,75,false
+samsung,Galaxy S,Galaxy S23,galaxy-s23,2023,false,55,false
+samsung,Galaxy S,Galaxy S23+,galaxy-s23-plus,2023,false,45,false
+samsung,Galaxy S,Galaxy S23 Ultra,galaxy-s23-ultra,2023,false,85,false
+samsung,Galaxy S,Galaxy S23 FE,galaxy-s23-fe,2023,false,45,false
+samsung,Galaxy S,Galaxy S24,galaxy-s24,2024,false,55,false
+samsung,Galaxy S,Galaxy S24+,galaxy-s24-plus,2024,false,45,false
+samsung,Galaxy S,Galaxy S24 Ultra,galaxy-s24-ultra,2024,false,85,false
+samsung,Galaxy S,Galaxy S24 FE,galaxy-s24-fe,2024,false,45,false
+samsung,Galaxy S,Galaxy S25,galaxy-s25,2025,false,55,false
+samsung,Galaxy S,Galaxy S25+,galaxy-s25-plus,2025,false,45,false
+samsung,Galaxy S,Galaxy S25 Ultra,galaxy-s25-ultra,2025,false,80,false
+samsung,Galaxy S,Galaxy S25 Edge,galaxy-s25-edge,2025,false,40,false
+samsung,Galaxy S,Galaxy S25 FE,galaxy-s25-fe,2025,false,40,false
+samsung,Galaxy S,Galaxy S26,galaxy-s26,2026,false,45,true
+samsung,Galaxy S,Galaxy S26+,galaxy-s26-plus,2026,false,35,true
+samsung,Galaxy S,Galaxy S26 Ultra,galaxy-s26-ultra,2026,false,60,true
+samsung,Galaxy Note,Galaxy Note10,galaxy-note10,2019,false,35,false
+samsung,Galaxy Note,Galaxy Note10+,galaxy-note10-plus,2019,false,45,false
+samsung,Galaxy Note,Galaxy Note20,galaxy-note20,2020,false,40,false
+samsung,Galaxy Note,Galaxy Note20 Ultra,galaxy-note20-ultra,2020,false,60,false
+samsung,Galaxy Z,Galaxy Z Flip3,galaxy-z-flip3,2021,false,40,false
+samsung,Galaxy Z,Galaxy Z Fold3,galaxy-z-fold3,2021,false,40,false
+samsung,Galaxy Z,Galaxy Z Flip4,galaxy-z-flip4,2022,false,45,false
+samsung,Galaxy Z,Galaxy Z Fold4,galaxy-z-fold4,2022,false,45,false
+samsung,Galaxy Z,Galaxy Z Flip5,galaxy-z-flip5,2023,false,50,false
+samsung,Galaxy Z,Galaxy Z Fold5,galaxy-z-fold5,2023,false,50,false
+samsung,Galaxy Z,Galaxy Z Flip6,galaxy-z-flip6,2024,false,50,false
+samsung,Galaxy Z,Galaxy Z Fold6,galaxy-z-fold6,2024,false,50,false
+samsung,Galaxy Z,Galaxy Z Flip7,galaxy-z-flip7,2025,false,45,false
+samsung,Galaxy Z,Galaxy Z Fold7,galaxy-z-fold7,2025,false,45,false
+samsung,Galaxy A,Galaxy A12,galaxy-a12,2020,false,55,false
+samsung,Galaxy A,Galaxy A22,galaxy-a22,2021,false,45,false
+samsung,Galaxy A,Galaxy A32,galaxy-a32,2021,false,50,false
+samsung,Galaxy A,Galaxy A52,galaxy-a52,2021,false,55,false
+samsung,Galaxy A,Galaxy A52s 5G,galaxy-a52s-5g,2021,false,50,false
+samsung,Galaxy A,Galaxy A72,galaxy-a72,2021,false,50,false
+samsung,Galaxy A,Galaxy A03,galaxy-a03,2021,false,45,false
+samsung,Galaxy A,Galaxy A13,galaxy-a13,2022,false,55,false
+samsung,Galaxy A,Galaxy A23,galaxy-a23,2022,false,50,false
+samsung,Galaxy A,Galaxy A33 5G,galaxy-a33-5g,2022,false,45,false
+samsung,Galaxy A,Galaxy A53 5G,galaxy-a53-5g,2022,false,50,false
+samsung,Galaxy A,Galaxy A73 5G,galaxy-a73-5g,2022,false,45,false
+samsung,Galaxy A,Galaxy A04,galaxy-a04,2022,false,45,false
+samsung,Galaxy A,Galaxy A14,galaxy-a14,2023,false,55,false
+samsung,Galaxy A,Galaxy A24,galaxy-a24,2023,false,50,false
+samsung,Galaxy A,Galaxy A34 5G,galaxy-a34-5g,2023,false,50,false
+samsung,Galaxy A,Galaxy A54 5G,galaxy-a54-5g,2023,false,60,false
+samsung,Galaxy A,Galaxy A05,galaxy-a05,2023,false,55,false
+samsung,Galaxy A,Galaxy A05s,galaxy-a05s,2023,false,55,false
+samsung,Galaxy A,Galaxy A15,galaxy-a15,2023,false,55,false
+samsung,Galaxy A,Galaxy A25 5G,galaxy-a25-5g,2023,false,45,false
+samsung,Galaxy A,Galaxy A35 5G,galaxy-a35-5g,2024,false,55,false
+samsung,Galaxy A,Galaxy A55 5G,galaxy-a55-5g,2024,false,60,false
+samsung,Galaxy A,Galaxy A06,galaxy-a06,2024,false,55,false
+samsung,Galaxy A,Galaxy A16,galaxy-a16,2024,false,55,false
+samsung,Galaxy A,Galaxy A26 5G,galaxy-a26-5g,2025,false,50,false
+samsung,Galaxy A,Galaxy A36 5G,galaxy-a36-5g,2025,false,50,false
+samsung,Galaxy A,Galaxy A56 5G,galaxy-a56-5g,2025,false,55,false
+google,Pixel,Pixel 4 XL,pixel-4-xl,2019,false,40,false
+google,Pixel,Pixel 4a,pixel-4a,2020,false,40,false
+google,Pixel,Pixel 5,pixel-5,2020,false,40,false
+google,Pixel,Pixel 6,pixel-6,2021,false,50,false
+google,Pixel,Pixel 6 Pro,pixel-6-pro,2021,false,60,false
+google,Pixel,Pixel 6a,pixel-6a,2022,false,50,false
+google,Pixel,Pixel 7,pixel-7,2022,false,60,false
+google,Pixel,Pixel 7 Pro,pixel-7-pro,2022,false,70,false
+google,Pixel,Pixel 7a,pixel-7a,2023,false,55,false
+google,Pixel,Pixel Fold,pixel-fold,2023,false,30,false
+google,Pixel,Pixel 8,pixel-8,2023,false,55,false
+google,Pixel,Pixel 8 Pro,pixel-8-pro,2023,false,65,false
+google,Pixel,Pixel 8a,pixel-8a,2024,true,50,false
+google,Pixel,Pixel 9,pixel-9,2024,true,55,false
+google,Pixel,Pixel 9 Pro,pixel-9-pro,2024,true,60,false
+google,Pixel,Pixel 9 Pro XL,pixel-9-pro-xl,2024,true,60,false
+google,Pixel,Pixel 9 Pro Fold,pixel-9-pro-fold,2024,true,30,false
+google,Pixel,Pixel 9a,pixel-9a,2025,true,45,false
+google,Pixel,Pixel 10,pixel-10,2025,true,45,false
+google,Pixel,Pixel 10 Pro,pixel-10-pro,2025,true,50,false
+google,Pixel,Pixel 10 Pro XL,pixel-10-pro-xl,2025,true,50,false
+google,Pixel,Pixel 10 Pro Fold,pixel-10-pro-fold,2025,true,25,false
+oneplus,OnePlus,OnePlus 8T,oneplus-8t,2020,false,40,false
+oneplus,OnePlus,OnePlus 9,oneplus-9,2021,false,40,false
+oneplus,OnePlus,OnePlus 9 Pro,oneplus-9-pro,2021,false,45,false
+oneplus,OnePlus,OnePlus 10 Pro,oneplus-10-pro,2022,false,45,false
+oneplus,OnePlus,OnePlus 10T,oneplus-10t,2022,false,35,false
+oneplus,OnePlus,OnePlus 11,oneplus-11,2023,false,45,false
+oneplus,OnePlus,OnePlus 12,oneplus-12,2024,false,50,false
+oneplus,OnePlus,OnePlus 12R,oneplus-12r,2024,false,40,false
+oneplus,OnePlus,OnePlus 13,oneplus-13,2025,false,45,false
+oneplus,OnePlus,OnePlus 13R,oneplus-13r,2025,false,35,false
+oneplus,Nord,OnePlus Nord 3,oneplus-nord-3,2023,false,35,false
+oneplus,Nord,OnePlus Nord CE 4,oneplus-nord-ce-4,2024,false,30,false
+oneplus,Nord,OnePlus Nord 4,oneplus-nord-4,2024,false,30,false
+xiaomi,Xiaomi,Xiaomi 11 Lite 5G NE,xiaomi-11-lite-5g-ne,2021,false,45,false
+xiaomi,Xiaomi T,Xiaomi 11T,xiaomi-11t,2021,false,40,false
+xiaomi,Xiaomi T,Xiaomi 11T Pro,xiaomi-11t-pro,2021,false,40,false
+xiaomi,Xiaomi,Xiaomi 12,xiaomi-12,2022,false,35,false
+xiaomi,Xiaomi T,Xiaomi 12T,xiaomi-12t,2022,false,40,false
+xiaomi,Xiaomi T,Xiaomi 12T Pro,xiaomi-12t-pro,2022,false,40,false
+xiaomi,Xiaomi,Xiaomi 13,xiaomi-13,2023,false,35,false
+xiaomi,Xiaomi T,Xiaomi 13T,xiaomi-13t,2023,false,40,false
+xiaomi,Xiaomi T,Xiaomi 13T Pro,xiaomi-13t-pro,2023,false,40,false
+xiaomi,Xiaomi,Xiaomi 14,xiaomi-14,2024,false,40,false
+xiaomi,Xiaomi,Xiaomi 14 Ultra,xiaomi-14-ultra,2024,false,35,false
+xiaomi,Xiaomi T,Xiaomi 14T,xiaomi-14t,2024,false,40,false
+xiaomi,Xiaomi T,Xiaomi 14T Pro,xiaomi-14t-pro,2024,false,40,false
+xiaomi,Xiaomi,Xiaomi 15,xiaomi-15,2025,false,35,false
+xiaomi,Xiaomi,Xiaomi 15 Ultra,xiaomi-15-ultra,2025,false,30,false
+redmi,Redmi,Redmi 9A,redmi-9a,2020,false,50,false
+redmi,Redmi,Redmi 9C,redmi-9c,2020,false,50,false
+redmi,Redmi,Redmi 9T,redmi-9t,2021,false,50,false
+redmi,Redmi,Redmi 10,redmi-10,2021,false,50,false
+redmi,Redmi,Redmi 10A,redmi-10a,2022,false,45,false
+redmi,Redmi,Redmi 10C,redmi-10c,2022,false,50,false
+redmi,Redmi,Redmi 12C,redmi-12c,2023,false,55,false
+redmi,Redmi,Redmi 12,redmi-12,2023,false,55,false
+redmi,Redmi,Redmi 13C,redmi-13c,2023,false,60,false
+redmi,Redmi,Redmi A3,redmi-a3,2024,false,50,false
+redmi,Redmi,Redmi 13,redmi-13,2024,false,55,false
+redmi,Redmi,Redmi 14C,redmi-14c,2024,false,55,false
+redmi,Redmi,Redmi A5,redmi-a5,2025,false,45,false
+redmi,Redmi Note,Redmi Note 10,redmi-note-10,2021,false,55,false
+redmi,Redmi Note,Redmi Note 10 Pro,redmi-note-10-pro,2021,false,55,false
+redmi,Redmi Note,Redmi Note 11,redmi-note-11,2022,false,60,false
+redmi,Redmi Note,Redmi Note 11 Pro,redmi-note-11-pro,2022,false,50,false
+redmi,Redmi Note,Redmi Note 11S,redmi-note-11s,2022,false,45,false
+redmi,Redmi Note,Redmi Note 12,redmi-note-12,2023,false,60,false
+redmi,Redmi Note,Redmi Note 12 Pro,redmi-note-12-pro,2023,false,50,false
+redmi,Redmi Note,Redmi Note 13,redmi-note-13,2024,false,65,false
+redmi,Redmi Note,Redmi Note 13 Pro,redmi-note-13-pro,2024,false,60,false
+redmi,Redmi Note,Redmi Note 13 Pro+,redmi-note-13-pro-plus,2024,false,50,false
+redmi,Redmi Note,Redmi Note 14,redmi-note-14,2025,false,60,false
+redmi,Redmi Note,Redmi Note 14 Pro,redmi-note-14-pro,2025,false,55,false
+redmi,Redmi Note,Redmi Note 14 Pro+,redmi-note-14-pro-plus,2025,false,45,false
+redmi,Redmi Note,Redmi Note 15,redmi-note-15,2026,false,45,true
+redmi,Redmi Note,Redmi Note 15 Pro,redmi-note-15-pro,2026,false,40,true
+poco,Poco X,Poco X3 Pro,poco-x3-pro,2021,false,50,false
+poco,Poco F,Poco F3,poco-f3,2021,false,40,false
+poco,Poco X,Poco X4 Pro 5G,poco-x4-pro-5g,2022,false,40,false
+poco,Poco F,Poco F4,poco-f4,2022,false,35,false
+poco,Poco M,Poco M4 Pro,poco-m4-pro,2022,false,35,false
+poco,Poco X,Poco X5 Pro 5G,poco-x5-pro-5g,2023,false,40,false
+poco,Poco F,Poco F5,poco-f5,2023,false,40,false
+poco,Poco C,Poco C65,poco-c65,2023,false,40,false
+poco,Poco X,Poco X6 Pro,poco-x6-pro,2024,false,45,false
+poco,Poco X,Poco X6,poco-x6,2024,false,40,false
+poco,Poco F,Poco F6,poco-f6,2024,false,40,false
+poco,Poco M,Poco M6 Pro,poco-m6-pro,2024,false,35,false
+poco,Poco X,Poco X7 Pro,poco-x7-pro,2025,false,40,false
+poco,Poco X,Poco X7,poco-x7,2025,false,35,false
+oppo,A,Oppo A16,oppo-a16,2021,false,45,false
+oppo,A,Oppo A54,oppo-a54,2021,false,45,false
+oppo,A,Oppo A74,oppo-a74,2021,false,40,false
+oppo,A,Oppo A57,oppo-a57,2022,false,45,false
+oppo,A,Oppo A77s,oppo-a77s,2022,false,40,false
+oppo,A,Oppo A78,oppo-a78,2023,false,40,false
+oppo,A,Oppo A58,oppo-a58,2023,false,45,false
+oppo,A,Oppo A38,oppo-a38,2023,false,45,false
+oppo,A,Oppo A18,oppo-a18,2023,false,45,false
+oppo,A,Oppo A60,oppo-a60,2024,false,40,false
+oppo,Reno,Oppo Reno5,oppo-reno5,2021,false,40,false
+oppo,Reno,Oppo Reno6,oppo-reno6,2021,false,35,false
+oppo,Reno,Oppo Reno7,oppo-reno7,2022,false,40,false
+oppo,Reno,Oppo Reno8,oppo-reno8,2022,false,40,false
+oppo,Reno,Oppo Reno8 T,oppo-reno8-t,2023,false,45,false
+oppo,Reno,Oppo Reno10,oppo-reno10,2023,false,40,false
+oppo,Reno,Oppo Reno10 Pro,oppo-reno10-pro,2023,false,35,false
+oppo,Reno,Oppo Reno11 F,oppo-reno11-f,2024,false,40,false
+oppo,Reno,Oppo Reno12 F,oppo-reno12-f,2024,false,40,false
+oppo,Reno,Oppo Reno12,oppo-reno12,2024,false,35,false
+oppo,Reno,Oppo Reno13 F,oppo-reno13-f,2025,false,40,false
+oppo,Reno,Oppo Reno13,oppo-reno13,2025,false,35,false
+vivo,Y,Vivo Y20,vivo-y20,2020,false,45,false
+vivo,Y,Vivo Y21,vivo-y21,2021,false,45,false
+vivo,Y,Vivo Y15s,vivo-y15s,2021,false,40,false
+vivo,Y,Vivo Y33s,vivo-y33s,2021,false,40,false
+vivo,Y,Vivo Y02,vivo-y02,2022,false,40,false
+vivo,Y,Vivo Y16,vivo-y16,2022,false,45,false
+vivo,Y,Vivo Y22,vivo-y22,2022,false,45,false
+vivo,Y,Vivo Y35,vivo-y35,2022,false,40,false
+vivo,Y,Vivo Y17s,vivo-y17s,2023,false,45,false
+vivo,Y,Vivo Y27,vivo-y27,2023,false,40,false
+vivo,Y,Vivo Y36,vivo-y36,2023,false,45,false
+vivo,Y,Vivo Y03,vivo-y03,2024,false,45,false
+vivo,Y,Vivo Y18,vivo-y18,2024,false,40,false
+vivo,Y,Vivo Y100,vivo-y100,2024,false,40,false
+vivo,Y,Vivo Y19s,vivo-y19s,2024,false,40,false
+vivo,V,Vivo V21,vivo-v21,2021,false,40,false
+vivo,V,Vivo V23e,vivo-v23e,2021,false,35,false
+vivo,V,Vivo V25,vivo-v25,2022,false,40,false
+vivo,V,Vivo V27e,vivo-v27e,2023,false,40,false
+vivo,V,Vivo V29e,vivo-v29e,2023,false,40,false
+vivo,V,Vivo V30e,vivo-v30e,2024,false,40,false
+vivo,V,Vivo V40e,vivo-v40e,2024,false,35,false
+realme,C,Realme C21,realme-c21,2021,false,40,false
+realme,C,Realme C25s,realme-c25s,2021,false,40,false
+realme,C,Realme C31,realme-c31,2022,false,40,false
+realme,C,Realme C35,realme-c35,2022,false,45,false
+realme,C,Realme C33,realme-c33,2022,false,40,false
+realme,C,Realme C55,realme-c55,2023,false,45,false
+realme,C,Realme C53,realme-c53,2023,false,45,false
+realme,C,Realme C51,realme-c51,2023,false,45,false
+realme,C,Realme C67,realme-c67,2023,false,45,false
+realme,C,Realme C63,realme-c63,2024,false,40,false
+realme,C,Realme C75,realme-c75,2024,false,40,false
+realme,Note,Realme Note 50,realme-note-50,2024,false,40,false
+realme,Note,Realme Note 60,realme-note-60,2024,false,40,false
+realme,Realme,Realme 8,realme-8,2021,false,40,false
+realme,Realme,Realme 9i,realme-9i,2022,false,40,false
+realme,Realme,Realme 10,realme-10,2022,false,40,false
+realme,Realme,Realme 11,realme-11,2023,false,35,false
+realme,Realme,Realme 12,realme-12,2024,false,35,false
+realme,Realme,Realme 12 Pro+,realme-12-pro-plus,2024,false,35,false
+tecno,Spark,Tecno Spark 7,tecno-spark-7,2021,false,50,false
+tecno,Spark,Tecno Spark 7 Pro,tecno-spark-7-pro,2021,false,45,false
+tecno,Spark,Tecno Spark 8 Pro,tecno-spark-8-pro,2022,false,45,false
+tecno,Spark,Tecno Spark 9,tecno-spark-9,2022,false,45,false
+tecno,Spark,Tecno Spark 10,tecno-spark-10,2023,false,50,false
+tecno,Spark,Tecno Spark 10 Pro,tecno-spark-10-pro,2023,false,55,false
+tecno,Spark,Tecno Spark 20,tecno-spark-20,2023,false,55,false
+tecno,Spark,Tecno Spark 20C,tecno-spark-20c,2023,false,55,false
+tecno,Spark,Tecno Spark 20 Pro,tecno-spark-20-pro,2023,false,55,false
+tecno,Spark,Tecno Spark Go 2024,tecno-spark-go-2024,2023,false,50,false
+tecno,Spark,Tecno Spark 30C,tecno-spark-30c,2024,false,50,false
+tecno,Spark,Tecno Spark 30,tecno-spark-30,2024,false,50,false
+tecno,Spark,Tecno Spark 30 Pro,tecno-spark-30-pro,2024,false,45,false
+tecno,Camon,Tecno Camon 17,tecno-camon-17,2021,false,40,false
+tecno,Camon,Tecno Camon 17 Pro,tecno-camon-17-pro,2021,false,40,false
+tecno,Camon,Tecno Camon 18T,tecno-camon-18t,2021,false,40,false
+tecno,Camon,Tecno Camon 19,tecno-camon-19,2022,false,40,false
+tecno,Camon,Tecno Camon 19 Pro,tecno-camon-19-pro,2022,false,45,false
+tecno,Camon,Tecno Camon 20,tecno-camon-20,2023,false,50,false
+tecno,Camon,Tecno Camon 20 Pro,tecno-camon-20-pro,2023,false,45,false
+tecno,Camon,Tecno Camon 30,tecno-camon-30,2024,false,45,false
+tecno,Pova,Tecno Pova 4,tecno-pova-4,2022,false,40,false
+tecno,Pova,Tecno Pova 5,tecno-pova-5,2023,false,40,false
+tecno,Pova,Tecno Pova 6 Pro,tecno-pova-6-pro,2024,false,40,false
+infinix,Hot,Infinix Hot 10,infinix-hot-10,2020,false,50,false
+infinix,Hot,Infinix Hot 11S,infinix-hot-11s,2021,false,45,false
+infinix,Hot,Infinix Hot 12,infinix-hot-12,2022,false,45,false
+infinix,Hot,Infinix Hot 20,infinix-hot-20,2022,false,45,false
+infinix,Hot,Infinix Hot 30,infinix-hot-30,2023,false,55,false
+infinix,Hot,Infinix Hot 30i,infinix-hot-30i,2023,false,50,false
+infinix,Hot,Infinix Hot 40,infinix-hot-40,2023,false,55,false
+infinix,Hot,Infinix Hot 40i,infinix-hot-40i,2023,false,55,false
+infinix,Hot,Infinix Hot 40 Pro,infinix-hot-40-pro,2023,false,50,false
+infinix,Hot,Infinix Hot 50,infinix-hot-50,2024,false,50,false
+infinix,Hot,Infinix Hot 50i,infinix-hot-50i,2024,false,50,false
+infinix,Hot,Infinix Hot 50 Pro+,infinix-hot-50-pro-plus,2024,false,45,false
+infinix,Hot,Infinix Hot 60,infinix-hot-60,2025,false,45,true
+infinix,Note,Infinix Note 10,infinix-note-10,2021,false,45,false
+infinix,Note,Infinix Note 10 Pro,infinix-note-10-pro,2021,false,45,false
+infinix,Note,Infinix Note 11,infinix-note-11,2021,false,45,false
+infinix,Note,Infinix Note 12,infinix-note-12,2022,false,50,false
+infinix,Note,Infinix Note 30,infinix-note-30,2023,false,55,false
+infinix,Note,Infinix Note 30 Pro,infinix-note-30-pro,2023,false,45,false
+infinix,Note,Infinix Note 40,infinix-note-40,2024,false,55,false
+infinix,Note,Infinix Note 40 Pro,infinix-note-40-pro,2024,false,50,false
+infinix,Note,Infinix Note 50,infinix-note-50,2025,false,45,true
+infinix,Zero,Infinix Zero 30,infinix-zero-30,2023,false,40,false
+infinix,Zero,Infinix Zero 30 5G,infinix-zero-30-5g,2023,false,40,false
+infinix,Smart,Infinix Smart 6,infinix-smart-6,2021,false,45,false
+infinix,Smart,Infinix Smart 7,infinix-smart-7,2023,false,50,false
+infinix,Smart,Infinix Smart 8,infinix-smart-8,2023,false,50,false
+infinix,GT,Infinix GT 10 Pro,infinix-gt-10-pro,2023,false,40,false
+infinix,GT,Infinix GT 20 Pro,infinix-gt-20-pro,2024,false,40,false
+huawei,P,Huawei P30 Pro,huawei-p30-pro,2019,false,40,false
+huawei,P,Huawei P40 Pro,huawei-p40-pro,2020,false,30,false
+huawei,Mate,Huawei Mate 40 Pro,huawei-mate-40-pro,2020,false,25,false
+huawei,Y,Huawei Y9a,huawei-y9a,2020,false,35,false
+huawei,Nova,Huawei Nova 7i,huawei-nova-7i,2020,false,35,false
+huawei,Nova,Huawei Nova 9,huawei-nova-9,2021,false,30,false
+huawei,Nova,Huawei Nova Y70,huawei-nova-y70,2022,false,35,false
+huawei,Nova,Huawei Nova 11i,huawei-nova-11i,2023,false,30,false
+motorola,Moto G,Moto G Stylus (2021),moto-g-stylus-2021,2021,false,30,false
+motorola,Moto G,Moto G Power (2021),moto-g-power-2021,2021,false,30,false
+motorola,Moto G,Moto G Stylus 5G (2022),moto-g-stylus-5g-2022,2022,false,30,false
+motorola,Edge,Motorola Edge 30,motorola-edge-30,2022,false,25,false
+motorola,Edge,Motorola Edge 40,motorola-edge-40,2023,false,25,false
+motorola,Razr,Motorola Razr 40 Ultra,motorola-razr-40-ultra,2023,false,25,false
+nokia,G,Nokia G20,nokia-g20,2021,false,30,false
+nokia,G,Nokia G21,nokia-g21,2022,false,30,false
+nokia,C,Nokia C21 Plus,nokia-c21-plus,2022,false,25,false
+nokia,C,Nokia C32,nokia-c32,2023,false,25,false
+sony,Xperia 1,Xperia 1 II,xperia-1-ii,2020,false,30,false
+sony,Xperia 5,Xperia 5 II,xperia-5-ii,2020,false,30,false
+sony,Xperia 1,Xperia 1 III,xperia-1-iii,2021,false,30,false
+sony,Xperia 5,Xperia 5 III,xperia-5-iii,2021,false,30,false
+sony,Xperia 1,Xperia 1 IV,xperia-1-iv,2022,false,25,false
+sony,Xperia 1,Xperia 1 V,xperia-1-v,2023,false,25,false

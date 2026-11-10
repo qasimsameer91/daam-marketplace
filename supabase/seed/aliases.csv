@@ -1,0 +1,1418 @@
+model_slug,alias
+iphone-x,iphonex
+iphone-x,iphone 10
+iphone-x,ix
+iphone-xr,xr
+iphone-xr,iphonexr
+iphone-xr,i xr
+iphone-xs,xs
+iphone-xs,iphonexs
+iphone-xs-max,xs max
+iphone-xs-max,xsmax
+iphone-xs-max,xs m
+iphone-xs-max,iphone xsmax
+iphone-11,iphone11
+iphone-11,i11
+iphone-11,11 simple
+iphone-11-pro,iphone11pro
+iphone-11-pro,11 pro
+iphone-11-pro,11pro
+iphone-11-pro,i11 pro
+iphone-11-pro-max,iphone11promax
+iphone-11-pro-max,11 pro max
+iphone-11-pro-max,11 pm
+iphone-11-pro-max,11pm
+iphone-11-pro-max,11promax
+iphone-11-pro-max,i11 pm
+iphone-11-pro-max,i11 pro max
+iphone-11-pro-max,iphone 11 pm
+iphone-se-2nd-generation,se 2020
+iphone-se-2nd-generation,se 2
+iphone-se-2nd-generation,se2
+iphone-se-2nd-generation,iphone se 2020
+iphone-se-2nd-generation,iphone se 2
+iphone-se-2nd-generation,se 2nd gen
+iphone-12-mini,iphone12mini
+iphone-12-mini,12 mini
+iphone-12-mini,12mini
+iphone-12-mini,i12 mini
+iphone-12,iphone12
+iphone-12,i12
+iphone-12,12 simple
+iphone-12-pro,iphone12pro
+iphone-12-pro,12 pro
+iphone-12-pro,12pro
+iphone-12-pro,i12 pro
+iphone-12-pro-max,iphone12promax
+iphone-12-pro-max,12 pro max
+iphone-12-pro-max,12 pm
+iphone-12-pro-max,12pm
+iphone-12-pro-max,12promax
+iphone-12-pro-max,i12 pm
+iphone-12-pro-max,i12 pro max
+iphone-12-pro-max,iphone 12 pm
+iphone-13-mini,iphone13mini
+iphone-13-mini,13 mini
+iphone-13-mini,13mini
+iphone-13-mini,i13 mini
+iphone-13,iphone13
+iphone-13,i13
+iphone-13,13 simple
+iphone-13-pro,iphone13pro
+iphone-13-pro,13 pro
+iphone-13-pro,13pro
+iphone-13-pro,i13 pro
+iphone-13-pro-max,iphone13promax
+iphone-13-pro-max,13 pro max
+iphone-13-pro-max,13 pm
+iphone-13-pro-max,13pm
+iphone-13-pro-max,13promax
+iphone-13-pro-max,i13 pm
+iphone-13-pro-max,i13 pro max
+iphone-13-pro-max,iphone 13 pm
+iphone-se-3rd-generation,se 2022
+iphone-se-3rd-generation,se 3
+iphone-se-3rd-generation,se3
+iphone-se-3rd-generation,iphone se 2022
+iphone-se-3rd-generation,iphone se 3
+iphone-se-3rd-generation,se 3rd gen
+iphone-14,iphone14
+iphone-14,i14
+iphone-14,14 simple
+iphone-14-plus,iphone14plus
+iphone-14-plus,14 plus
+iphone-14-plus,14+
+iphone-14-plus,14plus
+iphone-14-plus,i14 plus
+iphone-14-pro,iphone14pro
+iphone-14-pro,14 pro
+iphone-14-pro,14pro
+iphone-14-pro,i14 pro
+iphone-14-pro-max,iphone14promax
+iphone-14-pro-max,14 pro max
+iphone-14-pro-max,14 pm
+iphone-14-pro-max,14pm
+iphone-14-pro-max,14promax
+iphone-14-pro-max,i14 pm
+iphone-14-pro-max,i14 pro max
+iphone-14-pro-max,iphone 14 pm
+iphone-15,iphone15
+iphone-15,i15
+iphone-15,15 simple
+iphone-15-plus,iphone15plus
+iphone-15-plus,15 plus
+iphone-15-plus,15+
+iphone-15-plus,15plus
+iphone-15-plus,i15 plus
+iphone-15-pro,iphone15pro
+iphone-15-pro,15 pro
+iphone-15-pro,15pro
+iphone-15-pro,i15 pro
+iphone-15-pro-max,iphone15promax
+iphone-15-pro-max,15 pro max
+iphone-15-pro-max,15 pm
+iphone-15-pro-max,15pm
+iphone-15-pro-max,15promax
+iphone-15-pro-max,i15 pm
+iphone-15-pro-max,i15 pro max
+iphone-15-pro-max,iphone 15 pm
+iphone-16,iphone16
+iphone-16,i16
+iphone-16,16 simple
+iphone-16-plus,iphone16plus
+iphone-16-plus,16 plus
+iphone-16-plus,16+
+iphone-16-plus,16plus
+iphone-16-plus,i16 plus
+iphone-16-pro,iphone16pro
+iphone-16-pro,16 pro
+iphone-16-pro,16pro
+iphone-16-pro,i16 pro
+iphone-16-pro-max,iphone16promax
+iphone-16-pro-max,16 pro max
+iphone-16-pro-max,16 pm
+iphone-16-pro-max,16pm
+iphone-16-pro-max,16promax
+iphone-16-pro-max,i16 pm
+iphone-16-pro-max,i16 pro max
+iphone-16-pro-max,iphone 16 pm
+iphone-16e,16e
+iphone-16e,16 e
+iphone-16e,i16e
+iphone-16e,iphone16e
+iphone-17,iphone17
+iphone-17,i17
+iphone-17,17 simple
+iphone-air,iphoneair
+iphone-air,17 air
+iphone-air,iphone 17 air
+iphone-17-pro,iphone17pro
+iphone-17-pro,17 pro
+iphone-17-pro,17pro
+iphone-17-pro,i17 pro
+iphone-17-pro-max,iphone17promax
+iphone-17-pro-max,17 pro max
+iphone-17-pro-max,17 pm
+iphone-17-pro-max,17pm
+iphone-17-pro-max,17promax
+iphone-17-pro-max,i17 pm
+iphone-17-pro-max,i17 pro max
+iphone-17-pro-max,iphone 17 pm
+galaxy-s20-fe,galaxys20fe
+galaxy-s20-fe,galaxy s 20 fe
+galaxy-s20-fe,s20 fe
+galaxy-s20-fe,s20fe
+galaxy-s20-fe,s 20 fe
+galaxy-s21,galaxys21
+galaxy-s21,galaxy s 21
+galaxy-s21,s21
+galaxy-s21,s 21
+galaxy-s21,samsung s21
+galaxy-s21-plus,galaxys21+
+galaxy-s21-plus,galaxy s 21+
+galaxy-s21-plus,galaxy s21 plus
+galaxy-s21-plus,galaxys21 plus
+galaxy-s21-plus,galaxy s 21 plus
+galaxy-s21-plus,s21+
+galaxy-s21-plus,s 21+
+galaxy-s21-plus,s21 plus
+galaxy-s21-plus,s 21 plus
+galaxy-s21-plus,samsung s21 plus
+galaxy-s21-ultra,galaxys21ultra
+galaxy-s21-ultra,galaxy s 21 ultra
+galaxy-s21-ultra,s21 ultra
+galaxy-s21-ultra,s21ultra
+galaxy-s21-ultra,s 21 ultra
+galaxy-s21-ultra,s21u
+galaxy-s21-ultra,s21 u
+galaxy-s21-ultra,samsung s21 ultra
+galaxy-s21-fe,galaxys21fe
+galaxy-s21-fe,galaxy s 21 fe
+galaxy-s21-fe,s21 fe
+galaxy-s21-fe,s21fe
+galaxy-s21-fe,s 21 fe
+galaxy-s22,galaxys22
+galaxy-s22,galaxy s 22
+galaxy-s22,s22
+galaxy-s22,s 22
+galaxy-s22,samsung s22
+galaxy-s22-plus,galaxys22+
+galaxy-s22-plus,galaxy s 22+
+galaxy-s22-plus,galaxy s22 plus
+galaxy-s22-plus,galaxys22 plus
+galaxy-s22-plus,galaxy s 22 plus
+galaxy-s22-plus,s22+
+galaxy-s22-plus,s 22+
+galaxy-s22-plus,s22 plus
+galaxy-s22-plus,s 22 plus
+galaxy-s22-plus,samsung s22 plus
+galaxy-s22-ultra,galaxys22ultra
+galaxy-s22-ultra,galaxy s 22 ultra
+galaxy-s22-ultra,s22 ultra
+galaxy-s22-ultra,s22ultra
+galaxy-s22-ultra,s 22 ultra
+galaxy-s22-ultra,s22u
+galaxy-s22-ultra,s22 u
+galaxy-s22-ultra,samsung s22 ultra
+galaxy-s23,galaxys23
+galaxy-s23,galaxy s 23
+galaxy-s23,s23
+galaxy-s23,s 23
+galaxy-s23,samsung s23
+galaxy-s23-plus,galaxys23+
+galaxy-s23-plus,galaxy s 23+
+galaxy-s23-plus,galaxy s23 plus
+galaxy-s23-plus,galaxys23 plus
+galaxy-s23-plus,galaxy s 23 plus
+galaxy-s23-plus,s23+
+galaxy-s23-plus,s 23+
+galaxy-s23-plus,s23 plus
+galaxy-s23-plus,s 23 plus
+galaxy-s23-plus,samsung s23 plus
+galaxy-s23-ultra,galaxys23ultra
+galaxy-s23-ultra,galaxy s 23 ultra
+galaxy-s23-ultra,s23 ultra
+galaxy-s23-ultra,s23ultra
+galaxy-s23-ultra,s 23 ultra
+galaxy-s23-ultra,s23u
+galaxy-s23-ultra,s23 u
+galaxy-s23-ultra,samsung s23 ultra
+galaxy-s23-fe,galaxys23fe
+galaxy-s23-fe,galaxy s 23 fe
+galaxy-s23-fe,s23 fe
+galaxy-s23-fe,s23fe
+galaxy-s23-fe,s 23 fe
+galaxy-s24,galaxys24
+galaxy-s24,galaxy s 24
+galaxy-s24,s24
+galaxy-s24,s 24
+galaxy-s24,samsung s24
+galaxy-s24-plus,galaxys24+
+galaxy-s24-plus,galaxy s 24+
+galaxy-s24-plus,galaxy s24 plus
+galaxy-s24-plus,galaxys24 plus
+galaxy-s24-plus,galaxy s 24 plus
+galaxy-s24-plus,s24+
+galaxy-s24-plus,s 24+
+galaxy-s24-plus,s24 plus
+galaxy-s24-plus,s 24 plus
+galaxy-s24-plus,samsung s24 plus
+galaxy-s24-ultra,galaxys24ultra
+galaxy-s24-ultra,galaxy s 24 ultra
+galaxy-s24-ultra,s24 ultra
+galaxy-s24-ultra,s24ultra
+galaxy-s24-ultra,s 24 ultra
+galaxy-s24-ultra,s24u
+galaxy-s24-ultra,s24 u
+galaxy-s24-ultra,samsung s24 ultra
+galaxy-s24-fe,galaxys24fe
+galaxy-s24-fe,galaxy s 24 fe
+galaxy-s24-fe,s24 fe
+galaxy-s24-fe,s24fe
+galaxy-s24-fe,s 24 fe
+galaxy-s25,galaxys25
+galaxy-s25,galaxy s 25
+galaxy-s25,s25
+galaxy-s25,s 25
+galaxy-s25,samsung s25
+galaxy-s25-plus,galaxys25+
+galaxy-s25-plus,galaxy s 25+
+galaxy-s25-plus,galaxy s25 plus
+galaxy-s25-plus,galaxys25 plus
+galaxy-s25-plus,galaxy s 25 plus
+galaxy-s25-plus,s25+
+galaxy-s25-plus,s 25+
+galaxy-s25-plus,s25 plus
+galaxy-s25-plus,s 25 plus
+galaxy-s25-plus,samsung s25 plus
+galaxy-s25-ultra,galaxys25ultra
+galaxy-s25-ultra,galaxy s 25 ultra
+galaxy-s25-ultra,s25 ultra
+galaxy-s25-ultra,s25ultra
+galaxy-s25-ultra,s 25 ultra
+galaxy-s25-ultra,s25u
+galaxy-s25-ultra,s25 u
+galaxy-s25-ultra,samsung s25 ultra
+galaxy-s25-edge,galaxys25edge
+galaxy-s25-edge,galaxy s 25 edge
+galaxy-s25-edge,s25 edge
+galaxy-s25-edge,s25edge
+galaxy-s25-edge,s 25 edge
+galaxy-s25-fe,galaxys25fe
+galaxy-s25-fe,galaxy s 25 fe
+galaxy-s25-fe,s25 fe
+galaxy-s25-fe,s25fe
+galaxy-s25-fe,s 25 fe
+galaxy-s26,galaxys26
+galaxy-s26,galaxy s 26
+galaxy-s26,s26
+galaxy-s26,s 26
+galaxy-s26,samsung s26
+galaxy-s26-plus,galaxys26+
+galaxy-s26-plus,galaxy s 26+
+galaxy-s26-plus,galaxy s26 plus
+galaxy-s26-plus,galaxys26 plus
+galaxy-s26-plus,galaxy s 26 plus
+galaxy-s26-plus,s26+
+galaxy-s26-plus,s 26+
+galaxy-s26-plus,s26 plus
+galaxy-s26-plus,s 26 plus
+galaxy-s26-plus,samsung s26 plus
+galaxy-s26-ultra,galaxys26ultra
+galaxy-s26-ultra,galaxy s 26 ultra
+galaxy-s26-ultra,s26 ultra
+galaxy-s26-ultra,s26ultra
+galaxy-s26-ultra,s 26 ultra
+galaxy-s26-ultra,s26u
+galaxy-s26-ultra,s26 u
+galaxy-s26-ultra,samsung s26 ultra
+galaxy-note10,galaxy note 10
+galaxy-note10,galaxynote10
+galaxy-note10,samsung note10
+galaxy-note10-plus,note 10 plus
+galaxy-note10-plus,note 10+
+galaxy-note10-plus,note10+
+galaxy-note10-plus,n10+
+galaxy-note10-plus,galaxy note 10 plus
+galaxy-note10-plus,galaxynote10+
+galaxy-note10-plus,galaxy note 10+
+galaxy-note10-plus,galaxy note10 plus
+galaxy-note10-plus,galaxynote10 plus
+galaxy-note10-plus,note10 plus
+galaxy-note10-plus,samsung note10 plus
+galaxy-note20,note 20
+galaxy-note20,note20
+galaxy-note20,galaxy note 20
+galaxy-note20,galaxynote20
+galaxy-note20,samsung note20
+galaxy-note20-ultra,note 20 ultra
+galaxy-note20-ultra,note20 ultra
+galaxy-note20-ultra,n20u
+galaxy-note20-ultra,note 20u
+galaxy-note20-ultra,galaxy note 20 ultra
+galaxy-note20-ultra,galaxynote20ultra
+galaxy-note20-ultra,note20ultra
+galaxy-note20-ultra,note20u
+galaxy-note20-ultra,note20 u
+galaxy-note20-ultra,samsung note20 ultra
+galaxy-z-flip3,galaxyzflip3
+galaxy-z-flip3,galaxy z flip 3
+galaxy-z-flip3,flip3
+galaxy-z-flip3,flip 3
+galaxy-z-flip3,z flip3
+galaxy-z-flip3,zflip3
+galaxy-z-flip3,z flip 3
+galaxy-z-fold3,galaxyzfold3
+galaxy-z-fold3,galaxy z fold 3
+galaxy-z-fold3,fold3
+galaxy-z-fold3,fold 3
+galaxy-z-fold3,z fold3
+galaxy-z-fold3,zfold3
+galaxy-z-fold3,z fold 3
+galaxy-z-flip4,galaxyzflip4
+galaxy-z-flip4,galaxy z flip 4
+galaxy-z-flip4,flip4
+galaxy-z-flip4,flip 4
+galaxy-z-flip4,z flip4
+galaxy-z-flip4,zflip4
+galaxy-z-flip4,z flip 4
+galaxy-z-fold4,galaxyzfold4
+galaxy-z-fold4,galaxy z fold 4
+galaxy-z-fold4,fold4
+galaxy-z-fold4,fold 4
+galaxy-z-fold4,z fold4
+galaxy-z-fold4,zfold4
+galaxy-z-fold4,z fold 4
+galaxy-z-flip5,galaxyzflip5
+galaxy-z-flip5,galaxy z flip 5
+galaxy-z-flip5,flip5
+galaxy-z-flip5,flip 5
+galaxy-z-flip5,z flip5
+galaxy-z-flip5,zflip5
+galaxy-z-flip5,z flip 5
+galaxy-z-fold5,galaxyzfold5
+galaxy-z-fold5,galaxy z fold 5
+galaxy-z-fold5,fold5
+galaxy-z-fold5,fold 5
+galaxy-z-fold5,z fold5
+galaxy-z-fold5,zfold5
+galaxy-z-fold5,z fold 5
+galaxy-z-flip6,galaxyzflip6
+galaxy-z-flip6,galaxy z flip 6
+galaxy-z-flip6,flip6
+galaxy-z-flip6,flip 6
+galaxy-z-flip6,z flip6
+galaxy-z-flip6,zflip6
+galaxy-z-flip6,z flip 6
+galaxy-z-fold6,galaxyzfold6
+galaxy-z-fold6,galaxy z fold 6
+galaxy-z-fold6,fold6
+galaxy-z-fold6,fold 6
+galaxy-z-fold6,z fold6
+galaxy-z-fold6,zfold6
+galaxy-z-fold6,z fold 6
+galaxy-z-flip7,galaxyzflip7
+galaxy-z-flip7,galaxy z flip 7
+galaxy-z-flip7,flip7
+galaxy-z-flip7,flip 7
+galaxy-z-flip7,z flip7
+galaxy-z-flip7,zflip7
+galaxy-z-flip7,z flip 7
+galaxy-z-fold7,galaxyzfold7
+galaxy-z-fold7,galaxy z fold 7
+galaxy-z-fold7,fold7
+galaxy-z-fold7,fold 7
+galaxy-z-fold7,z fold7
+galaxy-z-fold7,zfold7
+galaxy-z-fold7,z fold 7
+galaxy-a12,galaxya12
+galaxy-a12,galaxy a 12
+galaxy-a12,a12
+galaxy-a12,a 12
+galaxy-a12,samsung a12
+galaxy-a22,galaxya22
+galaxy-a22,galaxy a 22
+galaxy-a22,a22
+galaxy-a22,a 22
+galaxy-a22,samsung a22
+galaxy-a32,galaxya32
+galaxy-a32,galaxy a 32
+galaxy-a32,a32
+galaxy-a32,a 32
+galaxy-a32,samsung a32
+galaxy-a52,galaxya52
+galaxy-a52,galaxy a 52
+galaxy-a52,a52
+galaxy-a52,a 52
+galaxy-a52,samsung a52
+galaxy-a52s-5g,galaxya52s5g
+galaxy-a52s-5g,galaxy a 52s 5g
+galaxy-a52s-5g,a52s 5g
+galaxy-a52s-5g,a52s5g
+galaxy-a52s-5g,a 52s 5g
+galaxy-a52s-5g,a52s
+galaxy-a52s-5g,samsung a52s
+galaxy-a72,galaxya72
+galaxy-a72,galaxy a 72
+galaxy-a72,a72
+galaxy-a72,a 72
+galaxy-a72,samsung a72
+galaxy-a03,galaxya03
+galaxy-a03,galaxy a 03
+galaxy-a03,a03
+galaxy-a03,a 03
+galaxy-a03,samsung a03
+galaxy-a13,galaxya13
+galaxy-a13,galaxy a 13
+galaxy-a13,a13
+galaxy-a13,a 13
+galaxy-a13,samsung a13
+galaxy-a23,galaxya23
+galaxy-a23,galaxy a 23
+galaxy-a23,a23
+galaxy-a23,a 23
+galaxy-a23,samsung a23
+galaxy-a33-5g,galaxya335g
+galaxy-a33-5g,galaxy a 33 5g
+galaxy-a33-5g,a33 5g
+galaxy-a33-5g,a335g
+galaxy-a33-5g,a 33 5g
+galaxy-a33-5g,a33
+galaxy-a33-5g,samsung a33
+galaxy-a53-5g,galaxya535g
+galaxy-a53-5g,galaxy a 53 5g
+galaxy-a53-5g,a53 5g
+galaxy-a53-5g,a535g
+galaxy-a53-5g,a 53 5g
+galaxy-a53-5g,a53
+galaxy-a53-5g,samsung a53
+galaxy-a73-5g,galaxya735g
+galaxy-a73-5g,galaxy a 73 5g
+galaxy-a73-5g,a73 5g
+galaxy-a73-5g,a735g
+galaxy-a73-5g,a 73 5g
+galaxy-a73-5g,a73
+galaxy-a73-5g,samsung a73
+galaxy-a04,galaxya04
+galaxy-a04,galaxy a 04
+galaxy-a04,a04
+galaxy-a04,a 04
+galaxy-a04,samsung a04
+galaxy-a14,galaxya14
+galaxy-a14,galaxy a 14
+galaxy-a14,a14
+galaxy-a14,a 14
+galaxy-a14,samsung a14
+galaxy-a24,galaxya24
+galaxy-a24,galaxy a 24
+galaxy-a24,a24
+galaxy-a24,a 24
+galaxy-a24,samsung a24
+galaxy-a34-5g,galaxya345g
+galaxy-a34-5g,galaxy a 34 5g
+galaxy-a34-5g,a34 5g
+galaxy-a34-5g,a345g
+galaxy-a34-5g,a 34 5g
+galaxy-a34-5g,a34
+galaxy-a34-5g,samsung a34
+galaxy-a54-5g,galaxya545g
+galaxy-a54-5g,galaxy a 54 5g
+galaxy-a54-5g,a54 5g
+galaxy-a54-5g,a545g
+galaxy-a54-5g,a 54 5g
+galaxy-a54-5g,a54
+galaxy-a54-5g,samsung a54
+galaxy-a05,galaxya05
+galaxy-a05,galaxy a 05
+galaxy-a05,a05
+galaxy-a05,a 05
+galaxy-a05,samsung a05
+galaxy-a05s,galaxya05s
+galaxy-a05s,galaxy a 05s
+galaxy-a05s,a05s
+galaxy-a05s,a 05s
+galaxy-a05s,samsung a05s
+galaxy-a15,galaxya15
+galaxy-a15,galaxy a 15
+galaxy-a15,a15
+galaxy-a15,a 15
+galaxy-a15,samsung a15
+galaxy-a25-5g,galaxya255g
+galaxy-a25-5g,galaxy a 25 5g
+galaxy-a25-5g,a25 5g
+galaxy-a25-5g,a255g
+galaxy-a25-5g,a 25 5g
+galaxy-a25-5g,a25
+galaxy-a25-5g,samsung a25
+galaxy-a35-5g,galaxya355g
+galaxy-a35-5g,galaxy a 35 5g
+galaxy-a35-5g,a35 5g
+galaxy-a35-5g,a355g
+galaxy-a35-5g,a 35 5g
+galaxy-a35-5g,a35
+galaxy-a35-5g,samsung a35
+galaxy-a55-5g,galaxya555g
+galaxy-a55-5g,galaxy a 55 5g
+galaxy-a55-5g,a55 5g
+galaxy-a55-5g,a555g
+galaxy-a55-5g,a 55 5g
+galaxy-a55-5g,a55
+galaxy-a55-5g,samsung a55
+galaxy-a06,galaxya06
+galaxy-a06,galaxy a 06
+galaxy-a06,a06
+galaxy-a06,a 06
+galaxy-a06,samsung a06
+galaxy-a16,galaxya16
+galaxy-a16,galaxy a 16
+galaxy-a16,a16
+galaxy-a16,a 16
+galaxy-a16,samsung a16
+galaxy-a26-5g,galaxya265g
+galaxy-a26-5g,galaxy a 26 5g
+galaxy-a26-5g,a26 5g
+galaxy-a26-5g,a265g
+galaxy-a26-5g,a 26 5g
+galaxy-a26-5g,a26
+galaxy-a26-5g,samsung a26
+galaxy-a36-5g,galaxya365g
+galaxy-a36-5g,galaxy a 36 5g
+galaxy-a36-5g,a36 5g
+galaxy-a36-5g,a365g
+galaxy-a36-5g,a 36 5g
+galaxy-a36-5g,a36
+galaxy-a36-5g,samsung a36
+galaxy-a56-5g,galaxya565g
+galaxy-a56-5g,galaxy a 56 5g
+galaxy-a56-5g,a56 5g
+galaxy-a56-5g,a565g
+galaxy-a56-5g,a 56 5g
+galaxy-a56-5g,a56
+galaxy-a56-5g,samsung a56
+pixel-4-xl,pixel4xl
+pixel-4-xl,p4 xl
+pixel-4-xl,p4xl
+pixel-4a,pixel4a
+pixel-4a,p4a
+pixel-5,pixel5
+pixel-5,p5
+pixel-6,pixel6
+pixel-6,p6
+pixel-6-pro,pixel6pro
+pixel-6-pro,p6 pro
+pixel-6-pro,p6pro
+pixel-6-pro,p6p
+pixel-6a,pixel6a
+pixel-6a,p6a
+pixel-7,pixel7
+pixel-7,p7
+pixel-7-pro,pixel7pro
+pixel-7-pro,p7 pro
+pixel-7-pro,p7pro
+pixel-7-pro,p7p
+pixel-7a,pixel7a
+pixel-7a,p7a
+pixel-fold,pixelfold
+pixel-fold,pfold
+pixel-8,pixel8
+pixel-8,p8
+pixel-8-pro,pixel8pro
+pixel-8-pro,p8 pro
+pixel-8-pro,p8pro
+pixel-8-pro,p8p
+pixel-8a,pixel8a
+pixel-8a,p8a
+pixel-9,pixel9
+pixel-9,p9
+pixel-9-pro,pixel9pro
+pixel-9-pro,p9 pro
+pixel-9-pro,p9pro
+pixel-9-pro,p9p
+pixel-9-pro-xl,pixel9proxl
+pixel-9-pro-xl,p9 pro xl
+pixel-9-pro-xl,p9proxl
+pixel-9-pro-xl,p9xl
+pixel-9-pro-fold,pixel9profold
+pixel-9-pro-fold,p9 pro fold
+pixel-9-pro-fold,p9profold
+pixel-9a,pixel9a
+pixel-9a,p9a
+pixel-10,pixel10
+pixel-10,p10
+pixel-10-pro,pixel10pro
+pixel-10-pro,p10 pro
+pixel-10-pro,p10pro
+pixel-10-pro,p10p
+pixel-10-pro-xl,pixel10proxl
+pixel-10-pro-xl,p10 pro xl
+pixel-10-pro-xl,p10proxl
+pixel-10-pro-xl,p10xl
+pixel-10-pro-fold,pixel10profold
+pixel-10-pro-fold,p10 pro fold
+pixel-10-pro-fold,p10profold
+oneplus-8t,oneplus8t
+oneplus-8t,8t
+oneplus-8t,op8t
+oneplus-8t,op 8t
+oneplus-8t,1+8t
+oneplus-8t,1+ 8t
+oneplus-9,oneplus9
+oneplus-9,op9
+oneplus-9,op 9
+oneplus-9,1+9
+oneplus-9,1+ 9
+oneplus-9-pro,oneplus9pro
+oneplus-9-pro,9 pro
+oneplus-9-pro,9pro
+oneplus-9-pro,op9pro
+oneplus-9-pro,op 9 pro
+oneplus-9-pro,1+9pro
+oneplus-9-pro,1+ 9 pro
+oneplus-10-pro,oneplus10pro
+oneplus-10-pro,10 pro
+oneplus-10-pro,10pro
+oneplus-10-pro,op10pro
+oneplus-10-pro,op 10 pro
+oneplus-10-pro,1+10pro
+oneplus-10-pro,1+ 10 pro
+oneplus-10t,oneplus10t
+oneplus-10t,10t
+oneplus-10t,op10t
+oneplus-10t,op 10t
+oneplus-10t,1+10t
+oneplus-10t,1+ 10t
+oneplus-11,oneplus11
+oneplus-11,op11
+oneplus-11,op 11
+oneplus-11,1+11
+oneplus-11,1+ 11
+oneplus-12,oneplus12
+oneplus-12,op12
+oneplus-12,op 12
+oneplus-12,1+12
+oneplus-12,1+ 12
+oneplus-12r,oneplus12r
+oneplus-12r,12r
+oneplus-12r,op12r
+oneplus-12r,op 12r
+oneplus-12r,1+12r
+oneplus-12r,1+ 12r
+oneplus-13,oneplus13
+oneplus-13,op13
+oneplus-13,op 13
+oneplus-13,1+13
+oneplus-13,1+ 13
+oneplus-13r,oneplus13r
+oneplus-13r,13r
+oneplus-13r,op13r
+oneplus-13r,op 13r
+oneplus-13r,1+13r
+oneplus-13r,1+ 13r
+oneplus-nord-3,oneplusnord3
+oneplus-nord-3,nord 3
+oneplus-nord-3,nord3
+oneplus-nord-ce-4,oneplusnordce4
+oneplus-nord-ce-4,nord ce 4
+oneplus-nord-ce-4,nordce4
+oneplus-nord-4,oneplusnord4
+oneplus-nord-4,nord 4
+oneplus-nord-4,nord4
+xiaomi-11-lite-5g-ne,11 lite ne
+xiaomi-11-lite-5g-ne,mi 11 lite
+xiaomi-11-lite-5g-ne,11 lite 5g ne
+xiaomi-11-lite-5g-ne,xiaomi11lite5gne
+xiaomi-11-lite-5g-ne,11lite5gne
+xiaomi-11t,mi 11t
+xiaomi-11t,xiaomi11t
+xiaomi-11t,11t
+xiaomi-11t-pro,mi 11t pro
+xiaomi-11t-pro,xiaomi11tpro
+xiaomi-11t-pro,11t pro
+xiaomi-11t-pro,11tpro
+xiaomi-12,xiaomi12
+xiaomi-12t,xiaomi12t
+xiaomi-12t,12t
+xiaomi-12t-pro,xiaomi12tpro
+xiaomi-12t-pro,12t pro
+xiaomi-12t-pro,12tpro
+xiaomi-13,xiaomi13
+xiaomi-13t,xiaomi13t
+xiaomi-13t,13t
+xiaomi-13t-pro,xiaomi13tpro
+xiaomi-13t-pro,13t pro
+xiaomi-13t-pro,13tpro
+xiaomi-14,xiaomi14
+xiaomi-14-ultra,xiaomi14ultra
+xiaomi-14-ultra,14 ultra
+xiaomi-14-ultra,14ultra
+xiaomi-14t,xiaomi14t
+xiaomi-14t,14t
+xiaomi-14t-pro,xiaomi14tpro
+xiaomi-14t-pro,14t pro
+xiaomi-14t-pro,14tpro
+xiaomi-15,xiaomi15
+xiaomi-15-ultra,xiaomi15ultra
+xiaomi-15-ultra,15 ultra
+xiaomi-15-ultra,15ultra
+redmi-9a,redmi9a
+redmi-9a,9a
+redmi-9c,redmi9c
+redmi-9c,9c
+redmi-9t,redmi9t
+redmi-9t,9t
+redmi-10,redmi10
+redmi-10a,redmi10a
+redmi-10a,10a
+redmi-10c,redmi10c
+redmi-10c,10c
+redmi-12c,redmi12c
+redmi-12c,12c
+redmi-12,redmi12
+redmi-13c,redmi13c
+redmi-13c,13c
+redmi-a3,redmia3
+redmi-a3,redmi a 3
+redmi-a3,a3
+redmi-a3,a 3
+redmi-13,redmi13
+redmi-14c,redmi14c
+redmi-14c,14c
+redmi-a5,redmia5
+redmi-a5,redmi a 5
+redmi-a5,a5
+redmi-a5,a 5
+redmi-note-10,redminote10
+redmi-note-10,note 10
+redmi-note-10,note10
+redmi-note-10,rn10
+redmi-note-10,rn 10
+redmi-note-10,redmi note10
+redmi-note-10-pro,redminote10pro
+redmi-note-10-pro,note 10 pro
+redmi-note-10-pro,note10pro
+redmi-note-10-pro,rn10 pro
+redmi-note-10-pro,rn 10 pro
+redmi-note-10-pro,rn10pro
+redmi-note-10-pro,redmi note10pro
+redmi-note-11,redminote11
+redmi-note-11,note 11
+redmi-note-11,note11
+redmi-note-11,rn11
+redmi-note-11,rn 11
+redmi-note-11,redmi note11
+redmi-note-11-pro,redminote11pro
+redmi-note-11-pro,note 11 pro
+redmi-note-11-pro,note11pro
+redmi-note-11-pro,rn11 pro
+redmi-note-11-pro,rn 11 pro
+redmi-note-11-pro,rn11pro
+redmi-note-11-pro,redmi note11pro
+redmi-note-11s,redminote11s
+redmi-note-11s,note 11s
+redmi-note-11s,note11s
+redmi-note-11s,rn11s
+redmi-note-11s,rn 11s
+redmi-note-11s,redmi note11s
+redmi-note-12,redminote12
+redmi-note-12,note 12
+redmi-note-12,note12
+redmi-note-12,rn12
+redmi-note-12,rn 12
+redmi-note-12,redmi note12
+redmi-note-12-pro,redminote12pro
+redmi-note-12-pro,note 12 pro
+redmi-note-12-pro,note12pro
+redmi-note-12-pro,rn12 pro
+redmi-note-12-pro,rn 12 pro
+redmi-note-12-pro,rn12pro
+redmi-note-12-pro,redmi note12pro
+redmi-note-13,redminote13
+redmi-note-13,note 13
+redmi-note-13,note13
+redmi-note-13,rn13
+redmi-note-13,rn 13
+redmi-note-13,redmi note13
+redmi-note-13-pro,redminote13pro
+redmi-note-13-pro,note 13 pro
+redmi-note-13-pro,note13pro
+redmi-note-13-pro,rn13 pro
+redmi-note-13-pro,rn 13 pro
+redmi-note-13-pro,rn13pro
+redmi-note-13-pro,redmi note13pro
+redmi-note-13-pro-plus,redminote13pro+
+redmi-note-13-pro-plus,redmi note 13 pro plus
+redmi-note-13-pro-plus,redminote13pro plus
+redmi-note-13-pro-plus,note 13 pro+
+redmi-note-13-pro-plus,note13pro+
+redmi-note-13-pro-plus,note 13 pro plus
+redmi-note-13-pro-plus,note13pro plus
+redmi-note-13-pro-plus,rn13 pro+
+redmi-note-13-pro-plus,rn 13 pro+
+redmi-note-13-pro-plus,rn13pro+
+redmi-note-13-pro-plus,redmi note13pro+
+redmi-note-14,redminote14
+redmi-note-14,note 14
+redmi-note-14,note14
+redmi-note-14,rn14
+redmi-note-14,rn 14
+redmi-note-14,redmi note14
+redmi-note-14-pro,redminote14pro
+redmi-note-14-pro,note 14 pro
+redmi-note-14-pro,note14pro
+redmi-note-14-pro,rn14 pro
+redmi-note-14-pro,rn 14 pro
+redmi-note-14-pro,rn14pro
+redmi-note-14-pro,redmi note14pro
+redmi-note-14-pro-plus,redminote14pro+
+redmi-note-14-pro-plus,redmi note 14 pro plus
+redmi-note-14-pro-plus,redminote14pro plus
+redmi-note-14-pro-plus,note 14 pro+
+redmi-note-14-pro-plus,note14pro+
+redmi-note-14-pro-plus,note 14 pro plus
+redmi-note-14-pro-plus,note14pro plus
+redmi-note-14-pro-plus,rn14 pro+
+redmi-note-14-pro-plus,rn 14 pro+
+redmi-note-14-pro-plus,rn14pro+
+redmi-note-14-pro-plus,redmi note14pro+
+redmi-note-15,redminote15
+redmi-note-15,note 15
+redmi-note-15,note15
+redmi-note-15,rn15
+redmi-note-15,rn 15
+redmi-note-15,redmi note15
+redmi-note-15-pro,redminote15pro
+redmi-note-15-pro,note 15 pro
+redmi-note-15-pro,note15pro
+redmi-note-15-pro,rn15 pro
+redmi-note-15-pro,rn 15 pro
+redmi-note-15-pro,rn15pro
+redmi-note-15-pro,redmi note15pro
+poco-x3-pro,pocox3pro
+poco-x3-pro,poco x 3 pro
+poco-x3-pro,x3 pro
+poco-x3-pro,x3pro
+poco-x3-pro,x 3 pro
+poco-f3,pocof3
+poco-f3,poco f 3
+poco-f3,f3
+poco-f3,f 3
+poco-x4-pro-5g,pocox4pro5g
+poco-x4-pro-5g,poco x 4 pro 5g
+poco-x4-pro-5g,x4 pro 5g
+poco-x4-pro-5g,x4pro5g
+poco-x4-pro-5g,x 4 pro 5g
+poco-f4,pocof4
+poco-f4,poco f 4
+poco-f4,f4
+poco-f4,f 4
+poco-m4-pro,pocom4pro
+poco-m4-pro,poco m 4 pro
+poco-m4-pro,m4 pro
+poco-m4-pro,m4pro
+poco-m4-pro,m 4 pro
+poco-x5-pro-5g,pocox5pro5g
+poco-x5-pro-5g,poco x 5 pro 5g
+poco-x5-pro-5g,x5 pro 5g
+poco-x5-pro-5g,x5pro5g
+poco-x5-pro-5g,x 5 pro 5g
+poco-f5,pocof5
+poco-f5,poco f 5
+poco-f5,f5
+poco-f5,f 5
+poco-c65,pococ65
+poco-c65,poco c 65
+poco-c65,c65
+poco-c65,c 65
+poco-x6-pro,pocox6pro
+poco-x6-pro,poco x 6 pro
+poco-x6-pro,x6 pro
+poco-x6-pro,x6pro
+poco-x6-pro,x 6 pro
+poco-x6,pocox6
+poco-x6,poco x 6
+poco-x6,x6
+poco-x6,x 6
+poco-f6,pocof6
+poco-f6,poco f 6
+poco-f6,f6
+poco-f6,f 6
+poco-m6-pro,pocom6pro
+poco-m6-pro,poco m 6 pro
+poco-m6-pro,m6 pro
+poco-m6-pro,m6pro
+poco-m6-pro,m 6 pro
+poco-x7-pro,pocox7pro
+poco-x7-pro,poco x 7 pro
+poco-x7-pro,x7 pro
+poco-x7-pro,x7pro
+poco-x7-pro,x 7 pro
+poco-x7,pocox7
+poco-x7,poco x 7
+poco-x7,x7
+poco-x7,x 7
+oppo-a16,oppoa16
+oppo-a16,oppo a 16
+oppo-a54,oppoa54
+oppo-a54,oppo a 54
+oppo-a54,a 54
+oppo-a74,oppoa74
+oppo-a74,oppo a 74
+oppo-a74,a74
+oppo-a74,a 74
+oppo-a57,oppoa57
+oppo-a57,oppo a 57
+oppo-a57,a57
+oppo-a57,a 57
+oppo-a77s,oppoa77s
+oppo-a77s,oppo a 77s
+oppo-a77s,a77s
+oppo-a77s,a 77s
+oppo-a78,oppoa78
+oppo-a78,oppo a 78
+oppo-a78,a78
+oppo-a78,a 78
+oppo-a58,oppoa58
+oppo-a58,oppo a 58
+oppo-a58,a58
+oppo-a58,a 58
+oppo-a38,oppoa38
+oppo-a38,oppo a 38
+oppo-a38,a38
+oppo-a38,a 38
+oppo-a18,oppoa18
+oppo-a18,oppo a 18
+oppo-a18,a18
+oppo-a18,a 18
+oppo-a60,oppoa60
+oppo-a60,oppo a 60
+oppo-a60,a60
+oppo-a60,a 60
+oppo-reno5,opporeno5
+oppo-reno5,oppo reno 5
+oppo-reno5,reno5
+oppo-reno5,reno 5
+oppo-reno6,opporeno6
+oppo-reno6,oppo reno 6
+oppo-reno6,reno6
+oppo-reno6,reno 6
+oppo-reno7,opporeno7
+oppo-reno7,oppo reno 7
+oppo-reno7,reno7
+oppo-reno7,reno 7
+oppo-reno8,opporeno8
+oppo-reno8,oppo reno 8
+oppo-reno8,reno8
+oppo-reno8,reno 8
+oppo-reno8-t,opporeno8t
+oppo-reno8-t,oppo reno 8 t
+oppo-reno8-t,reno8 t
+oppo-reno8-t,reno8t
+oppo-reno8-t,reno 8 t
+oppo-reno10,opporeno10
+oppo-reno10,oppo reno 10
+oppo-reno10,reno10
+oppo-reno10,reno 10
+oppo-reno10-pro,opporeno10pro
+oppo-reno10-pro,oppo reno 10 pro
+oppo-reno10-pro,reno10 pro
+oppo-reno10-pro,reno10pro
+oppo-reno10-pro,reno 10 pro
+oppo-reno11-f,opporeno11f
+oppo-reno11-f,oppo reno 11 f
+oppo-reno11-f,reno11 f
+oppo-reno11-f,reno11f
+oppo-reno11-f,reno 11 f
+oppo-reno12-f,opporeno12f
+oppo-reno12-f,oppo reno 12 f
+oppo-reno12-f,reno12 f
+oppo-reno12-f,reno12f
+oppo-reno12-f,reno 12 f
+oppo-reno12,opporeno12
+oppo-reno12,oppo reno 12
+oppo-reno12,reno12
+oppo-reno12,reno 12
+oppo-reno13-f,opporeno13f
+oppo-reno13-f,oppo reno 13 f
+oppo-reno13-f,reno13 f
+oppo-reno13-f,reno13f
+oppo-reno13-f,reno 13 f
+oppo-reno13,opporeno13
+oppo-reno13,oppo reno 13
+oppo-reno13,reno13
+oppo-reno13,reno 13
+vivo-y20,vivoy20
+vivo-y20,vivo y 20
+vivo-y20,y20
+vivo-y20,y 20
+vivo-y21,vivoy21
+vivo-y21,vivo y 21
+vivo-y21,y21
+vivo-y21,y 21
+vivo-y15s,vivoy15s
+vivo-y15s,vivo y 15s
+vivo-y15s,y15s
+vivo-y15s,y 15s
+vivo-y33s,vivoy33s
+vivo-y33s,vivo y 33s
+vivo-y33s,y33s
+vivo-y33s,y 33s
+vivo-y02,vivoy02
+vivo-y02,vivo y 02
+vivo-y02,y02
+vivo-y02,y 02
+vivo-y16,vivoy16
+vivo-y16,vivo y 16
+vivo-y16,y16
+vivo-y16,y 16
+vivo-y22,vivoy22
+vivo-y22,vivo y 22
+vivo-y22,y22
+vivo-y22,y 22
+vivo-y35,vivoy35
+vivo-y35,vivo y 35
+vivo-y35,y35
+vivo-y35,y 35
+vivo-y17s,vivoy17s
+vivo-y17s,vivo y 17s
+vivo-y17s,y17s
+vivo-y17s,y 17s
+vivo-y27,vivoy27
+vivo-y27,vivo y 27
+vivo-y27,y27
+vivo-y27,y 27
+vivo-y36,vivoy36
+vivo-y36,vivo y 36
+vivo-y36,y36
+vivo-y36,y 36
+vivo-y03,vivoy03
+vivo-y03,vivo y 03
+vivo-y03,y03
+vivo-y03,y 03
+vivo-y18,vivoy18
+vivo-y18,vivo y 18
+vivo-y18,y18
+vivo-y18,y 18
+vivo-y100,vivoy100
+vivo-y100,vivo y 100
+vivo-y100,y100
+vivo-y100,y 100
+vivo-y19s,vivoy19s
+vivo-y19s,vivo y 19s
+vivo-y19s,y19s
+vivo-y19s,y 19s
+vivo-v21,vivov21
+vivo-v21,vivo v 21
+vivo-v21,v21
+vivo-v21,v 21
+vivo-v23e,vivov23e
+vivo-v23e,vivo v 23e
+vivo-v23e,v23e
+vivo-v23e,v 23e
+vivo-v25,vivov25
+vivo-v25,vivo v 25
+vivo-v25,v25
+vivo-v25,v 25
+vivo-v27e,vivov27e
+vivo-v27e,vivo v 27e
+vivo-v27e,v27e
+vivo-v27e,v 27e
+vivo-v29e,vivov29e
+vivo-v29e,vivo v 29e
+vivo-v29e,v29e
+vivo-v29e,v 29e
+vivo-v30e,vivov30e
+vivo-v30e,vivo v 30e
+vivo-v30e,v30e
+vivo-v30e,v 30e
+vivo-v40e,vivov40e
+vivo-v40e,vivo v 40e
+vivo-v40e,v40e
+vivo-v40e,v 40e
+realme-c21,realmec21
+realme-c21,realme c 21
+realme-c21,c21
+realme-c21,c 21
+realme-c25s,realmec25s
+realme-c25s,realme c 25s
+realme-c25s,c25s
+realme-c25s,c 25s
+realme-c31,realmec31
+realme-c31,realme c 31
+realme-c31,c31
+realme-c31,c 31
+realme-c35,realmec35
+realme-c35,realme c 35
+realme-c35,c35
+realme-c35,c 35
+realme-c33,realmec33
+realme-c33,realme c 33
+realme-c33,c33
+realme-c33,c 33
+realme-c55,realmec55
+realme-c55,realme c 55
+realme-c55,c55
+realme-c55,c 55
+realme-c53,realmec53
+realme-c53,realme c 53
+realme-c53,c53
+realme-c53,c 53
+realme-c51,realmec51
+realme-c51,realme c 51
+realme-c51,c51
+realme-c51,c 51
+realme-c67,realmec67
+realme-c67,realme c 67
+realme-c67,c67
+realme-c67,c 67
+realme-c63,realmec63
+realme-c63,realme c 63
+realme-c63,c63
+realme-c63,c 63
+realme-c75,realmec75
+realme-c75,realme c 75
+realme-c75,c75
+realme-c75,c 75
+realme-note-50,realmenote50
+realme-note-60,realmenote60
+realme-note-60,note 60
+realme-note-60,note60
+realme-8,realme8
+realme-9i,realme9i
+realme-9i,9i
+realme-10,realme10
+realme-11,realme11
+realme-12,realme12
+realme-12-pro-plus,realme12pro+
+realme-12-pro-plus,realme 12 pro plus
+realme-12-pro-plus,realme12pro plus
+realme-12-pro-plus,12 pro+
+realme-12-pro-plus,12pro+
+realme-12-pro-plus,12 pro plus
+realme-12-pro-plus,12pro plus
+tecno-spark-7,tecnospark7
+tecno-spark-7,spark 7
+tecno-spark-7,spark7
+tecno-spark-7-pro,tecnospark7pro
+tecno-spark-7-pro,spark 7 pro
+tecno-spark-7-pro,spark7pro
+tecno-spark-8-pro,tecnospark8pro
+tecno-spark-8-pro,spark 8 pro
+tecno-spark-8-pro,spark8pro
+tecno-spark-9,tecnospark9
+tecno-spark-9,spark 9
+tecno-spark-9,spark9
+tecno-spark-10,tecnospark10
+tecno-spark-10,spark 10
+tecno-spark-10,spark10
+tecno-spark-10-pro,tecnospark10pro
+tecno-spark-10-pro,spark 10 pro
+tecno-spark-10-pro,spark10pro
+tecno-spark-20,tecnospark20
+tecno-spark-20,spark 20
+tecno-spark-20,spark20
+tecno-spark-20c,tecnospark20c
+tecno-spark-20c,spark 20c
+tecno-spark-20c,spark20c
+tecno-spark-20-pro,tecnospark20pro
+tecno-spark-20-pro,spark 20 pro
+tecno-spark-20-pro,spark20pro
+tecno-spark-go-2024,tecnosparkgo2024
+tecno-spark-go-2024,spark go 2024
+tecno-spark-go-2024,sparkgo2024
+tecno-spark-30c,tecnospark30c
+tecno-spark-30c,spark 30c
+tecno-spark-30c,spark30c
+tecno-spark-30,tecnospark30
+tecno-spark-30,spark 30
+tecno-spark-30,spark30
+tecno-spark-30-pro,tecnospark30pro
+tecno-spark-30-pro,spark 30 pro
+tecno-spark-30-pro,spark30pro
+tecno-camon-17,tecnocamon17
+tecno-camon-17,camon 17
+tecno-camon-17,camon17
+tecno-camon-17-pro,tecnocamon17pro
+tecno-camon-17-pro,camon 17 pro
+tecno-camon-17-pro,camon17pro
+tecno-camon-18t,tecnocamon18t
+tecno-camon-18t,camon 18t
+tecno-camon-18t,camon18t
+tecno-camon-19,tecnocamon19
+tecno-camon-19,camon 19
+tecno-camon-19,camon19
+tecno-camon-19-pro,tecnocamon19pro
+tecno-camon-19-pro,camon 19 pro
+tecno-camon-19-pro,camon19pro
+tecno-camon-20,tecnocamon20
+tecno-camon-20,camon 20
+tecno-camon-20,camon20
+tecno-camon-20-pro,tecnocamon20pro
+tecno-camon-20-pro,camon 20 pro
+tecno-camon-20-pro,camon20pro
+tecno-camon-30,tecnocamon30
+tecno-camon-30,camon 30
+tecno-camon-30,camon30
+tecno-pova-4,tecnopova4
+tecno-pova-4,pova 4
+tecno-pova-4,pova4
+tecno-pova-5,tecnopova5
+tecno-pova-5,pova 5
+tecno-pova-5,pova5
+tecno-pova-6-pro,tecnopova6pro
+tecno-pova-6-pro,pova 6 pro
+tecno-pova-6-pro,pova6pro
+infinix-hot-10,infinixhot10
+infinix-hot-10,hot 10
+infinix-hot-10,hot10
+infinix-hot-11s,infinixhot11s
+infinix-hot-11s,hot 11s
+infinix-hot-11s,hot11s
+infinix-hot-12,infinixhot12
+infinix-hot-12,hot 12
+infinix-hot-12,hot12
+infinix-hot-20,infinixhot20
+infinix-hot-20,hot 20
+infinix-hot-20,hot20
+infinix-hot-30,infinixhot30
+infinix-hot-30,hot 30
+infinix-hot-30,hot30
+infinix-hot-30i,infinixhot30i
+infinix-hot-30i,hot 30i
+infinix-hot-30i,hot30i
+infinix-hot-40,infinixhot40
+infinix-hot-40,hot 40
+infinix-hot-40,hot40
+infinix-hot-40i,infinixhot40i
+infinix-hot-40i,hot 40i
+infinix-hot-40i,hot40i
+infinix-hot-40-pro,infinixhot40pro
+infinix-hot-40-pro,hot 40 pro
+infinix-hot-40-pro,hot40pro
+infinix-hot-50,infinixhot50
+infinix-hot-50,hot 50
+infinix-hot-50,hot50
+infinix-hot-50i,infinixhot50i
+infinix-hot-50i,hot 50i
+infinix-hot-50i,hot50i
+infinix-hot-50-pro-plus,infinixhot50pro+
+infinix-hot-50-pro-plus,infinix hot 50 pro plus
+infinix-hot-50-pro-plus,infinixhot50pro plus
+infinix-hot-50-pro-plus,hot 50 pro+
+infinix-hot-50-pro-plus,hot50pro+
+infinix-hot-50-pro-plus,hot 50 pro plus
+infinix-hot-50-pro-plus,hot50pro plus
+infinix-hot-60,infinixhot60
+infinix-hot-60,hot 60
+infinix-hot-60,hot60
+infinix-note-10,infinixnote10
+infinix-note-10-pro,infinixnote10pro
+infinix-note-11,infinixnote11
+infinix-note-12,infinixnote12
+infinix-note-30,infinixnote30
+infinix-note-30,note 30
+infinix-note-30,note30
+infinix-note-30-pro,infinixnote30pro
+infinix-note-30-pro,note 30 pro
+infinix-note-30-pro,note30pro
+infinix-note-40,infinixnote40
+infinix-note-40,note 40
+infinix-note-40,note40
+infinix-note-40-pro,infinixnote40pro
+infinix-note-40-pro,note 40 pro
+infinix-note-40-pro,note40pro
+infinix-note-50,infinixnote50
+infinix-note-50,note 50
+infinix-note-50,note50
+infinix-zero-30,infinixzero30
+infinix-zero-30,zero 30
+infinix-zero-30,zero30
+infinix-zero-30-5g,infinixzero305g
+infinix-zero-30-5g,zero 30 5g
+infinix-zero-30-5g,zero305g
+infinix-smart-6,infinixsmart6
+infinix-smart-6,smart 6
+infinix-smart-6,smart6
+infinix-smart-7,infinixsmart7
+infinix-smart-7,smart 7
+infinix-smart-7,smart7
+infinix-smart-8,infinixsmart8
+infinix-smart-8,smart 8
+infinix-smart-8,smart8
+infinix-gt-10-pro,infinixgt10pro
+infinix-gt-10-pro,gt 10 pro
+infinix-gt-10-pro,gt10pro
+infinix-gt-20-pro,infinixgt20pro
+infinix-gt-20-pro,gt 20 pro
+infinix-gt-20-pro,gt20pro
+huawei-p30-pro,huaweip30pro
+huawei-p30-pro,huawei p 30 pro
+huawei-p30-pro,p30 pro
+huawei-p30-pro,p30pro
+huawei-p30-pro,p 30 pro
+huawei-p40-pro,huaweip40pro
+huawei-p40-pro,huawei p 40 pro
+huawei-p40-pro,p40 pro
+huawei-p40-pro,p40pro
+huawei-p40-pro,p 40 pro
+huawei-mate-40-pro,huaweimate40pro
+huawei-mate-40-pro,mate 40 pro
+huawei-mate-40-pro,mate40pro
+huawei-y9a,huaweiy9a
+huawei-y9a,huawei y 9a
+huawei-y9a,y9a
+huawei-y9a,y 9a
+huawei-nova-7i,huaweinova7i
+huawei-nova-7i,nova 7i
+huawei-nova-7i,nova7i
+huawei-nova-9,huaweinova9
+huawei-nova-9,nova 9
+huawei-nova-9,nova9
+huawei-nova-y70,huaweinovay70
+huawei-nova-y70,huawei nova y 70
+huawei-nova-y70,nova y70
+huawei-nova-y70,novay70
+huawei-nova-y70,nova y 70
+huawei-nova-11i,huaweinova11i
+huawei-nova-11i,nova 11i
+huawei-nova-11i,nova11i
+moto-g-stylus-2021,g stylus 2021
+moto-g-stylus-2021,motogstylus2021
+moto-g-stylus-2021,gstylus2021
+moto-g-power-2021,g power 2021
+moto-g-power-2021,motogpower2021
+moto-g-power-2021,gpower2021
+moto-g-stylus-5g-2022,g stylus 5g 2022
+moto-g-stylus-5g-2022,motogstylus5g2022
+moto-g-stylus-5g-2022,gstylus5g2022
+motorola-edge-30,motorolaedge30
+motorola-edge-30,edge 30
+motorola-edge-30,edge30
+motorola-edge-40,motorolaedge40
+motorola-edge-40,edge 40
+motorola-edge-40,edge40
+motorola-razr-40-ultra,motorolarazr40ultra
+motorola-razr-40-ultra,razr 40 ultra
+motorola-razr-40-ultra,razr40ultra
+nokia-g20,nokiag20
+nokia-g20,nokia g 20
+nokia-g20,g20
+nokia-g20,g 20
+nokia-g21,nokiag21
+nokia-g21,nokia g 21
+nokia-g21,g21
+nokia-g21,g 21
+nokia-c21-plus,nokiac21plus
+nokia-c21-plus,nokia c 21 plus
+nokia-c21-plus,c21 plus
+nokia-c21-plus,c21plus
+nokia-c21-plus,c 21 plus
+nokia-c32,nokiac32
+nokia-c32,nokia c 32
+nokia-c32,c32
+nokia-c32,c 32
+xperia-1-ii,xperia1ii
+xperia-5-ii,xperia5ii
+xperia-1-iii,xperia1iii
+xperia-5-iii,xperia5iii
+xperia-1-iv,xperia1iv
+xperia-1-v,xperia1v

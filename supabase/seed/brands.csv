@@ -1,0 +1,18 @@
+id,name,slug,parent_slug,sort_order
+1,Apple,apple,,10
+2,Samsung,samsung,,20
+3,Google Pixel,google,,30
+4,OnePlus,oneplus,,40
+5,Xiaomi,xiaomi,,50
+6,Redmi,redmi,xiaomi,60
+7,Poco,poco,xiaomi,70
+8,Oppo,oppo,,80
+9,Vivo,vivo,,90
+10,Realme,realme,,100
+11,Tecno,tecno,,110
+12,Infinix,infinix,,120
+13,Huawei,huawei,,130
+14,Motorola,motorola,,140
+15,Nokia,nokia,,150
+16,Sony,sony,,160
+17,Other,other,,999

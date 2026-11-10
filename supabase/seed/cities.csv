@@ -1,0 +1,30 @@
+name_en,name_ur,slug,province,is_major,sort_order
+Lahore,لاہور,lahore,Punjab,true,10
+Karachi,کراچی,karachi,Sindh,true,20
+Islamabad,اسلام آباد,islamabad,Islamabad Capital Territory,true,30
+Rawalpindi,راولپنڈی,rawalpindi,Punjab,true,40
+Faisalabad,فیصل آباد,faisalabad,Punjab,true,50
+Multan,ملتان,multan,Punjab,true,60
+Gujranwala,گوجرانوالہ,gujranwala,Punjab,false,70
+Sialkot,سیالکوٹ,sialkot,Punjab,false,80
+Peshawar,پشاور,peshawar,Khyber Pakhtunkhwa,true,90
+Quetta,کوئٹہ,quetta,Balochistan,true,100
+Hyderabad,حیدرآباد,hyderabad,Sindh,true,110
+Sargodha,سرگودھا,sargodha,Punjab,false,120
+Bahawalpur,بہاولپور,bahawalpur,Punjab,false,130
+Sukkur,سکھر,sukkur,Sindh,false,140
+Abbottabad,ایبٹ آباد,abbottabad,Khyber Pakhtunkhwa,false,150
+Mardan,مردان,mardan,Khyber Pakhtunkhwa,false,160
+Sahiwal,ساہیوال,sahiwal,Punjab,false,170
+Gujrat,گجرات,gujrat,Punjab,false,180
+Jhelum,جہلم,jhelum,Punjab,false,190
+Mandi Bahauddin,منڈی بہاؤالدین,mandi-bahauddin,Punjab,false,200
+Sheikhupura,شیخوپورہ,sheikhupura,Punjab,false,210
+Rahim Yar Khan,رحیم یار خان,rahim-yar-khan,Punjab,false,220
+Okara,اوکاڑہ,okara,Punjab,false,230
+Kasur,قصور,kasur,Punjab,false,240
+Dera Ghazi Khan,ڈیرہ غازی خان,dera-ghazi-khan,Punjab,false,250
+Larkana,لاڑکانہ,larkana,Sindh,false,260
+Mirpur (AJK),میرپور (آزاد کشمیر),mirpur-ajk,Azad Jammu and Kashmir,false,270
+Muzaffarabad,مظفرآباد,muzaffarabad,Azad Jammu and Kashmir,false,280
+Gilgit,گلگت,gilgit,Gilgit-Baltistan,false,290

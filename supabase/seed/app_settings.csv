@@ -1,0 +1,7 @@
+key,value
+allow_cpid_listings,true
+max_free_listings_individual,3
+premoderation_enabled,true
+scam_price_ratio,0.5
+listing_expiry_days,30
+daam_min_comparables,5

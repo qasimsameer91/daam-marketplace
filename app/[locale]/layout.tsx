@@ -3,8 +3,9 @@ import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
 import { notFound } from "next/navigation";
 import { locale as rootLocale } from "next/root-params";
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { AppProviders } from "@/components/providers/app-providers";
+import { pickClientMessages } from "@/lib/i18n/client-messages";
 import { getDirection, isAppLocale, locales } from "@/lib/i18n/routing";
 import { brandColors } from "@/lib/design/tokens";
 import { cn } from "@/lib/utils";
@@ -71,7 +72,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
         <script src="/theme-init.js" />
       </head>
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={pickClientMessages(await getMessages())}>
           <AppProviders dir={dir}>{children}</AppProviders>
         </NextIntlClientProvider>
       </body>

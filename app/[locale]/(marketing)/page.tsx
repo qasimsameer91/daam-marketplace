@@ -13,6 +13,7 @@ import { brands, cities, listings, mockNow } from "@/lib/mock/marketplace";
 import { Button } from "@/components/ui/button";
 import { BrandTile } from "@/components/daam/brand-tile";
 import { ListingCard } from "@/components/daam/listing-card";
+import { PtaBadge } from "@/components/daam/pta-badge";
 import { SearchBox } from "@/components/marketplace/search-box";
 import { HeroPhone } from "@/components/marketplace/hero-phone";
 import { Reveal } from "@/components/marketplace/reveal";
@@ -129,11 +130,30 @@ export default async function HomePage() {
                       ? copy.get("safety.meetup.verified_shops")
                       : key === "trustCondition"
                         ? copy.get("safety.meetup.test_phone")
-                        : t("heroBody")}
+                        : t("trustPriceBody")}
                 </p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-4 pt-14 md:px-6 lg:px-8">
+        <div className="flex flex-col gap-5 rounded-card border border-border p-6 md:flex-row md:items-center md:justify-between md:p-8">
+          <div className="flex flex-col gap-3">
+            <h2 className="text-2xl font-semibold tracking-display">{t("ptaTeaserTitle")}</h2>
+            <p className="max-w-xl text-muted-foreground">{t("ptaTeaserBody")}</p>
+            <div className="flex flex-wrap gap-2">
+              <PtaBadge status="pta_approved" networkLock="factory_unlocked" />
+              <PtaBadge status="non_pta" networkLock="jv" />
+              <PtaBadge status="cpid_patched" />
+            </div>
+          </div>
+          <Button asChild variant="secondary" className="w-fit">
+            <Link href="/pta-guide">
+              {t("ptaTeaserCta")}
+              <ArrowRight aria-hidden className="rtl:rotate-180" />
+            </Link>
+          </Button>
         </div>
       </section>
       <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
@@ -159,7 +179,7 @@ export default async function HomePage() {
             <p className="mt-3 max-w-xl text-paper/75">{t("shopBody")}</p>
           </div>
           <Button asChild size="lg">
-            <Link href="/preview/for-shops">
+            <Link href="/for-shops">
               {t("shopCta")}
               <ArrowUpRight aria-hidden />
             </Link>

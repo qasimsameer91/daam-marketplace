@@ -1,4 +1,112 @@
 {
+  "Market": {
+    "recent": "Recent searches",
+    "home": "Home",
+    "search": "Search",
+    "sell": "Sell phone",
+    "messages": "Messages",
+    "account": "Account",
+    "mobileNav": "Main navigation",
+    "theme": "Change theme",
+    "searchPlaceholder": "Try iPhone 14 Pro, 13 pm, s23u…",
+    "demo": "Frontend preview · Sample listings and illustrative images · No live sales yet",
+    "eyebrow": "A better way to buy & sell phones",
+    "heroStart": "Sahi phone.",
+    "heroEnd": "Sahi daam.",
+    "heroBody": "A phone you love. A price that makes sense. Find your next upgrade with PTA status, condition and price shown upfront.",
+    "browse": "Find your next phone",
+    "browseNote": "Explore the sample collection",
+    "brandTitle": "Your brand. Your next upgrade.",
+    "allBrands": "All brands",
+    "allPhones": "All phones",
+    "fresh": "Fresh on Daam",
+    "viewAll": "View all phones",
+    "trustTitle": "A little clarity goes a long way.",
+    "trustPta": "PTA, clearly stated",
+    "trustCondition": "Condition upfront",
+    "trustPrice": "Know the daam",
+    "trustShops": "Trust, earned",
+    "trustBody": "See the facts before starting a conversation. Seller declarations and Daam checks stay separate.",
+    "cityTitle": "Closer to you.",
+    "cityBody": "Find your next phone in your own city.",
+    "shopTitle": "Your shop. A bigger audience.",
+    "shopBody": "Bring your inventory to a marketplace built around phones, fair prices and trust.",
+    "shopCta": "Explore Daam for shops",
+    "footerCopy": "A calmer, clearer way to buy and sell mobile phones in Pakistan. Sahi phone. Sahi daam.",
+    "explore": "Explore",
+    "help": "About & help",
+    "browseTitle": "Find your next upgrade.",
+    "results": "{count, plural, one {# phone} other {# phones}}",
+    "filters": "Filters",
+    "clear": "Clear filters",
+    "all": "All",
+    "noResults": "No phones match just yet.",
+    "noResultsBody": "Try another model, a wider price range or fewer filters.",
+    "sort": "Sort by",
+    "q": "Search",
+    "brand": "Brand",
+    "model": "Model",
+    "city": "City",
+    "area": "Area",
+    "pta": "PTA status",
+    "lock": "Network lock",
+    "condition": "Condition",
+    "storage": "Storage (GB)",
+    "ram": "RAM (GB)",
+    "min": "Min price (Rs)",
+    "max": "Max price (Rs)",
+    "battery": "Battery at least (%)",
+    "color": "Colour",
+    "seller": "Seller",
+    "warranty": "Warranty available",
+    "box": "Box available",
+    "imei": "IMEI on file",
+    "checked": "PTA checked by Daam",
+    "days": "Listed within",
+    "individual": "Individual",
+    "shop": "Verified shop",
+    "black": "Black",
+    "silver": "Silver",
+    "green": "Green",
+    "dayLabel": "{count} days",
+    "newest": "Recently listed",
+    "relevant": "Most relevant",
+    "low": "Lowest price",
+    "high": "Highest price",
+    "deals": "Best deals",
+    "remove": "Remove {filter}",
+    "models": "Explore models",
+    "guide": "Sample price guide",
+    "guideBody": "Illustrative preview prices by PTA status and condition; not live market estimates.",
+    "median": "Median",
+    "range": "Range",
+    "nextStage": "This page is coming in the next frontend stage.",
+    "nextBody": "This preview includes home, browse, brands, models and city pages. Selling, accounts, chat and full information pages are still being built.",
+    "cities": {
+      "lahore": "Lahore",
+      "karachi": "Karachi",
+      "islamabad": "Islamabad",
+      "rawalpindi": "Rawalpindi",
+      "faisalabad": "Faisalabad",
+      "multan": "Multan"
+    },
+    "pages": {
+      "listing": "Listing detail",
+      "sell": "Sell your phone",
+      "messages": "Messages",
+      "account": "Your account",
+      "pta-guide": "PTA guide",
+      "safety": "Safety",
+      "about": "About Daam",
+      "contact": "Contact",
+      "help": "Help centre",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "policies": "Listing policy",
+      "for-shops": "For shops",
+      "report-stolen": "Report a stolen phone"
+    }
+  },
   "Metadata": {
     "title": "Daam: Sahi phone. Sahi daam.",
     "description": "Buy and sell used, refurbished and new phones in Pakistan with PTA status, real condition and a fair price shown upfront."
@@ -7,5 +115,222 @@
     "brand": "daam",
     "tagline": "Sahi phone. Sahi daam.",
     "switchLanguage": "اردو"
+  },
+  "Common": {
+    "close": "Close",
+    "loading": "Loading…",
+    "retry": "Try again",
+    "next": "Next",
+    "back": "Back"
+  },
+  "Theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Pta": {
+    "status": {
+      "pta_approved": "PTA Approved",
+      "non_pta": "Non-PTA",
+      "cpid_patched": "CPID / Patched",
+      "unknown": "PTA not verified"
+    },
+    "cpidNotApproved": "NOT PTA approved",
+    "lock": {
+      "factory_unlocked": "Factory Unlocked",
+      "carrier_locked": "Carrier Locked",
+      "jv": "JV (iPhone)",
+      "unknown": "Lock unknown"
+    },
+    "lockShort": {
+      "factory_unlocked": "FU",
+      "carrier_locked": "Locked",
+      "jv": "JV",
+      "unknown": "?"
+    },
+    "check": {
+      "sellerSays": "Seller says",
+      "daamChecked": "Checked by Daam",
+      "daamCheckedOn": "PTA status checked by Daam on {date}"
+    }
+  },
+  "Condition": {
+    "brand_new": "Brand New",
+    "open_box": "Open Box",
+    "like_new": "Like New",
+    "grade_9": "9/10",
+    "grade_8": "8/10",
+    "grade_7": "7/10",
+    "used": "Used",
+    "refurbished": "Refurbished",
+    "for_parts": "For Parts"
+  },
+  "Battery": {
+    "label": "Battery health {health}%"
+  },
+  "DaamMeter": {
+    "great": "Great daam",
+    "fair": "Fair daam",
+    "high": "Above market",
+    "unknown": "Not enough data",
+    "typical": "Typical price"
+  },
+  "Verified": {
+    "id": "ID Verified",
+    "shop": "Verified Shop",
+    "trusted": "Daam Trusted",
+    "founding": "Founding Shop"
+  },
+  "Price": {
+    "negotiable": "Negotiable",
+    "fixed": "Fixed price"
+  },
+  "Featured": {
+    "label": "Featured"
+  },
+  "ListingCard": {
+    "addFavorite": "Save to favourites",
+    "removeFavorite": "Remove from favourites",
+    "location": "{area}, {city}",
+    "noPhoto": "No photo yet",
+    "favoriteCount": "{count, plural, one {# save} other {# saves}}"
+  },
+  "BrandTile": {
+    "listings": "{count, plural, =0 {No listings yet} one {# listing} other {# listings}}"
+  },
+  "Wizard": {
+    "stepOf": "Step {current} of {total}",
+    "progress": "Listing progress"
+  },
+  "Sell": {
+    "steps": {
+      "phone": "Your phone",
+      "pta": "PTA & network",
+      "condition": "Condition",
+      "extras": "Box & extras",
+      "photos": "Photos",
+      "price": "Price & location"
+    }
+  },
+  "Safety": {
+    "title": "Stay safe"
+  },
+  "Empty": {
+    "favorites": {
+      "title": "No favourites yet",
+      "body": "Tap ♡ on phones you like and they'll show up here.",
+      "cta": "Browse phones"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "body": "Check your connection and try again."
+    }
+  },
+  "DevDesign": {
+    "states": {
+      "title": "Component states & sizes",
+      "buttons": "Button variants, sizes, disabled & loading",
+      "iconButton": "Save phone preview",
+      "disabled": "Disabled form controls",
+      "indeterminate": "Partially selected",
+      "unchecked": "Not selected",
+      "badgeSizes": "Small & medium status badges",
+      "priceSizes": "Price tag sizes",
+      "expiredCheck": "Expired PTA check — falls back to seller declaration"
+    },
+    "title": "Design system",
+    "intro": "Every Daam component in every state. Development only.",
+    "toggles": {
+      "language": "Language",
+      "reducedMotion": "Preview reduced motion"
+    },
+    "sections": {
+      "colors": "Colours",
+      "type": "Typography",
+      "buttons": "Buttons",
+      "forms": "Form controls",
+      "status": "PTA & network badges",
+      "condition": "Condition & battery",
+      "meter": "Daam Meter",
+      "trust": "Verification badges",
+      "price": "Price tags",
+      "cards": "Listing cards",
+      "tiles": "Brand tiles",
+      "states": "Empty, error & loading states",
+      "safety": "Safety card",
+      "wizard": "Wizard stepper",
+      "overlays": "Overlays & menus",
+      "motion": "Motion"
+    },
+    "buttons": {
+      "primary": "Sell your phone",
+      "secondary": "Chat with seller",
+      "outline": "Show number",
+      "ghost": "Cancel",
+      "destructive": "Delete listing",
+      "link": "Read the PTA guide",
+      "disabled": "Disabled"
+    },
+    "forms": {
+      "search": "Search phones",
+      "searchPlaceholder": "e.g. 13 pm, s23u, note 13",
+      "city": "City",
+      "cityPlaceholder": "Select a city",
+      "description": "Description",
+      "descriptionPlaceholder": "PTA approved, no repairs, box with matching IMEI…",
+      "negotiable": "Price is negotiable",
+      "whatsapp": "Show WhatsApp button",
+      "battery": "Battery at least {value}%",
+      "condition": "Condition",
+      "invalid": "Enter a valid Pakistani mobile number"
+    },
+    "status": {
+      "combined": "Combined badges",
+      "single": "Single fields",
+      "checkSource": "Check source"
+    },
+    "overlays": {
+      "openDialog": "Open dialog",
+      "dialogTitle": "Report this listing",
+      "dialogBody": "Tell us what's wrong. Reports are private and reviewed by a moderator.",
+      "submit": "Send report",
+      "openSheet": "Open sheet",
+      "sheetTitle": "Filters",
+      "sheetBody": "Filters slide in from the side on desktop and up from the bottom on mobile.",
+      "openDrawer": "Open drawer",
+      "drawerTitle": "Sort by",
+      "menu": "Listing menu",
+      "menuEdit": "Edit",
+      "menuShare": "Share",
+      "menuSold": "Mark as sold",
+      "menuDelete": "Delete",
+      "toast": "Show toast",
+      "toastMessage": "Saved to favourites",
+      "tooltip": "Hover or focus me",
+      "tooltipBody": "Prices are in Pakistani rupees",
+      "openCommand": "Search models",
+      "commandTitle": "Search models",
+      "commandDescription": "Find a phone by name or shorthand",
+      "commandPlaceholder": "Type a model…",
+      "commandEmpty": "No models found.",
+      "commandGroup": "Popular",
+      "tabActive": "Active",
+      "tabPending": "Pending",
+      "tabSold": "Sold",
+      "tabActiveBody": "3 active listings",
+      "tabPendingBody": "1 listing waiting for review",
+      "tabSoldBody": "12 phones sold"
+    },
+    "motion": {
+      "replay": "Replay",
+      "pause": "Pause demo",
+      "resume": "Resume demo",
+      "stampLabel": "LISTED",
+      "reducedOn": "Reduced motion: opacity only",
+      "reducedOff": "Full motion"
+    },
+    "typeSample": "Sahi phone. Sahi daam.",
+    "monoSample": "Rs 125,000 · 256GB · 9/10 · ••••1234"
   }
 }

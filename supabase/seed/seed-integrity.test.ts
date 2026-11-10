@@ -1,54 +1,23 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { parseCsv, type CsvRow } from "@/lib/csv";
 
-type Row = Record<string, string>;
+type Row = CsvRow;
 
-/** Minimal RFC 4180 CSV parser (quoted fields, doubled quotes). Seed files have no embedded newlines. */
-function parseCsv(file: string): Row[] {
-  const text = readFileSync(join(__dirname, file), "utf8").trimEnd();
-  const lines = text.split(/\r?\n/);
-  const parseLine = (line: string): string[] => {
-    const cells: string[] = [];
-    let cur = "";
-    let quoted = false;
-    for (let i = 0; i < line.length; i++) {
-      const ch = line[i];
-      if (quoted) {
-        if (ch === '"' && line[i + 1] === '"') {
-          cur += '"';
-          i++;
-        } else if (ch === '"') quoted = false;
-        else cur += ch;
-      } else if (ch === '"') quoted = true;
-      else if (ch === ",") {
-        cells.push(cur);
-        cur = "";
-      } else cur += ch;
-    }
-    cells.push(cur);
-    return cells;
-  };
-  const [headerLine, ...rest] = lines;
-  const header = parseLine(headerLine ?? "");
-  return rest.map((line, n) => {
-    const cells = parseLine(line);
-    if (cells.length !== header.length) {
-      throw new Error(`${file}:${n + 2} has ${cells.length} cells, expected ${header.length}`);
-    }
-    return Object.fromEntries(header.map((h, i) => [h, cells[i] ?? ""]));
-  });
+function readCsv(file: string): Row[] {
+  return parseCsv(readFileSync(join(__dirname, file), "utf8"), file);
 }
 
-const brands = parseCsv("brands.csv");
-const cities = parseCsv("cities.csv");
-const areas = parseCsv("areas.csv");
-const models = parseCsv("models.csv");
-const variants = parseCsv("variants.csv");
-const colors = parseCsv("colors.csv");
-const aliases = parseCsv("aliases.csv");
-const blocks = parseCsv("content_blocks.csv");
-const settings = parseCsv("app_settings.csv");
+const brands = readCsv("brands.csv");
+const cities = readCsv("cities.csv");
+const areas = readCsv("areas.csv");
+const models = readCsv("models.csv");
+const variants = readCsv("variants.csv");
+const colors = readCsv("colors.csv");
+const aliases = readCsv("aliases.csv");
+const blocks = readCsv("content_blocks.csv");
+const settings = readCsv("app_settings.csv");
 
 const bool = (v: string | undefined) => v === "true" || v === "false";
 const unique = (values: string[]) => new Set(values).size === values.length;

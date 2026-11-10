@@ -9,7 +9,7 @@ test("English home renders left-to-right", async ({ page }) => {
   await page.goto("/en");
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("daam");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Sahi phone.");
 });
 
 test("Urdu home renders right-to-left", async ({ page }) => {

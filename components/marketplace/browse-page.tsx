@@ -1,7 +1,15 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { getTranslations } from "next-intl/server";
 import { BrowseClient, type BrowseScope } from "./browse-client";
 import { ListingCardSkeleton } from "@/components/daam/listing-card-skeleton";
+
+async function BrowseResults({ scope }: { scope: BrowseScope }) {
+  // Render URL-dependent results on the server for the incoming request. A static
+  // useSearchParams boundary otherwise sends only skeletons until hydration.
+  await connection();
+  return <BrowseClient scope={scope} />;
+}
 export async function BrowsePage({ title, scope = {} }: { title?: string; scope?: BrowseScope }) {
   const t = await getTranslations("Market");
   return (
@@ -19,7 +27,7 @@ export async function BrowsePage({ title, scope = {} }: { title?: string; scope?
           </div>
         }
       >
-        <BrowseClient scope={scope} />
+        <BrowseResults scope={scope} />
       </Suspense>
     </main>
   );

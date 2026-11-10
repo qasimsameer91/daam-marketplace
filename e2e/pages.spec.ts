@@ -1,5 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { listings } from "../lib/mock/marketplace";
+import en from "../messages/en.json";
+import ur from "../messages/ur.json";
 
 const approved = listings.find(
   (l) => l.ptaStatus === "pta_approved" && l.detail.ptaCheckSource === "daam_checked",
@@ -14,6 +16,45 @@ async function expectNoHorizontalOverflow(page: Page) {
 }
 
 for (const locale of ["en", "ur"] as const) {
+  test(`${locale} browse renders query results before JavaScript`, async ({ browser, baseURL }) => {
+    const page = await browser.newPage({ javaScriptEnabled: false });
+    try {
+      await page.goto(
+        new URL(`/${locale}/phones?q=${encodeURIComponent(cpid.modelName)}`, baseURL).href,
+      );
+      const cards = page.locator('[data-slot="listing-card"]');
+      await expect(cards.first()).toContainText(cpid.modelName);
+      await expect(cards.first().locator("img")).toHaveAttribute("loading", "eager");
+      await expect(cards.first().locator('[data-slot="pta-badge"]')).toHaveAttribute(
+        "data-status",
+        "cpid_patched",
+      );
+    } finally {
+      await page.close();
+    }
+  });
+
+  test(`${locale} contact preview validates locally without sending a message`, async ({
+    page,
+  }) => {
+    const copy = (locale === "en" ? en : ur).Pages.contact;
+    const writes: string[] = [];
+    page.on("request", (request) => {
+      if (!["GET", "HEAD", "OPTIONS"].includes(request.method())) writes.push(request.url());
+    });
+    await page.goto(`/${locale}/contact`);
+    await expect(page.getByText(copy.previewNote, { exact: true })).toBeVisible();
+    await page.getByRole("button", { name: copy.send, exact: true }).click();
+    await expect(page.getByText(copy.required, { exact: true }).first()).toBeVisible();
+    await page.getByLabel(copy.name, { exact: true }).fill("Preview visitor");
+    await page.getByRole("combobox", { name: copy.topic, exact: true }).click();
+    await page.getByRole("option", { name: copy.topics.other, exact: true }).click();
+    await page.getByLabel(copy.message, { exact: true }).fill("Local preview message");
+    await page.getByRole("button", { name: copy.send, exact: true }).click();
+    await expect(page.getByText(copy.sent, { exact: true })).toBeVisible();
+    expect(writes).toEqual([]);
+  });
+
   test(`${locale} listing detail shows facts, masked IMEI and no phone number`, async ({
     page,
   }) => {
@@ -70,11 +111,11 @@ test("report dialog requires a reason, then confirms", async ({ page }) => {
   await page.goto(`/en${approved.href}`);
   await page.getByRole("button", { name: "Report listing" }).click();
   const dialog = page.getByRole("dialog");
-  await dialog.getByRole("button", { name: "Send report" }).click();
+  await dialog.getByRole("button", { name: en.Listing.reportSubmit, exact: true }).click();
   await expect(dialog.getByText("Choose a reason")).toBeVisible();
   await dialog.getByRole("radio", { name: "Wrong PTA status" }).click();
-  await dialog.getByRole("button", { name: "Send report" }).click();
-  await expect(page.getByText("Thanks. A moderator will review this listing.")).toBeVisible();
+  await dialog.getByRole("button", { name: en.Listing.reportSubmit, exact: true }).click();
+  await expect(page.getByText(en.Listing.reportSent, { exact: true })).toBeVisible();
 });
 
 test("CPID listing shows the red banner and is never featured", async ({ page }) => {
@@ -105,14 +146,24 @@ test("gallery opens full screen on desktop", async ({ page, isMobile }) => {
 });
 
 test("report-stolen validates the IMEI with Luhn", async ({ page }) => {
+  const writes: string[] = [];
+  page.on("request", (request) => {
+    if (!["GET", "HEAD", "OPTIONS"].includes(request.method())) writes.push(request.url());
+  });
   await page.goto("/en/report-stolen");
   const imei = page.getByLabel("IMEI");
   await imei.fill("490154203237519");
-  await page.getByRole("button", { name: "Submit report" }).click();
+  await page.getByRole("button", { name: en.Pages.reportStolen.submit, exact: true }).click();
   await expect(page.getByText("Enter a valid 15-digit IMEI")).toBeVisible();
   await imei.fill("490154203237518");
-  await page.getByRole("button", { name: "Submit report" }).click();
-  await expect(page.getByText("Report received.")).toBeVisible();
+  await page.getByRole("button", { name: en.Pages.reportStolen.submit, exact: true }).click();
+  await expect(page.getByText(en.Pages.reportStolen.sent, { exact: true })).toBeVisible();
+  await expect(imei).toHaveValue("");
+  expect(writes).toEqual([]);
+  const storage = await page.evaluate(() =>
+    JSON.stringify([Object.entries(localStorage), Object.entries(sessionStorage)]),
+  );
+  expect(storage).not.toContain("490154203237518");
 });
 
 test("unknown pages show the localized 404 inside the site shell", async ({ page }) => {

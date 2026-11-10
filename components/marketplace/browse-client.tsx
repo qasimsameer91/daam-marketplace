@@ -2,7 +2,7 @@
 import { useId } from "react";
 import { useTranslations } from "next-intl";
 import { parseAsBoolean, parseAsInteger, parseAsString, useQueryStates } from "nuqs";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m, LazyMotion, domMax } from "motion/react";
 import { SearchX, SlidersHorizontal, X } from "lucide-react";
 import { listings, models, brands, cities, areas, mockNow } from "@/lib/mock/marketplace";
 import { filterListings, type BrowseFilters } from "@/lib/domain/browse";
@@ -247,146 +247,150 @@ export function BrowseClient({ scope = {} }: { scope?: BrowseScope }) {
     (key) => key !== "sort" && Boolean(query[key]) && !(key in scope),
   );
   return (
-    <div className="grid gap-8 lg:grid-cols-[224px_minmax(0,1fr)]">
-      <aside className="hidden lg:block">
-        <h2 className="mb-5 font-semibold">{t("filters")}</h2>
-        <FilterControls filters={filters} update={update} scope={scope} />
-      </aside>
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-3">
-          <Input
-            disabled={!ready}
-            aria-label={t("q")}
-            placeholder={t("searchPlaceholder")}
-            value={query.q}
-            onChange={(e) => update({ q: e.target.value })}
-            className="min-w-0 flex-1 basis-40"
-          />
-          <Drawer>
-            <DrawerTrigger asChild>
-              <Button variant="outline" className="lg:hidden">
-                <SlidersHorizontal aria-hidden />
-                {t("filters")}
+    <LazyMotion features={domMax}>
+      <div className="grid gap-8 lg:grid-cols-[224px_minmax(0,1fr)]">
+        <aside className="hidden lg:block">
+          <h2 className="mb-5 font-semibold">{t("filters")}</h2>
+          <FilterControls filters={filters} update={update} scope={scope} />
+        </aside>
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-3">
+            <Input
+              disabled={!ready}
+              aria-label={t("q")}
+              placeholder={t("searchPlaceholder")}
+              value={query.q}
+              onChange={(e) => update({ q: e.target.value })}
+              className="min-w-0 flex-1 basis-40"
+            />
+            <Drawer>
+              <DrawerTrigger asChild>
+                <Button variant="outline" className="lg:hidden">
+                  <SlidersHorizontal aria-hidden />
+                  {t("filters")}
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent className="max-h-[85dvh]">
+                <DrawerHeader>
+                  <DrawerTitle>{t("filters")}</DrawerTitle>
+                  <DrawerDescription>{t("demo")}</DrawerDescription>
+                </DrawerHeader>
+                <div className="overflow-y-auto px-4 pb-6">
+                  <FilterControls filters={filters} update={update} scope={scope} />
+                </div>
+                <DrawerClose asChild>
+                  <Button className="m-4 shrink-0">{common("close")}</Button>
+                </DrawerClose>
+              </DrawerContent>
+            </Drawer>
+            <label className="flex items-center gap-2 text-sm">
+              <span className="sr-only">{t("sort")}</span>
+              <select
+                aria-label={t("sort")}
+                value={filters.sort}
+                onChange={(e) => update({ sort: e.target.value })}
+                className="h-11 max-w-44 rounded-button border border-input bg-background px-3"
+              >
+                {(["relevant", "newest", "low", "high", "deals"] as const).map((value) => (
+                  <option key={value} value={value}>
+                    {t(value)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className="my-5 flex flex-wrap items-center gap-2">
+            <p role="status" aria-live="polite" className="me-auto text-sm text-muted-foreground">
+              {t("results", { count: results.length })}
+            </p>
+            {active.map((key) => (
+              <button
+                key={key}
+                type="button"
+                aria-label={t("remove", { filter: t(key) })}
+                onClick={() =>
+                  update({
+                    [key]: boolKeys.includes(key as (typeof boolKeys)[number])
+                      ? false
+                      : numberKeys.includes(key as (typeof numberKeys)[number])
+                        ? 0
+                        : "",
+                  })
+                }
+                className="inline-flex min-h-11 items-center gap-2 rounded-chip border border-border px-3 text-xs"
+              >
+                {t(key)}
+                {typeof query[key] !== "boolean" ? `: ${query[key]}` : ""}
+                <X aria-hidden className="size-3" />
+              </button>
+            ))}
+            {active.length > 0 && (
+              <Button variant="ghost" onClick={() => update(null)}>
+                {t("clear")}
               </Button>
-            </DrawerTrigger>
-            <DrawerContent className="max-h-[85dvh]">
-              <DrawerHeader>
-                <DrawerTitle>{t("filters")}</DrawerTitle>
-                <DrawerDescription>{t("demo")}</DrawerDescription>
-              </DrawerHeader>
-              <div className="overflow-y-auto px-4 pb-6">
-                <FilterControls filters={filters} update={update} scope={scope} />
-              </div>
-              <DrawerClose asChild>
-                <Button className="m-4 shrink-0">{common("close")}</Button>
-              </DrawerClose>
-            </DrawerContent>
-          </Drawer>
-          <label className="flex items-center gap-2 text-sm">
-            <span className="sr-only">{t("sort")}</span>
-            <select
-              aria-label={t("sort")}
-              value={filters.sort}
-              onChange={(e) => update({ sort: e.target.value })}
-              className="h-11 max-w-44 rounded-button border border-input bg-background px-3"
+            )}
+          </div>
+          {scope.brand && !scope.model && (
+            <div className="mb-6 flex flex-wrap gap-2">
+              {models
+                .filter((m) => m.brand === scope.brand)
+                .map((m) => (
+                  <Link
+                    key={m.slug}
+                    href={`/phones/${m.brand}/${m.slug}`}
+                    className="rounded-chip border border-border px-4 py-3 text-sm"
+                  >
+                    {m.name}
+                  </Link>
+                ))}
+            </div>
+          )}
+          {results.length === 0 ? (
+            <EmptyState
+              icon={SearchX}
+              title={t("noResults")}
+              description={t("noResultsBody")}
+              action={<Button onClick={() => update(null)}>{t("clear")}</Button>}
+            />
+          ) : (
+            <m.div
+              layout={!reduced}
+              className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4"
             >
-              {(["relevant", "newest", "low", "high", "deals"] as const).map((value) => (
-                <option key={value} value={value}>
-                  {t(value)}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-        <div className="my-5 flex flex-wrap items-center gap-2">
-          <p role="status" aria-live="polite" className="me-auto text-sm text-muted-foreground">
-            {t("results", { count: results.length })}
-          </p>
-          {active.map((key) => (
-            <button
-              key={key}
-              type="button"
-              aria-label={t("remove", { filter: t(key) })}
-              onClick={() =>
-                update({
-                  [key]: boolKeys.includes(key as (typeof boolKeys)[number])
-                    ? false
-                    : numberKeys.includes(key as (typeof numberKeys)[number])
-                      ? 0
-                      : "",
-                })
-              }
-              className="inline-flex min-h-11 items-center gap-2 rounded-chip border border-border px-3 text-xs"
-            >
-              {t(key)}
-              {typeof query[key] !== "boolean" ? `: ${query[key]}` : ""}
-              <X aria-hidden className="size-3" />
-            </button>
-          ))}
-          {active.length > 0 && (
-            <Button variant="ghost" onClick={() => update(null)}>
-              {t("clear")}
-            </Button>
+              <AnimatePresence initial={false}>
+                {results.map((listing, index) => (
+                  <m.div
+                    key={listing.id}
+                    layout={!reduced}
+                    initial={index < 4 ? false : "hidden"}
+                    animate="visible"
+                    exit="exit"
+                    variants={{
+                      ...variants.fadeRise,
+                      visible: {
+                        opacity: 1,
+                        ...(reduced ? {} : { y: 0 }),
+                        transition: { duration: 0.2, delay: staggerDelay(index, reduced) },
+                      },
+                    }}
+                    className="min-w-0"
+                  >
+                    <ListingCard
+                      headingLevel={2}
+                      priority={index < 4}
+                      listing={{
+                        ...listing,
+                        city: t(`cities.${listing.citySlug as (typeof cities)[number]}`),
+                      }}
+                      now={mockNow}
+                    />
+                  </m.div>
+                ))}
+              </AnimatePresence>
+            </m.div>
           )}
         </div>
-        {scope.brand && !scope.model && (
-          <div className="mb-6 flex flex-wrap gap-2">
-            {models
-              .filter((m) => m.brand === scope.brand)
-              .map((m) => (
-                <Link
-                  key={m.slug}
-                  href={`/phones/${m.brand}/${m.slug}`}
-                  className="rounded-chip border border-border px-4 py-3 text-sm"
-                >
-                  {m.name}
-                </Link>
-              ))}
-          </div>
-        )}
-        {results.length === 0 ? (
-          <EmptyState
-            icon={SearchX}
-            title={t("noResults")}
-            description={t("noResultsBody")}
-            action={<Button onClick={() => update(null)}>{t("clear")}</Button>}
-          />
-        ) : (
-          <motion.div
-            layout={!reduced}
-            className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4"
-          >
-            <AnimatePresence initial={false}>
-              {results.map((listing, index) => (
-                <motion.div
-                  key={listing.id}
-                  layout={!reduced}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  variants={{
-                    ...variants.fadeRise,
-                    visible: {
-                      opacity: 1,
-                      ...(reduced ? {} : { y: 0 }),
-                      transition: { duration: 0.2, delay: staggerDelay(index, reduced) },
-                    },
-                  }}
-                  className="min-w-0"
-                >
-                  <ListingCard
-                    listing={{
-                      ...listing,
-                      city: t(`cities.${listing.citySlug as (typeof cities)[number]}`),
-                    }}
-                    now={mockNow}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        )}
       </div>
-    </div>
+    </LazyMotion>
   );
 }

@@ -10,18 +10,20 @@ import "./globals.css";
  */
 export default function GlobalError({ reset }: { error: Error; reset: () => void }) {
   const isUrdu = typeof window !== "undefined" && window.location.pathname.startsWith("/ur");
-  const m = isUrdu ? ur : en;
+  const m = isUrdu
+    ? { title: ur.Empty.error.title, body: ur.Empty.error.body, retry: ur.Common.retry }
+    : { title: en.Empty.error.title, body: en.Empty.error.body, retry: en.Common.retry };
   return (
     <html lang={isUrdu ? "ur" : "en"} dir={isUrdu ? "rtl" : "ltr"}>
       <body className="flex min-h-dvh flex-col items-center justify-center gap-4 bg-background p-6 text-center text-foreground">
-        <h1 className="text-2xl font-semibold">{m.Empty.error.title}</h1>
-        <p className="text-muted-foreground">{m.Empty.error.body}</p>
+        <h1 className="text-2xl font-semibold">{m.title}</h1>
+        <p className="text-muted-foreground">{m.body}</p>
         <button
           type="button"
           onClick={reset}
           className="h-11 rounded-button bg-primary px-4 font-semibold text-primary-foreground"
         >
-          {m.Common.retry}
+          {m.retry}
         </button>
       </body>
     </html>

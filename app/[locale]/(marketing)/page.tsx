@@ -43,6 +43,7 @@ export default async function HomePage() {
               <Link
                 key={q}
                 href={`/phones?q=${encodeURIComponent(q)}`}
+                prefetch={false}
                 className="rounded-chip border border-border px-3 py-2 font-mono"
               >
                 {q}

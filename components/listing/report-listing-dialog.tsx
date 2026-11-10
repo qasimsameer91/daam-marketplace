@@ -48,7 +48,7 @@ export function ReportListingDialog() {
     setOpen(false);
     setReason("");
     setError(false);
-    toast.success(t("reportSent"));
+    toast.info(t("reportSent"));
   };
 
   return (

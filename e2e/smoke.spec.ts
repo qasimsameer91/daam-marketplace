@@ -17,3 +17,16 @@ test("Urdu home renders right-to-left", async ({ page }) => {
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await expect(page.locator("html")).toHaveAttribute("lang", "ur");
 });
+
+for (const locale of ["en", "ur"]) {
+  test(`${locale} restores saved dark theme before page interaction`, async ({ page }) => {
+    await page.addInitScript(() => localStorage.setItem("daam-theme", "dark"));
+    const errors: string[] = [];
+    page.on("pageerror", (error) => errors.push(error.message));
+    await page.goto(`/${locale}`);
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    expect(errors).toEqual([]);
+  });
+}

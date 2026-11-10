@@ -34,7 +34,7 @@ export function ContactForm() {
     if (missing.size > 0) return;
     e.currentTarget.reset();
     setTopic("");
-    toast.success(t("sent"));
+    toast.info(t("sent"));
   };
 
   const errorFor = (field: string) =>
@@ -46,6 +46,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={submit} noValidate className="flex flex-col gap-4">
+      <p className="rounded-card bg-muted p-3 text-sm text-muted-foreground">{t("previewNote")}</p>
       <div className="flex flex-col gap-1.5">
         <label htmlFor={`${id}-name`} className="text-sm font-medium">
           {t("name")}

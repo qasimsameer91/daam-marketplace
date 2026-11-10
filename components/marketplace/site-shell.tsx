@@ -33,7 +33,7 @@ export function SiteHeader() {
       <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-4 px-4 md:px-6 lg:px-8">
         <Link
           href="/"
-          aria-label={t("home")}
+          aria-label={`daam. ${t("home")}`}
           dir="ltr"
           className="shrink-0 text-3xl font-bold tracking-tight"
         >
@@ -57,14 +57,14 @@ export function SiteHeader() {
             {resolved === "dark" ? <Sun aria-hidden /> : <Moon aria-hidden />}
           </Button>
           <Button asChild className="hidden sm:inline-flex">
-            <Link href="/sell">
+            <Link href="/sell" prefetch={false}>
               <Plus aria-hidden />
               {t("sell")}
             </Link>
           </Button>
           {/* Auth placeholder until Phase 5: logged-out visitors see "Log in". */}
           <Button asChild variant="ghost" size="icon" className="hidden md:inline-flex">
-            <Link href="/login" aria-label={t("login")}>
+            <Link href="/login" prefetch={false} aria-label={t("login")}>
               <UserRound aria-hidden />
             </Link>
           </Button>
@@ -92,10 +92,14 @@ export function MobileNav() {
         <Link
           key={key}
           href={href}
-          aria-current={path === href ? "page" : undefined}
+          prefetch={false}
+          aria-current={
+            path === href || (href !== "/" && path.startsWith(`${href}/`)) ? "page" : undefined
+          }
           className={cn(
             "flex min-h-16 flex-col items-center justify-center gap-1 text-[0.65rem] text-muted-foreground",
-            path === href && "font-semibold text-foreground",
+            (path === href || (href !== "/" && path.startsWith(`${href}/`))) &&
+              "font-semibold text-foreground",
           )}
         >
           <span

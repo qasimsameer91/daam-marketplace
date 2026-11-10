@@ -36,11 +36,12 @@ export function ReportStolenForm({ brands }: { brands: { slug: string; name: str
     setImeiError(false);
     e.currentTarget.reset();
     setBrand("");
-    toast.success(t("sent"));
+    toast.info(t("sent"));
   };
 
   return (
     <form onSubmit={submit} noValidate className="flex flex-col gap-4">
+      <p className="rounded-card bg-muted p-3 text-sm text-muted-foreground">{t("previewNote")}</p>
       <div className="flex flex-col gap-1.5">
         <label htmlFor={`${id}-imei`} className="text-sm font-medium">
           {t("imei")}

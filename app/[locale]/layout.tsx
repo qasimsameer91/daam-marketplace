@@ -8,6 +8,7 @@ import { AppProviders } from "@/components/providers/app-providers";
 import { pickClientMessages } from "@/lib/i18n/client-messages";
 import { getDirection, isAppLocale, locales } from "@/lib/i18n/routing";
 import { brandColors } from "@/lib/design/tokens";
+import { getThemeScript } from "@/lib/design/theme-script";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 
@@ -67,9 +68,8 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       )}
     >
       <head>
-        {/* Render-blocking on purpose: applies the saved theme before first paint (no flash). */}
-        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-        <script src="/theme-init.js" />
+        {/* Trusted, tracked public asset: apply the theme without a blocking network round trip. */}
+        <script>{await getThemeScript()}</script>
       </head>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider messages={pickClientMessages(await getMessages())}>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/use-daam-motion";
@@ -44,7 +44,7 @@ export function FavoriteButton({
       )}
     >
       <span className="inline-flex size-9 items-center justify-center rounded-full bg-background/85 text-foreground shadow-sm backdrop-blur">
-        <motion.span
+        <m.span
           key={String(favorited)}
           initial={reduced ? { opacity: 0.4 } : { scale: 0.6 }}
           animate={reduced ? { opacity: 1 } : { scale: 1 }}
@@ -56,7 +56,7 @@ export function FavoriteButton({
             strokeWidth={1.75}
             className={cn("size-5", favorited && "fill-current")}
           />
-        </motion.span>
+        </m.span>
       </span>
     </button>
   );

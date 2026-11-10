@@ -324,3 +324,15 @@ export function listingsBySeller(username: string): MockListing[] {
 export function listingsByShop(slug: string): MockListing[] {
   return listings.filter((l) => l.shopSlug === slug);
 }
+
+/**
+ * Mock Daam Meter ranges by model slug for the sell wizard's live meter. Phase 7 computes real
+ * p25–p75 ranges from comparables + price_references.
+ */
+export function mockDaamRanges(): Record<string, { low: number; high: number }> {
+  const ranges: Record<string, { low: number; high: number }> = {};
+  for (const l of listings) {
+    if (l.detail.daamRange && !ranges[l.model]) ranges[l.model] = l.detail.daamRange;
+  }
+  return ranges;
+}

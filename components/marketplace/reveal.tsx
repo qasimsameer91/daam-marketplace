@@ -1,12 +1,12 @@
 "use client";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import type { ReactNode } from "react";
 import { useDaamMotion } from "@/hooks/use-daam-motion";
 import { staggerDelay } from "@/lib/motion";
 export function Reveal({ children, index }: { children: ReactNode; index: number }) {
   const { reduced } = useDaamMotion();
   return (
-    <motion.div
+    <m.div
       initial={false}
       whileInView={reduced ? { opacity: 1 } : { opacity: [0.65, 1], y: [8, 0] }}
       viewport={{ once: true, amount: 0.1 }}
@@ -14,6 +14,6 @@ export function Reveal({ children, index }: { children: ReactNode; index: number
       className="min-w-0"
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

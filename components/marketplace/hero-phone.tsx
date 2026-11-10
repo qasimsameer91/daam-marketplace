@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useState } from "react";
 import { useDaamMotion } from "@/hooks/use-daam-motion";
 import { PriceTag } from "@/components/daam/price-tag";
@@ -24,28 +24,30 @@ export function HeroPhone() {
     >
       <div className="absolute inset-8 rounded-full border border-border" />
       <div className="absolute inset-16 rounded-full border border-border" />
-      <motion.div
-        animate={reduced ? { opacity: 1 } : { x: point.x, y: point.y, rotate: -6 }}
+      <m.div
+        initial={false}
+        animate={reduced ? { opacity: 1 } : { x: point.x, y: point.y }}
         transition={{ duration: 0.5 }}
-        className="relative h-[90%] w-[74%] overflow-hidden rounded-[2rem] shadow-lift"
+        className="relative h-[90%] w-[74%] -rotate-6 overflow-hidden rounded-[2rem] shadow-lift"
       >
         <Image
           src="/phone-preview.svg"
           alt=""
           fill
           sizes="(min-width:768px) 360px, 70vw"
-          priority
+          loading="eager"
+          fetchPriority="high"
           className="object-cover"
         />
-      </motion.div>
-      <motion.div
+      </m.div>
+      <m.div
         initial={false}
         animate={reduced ? { opacity: 1 } : { rotate: [-8, 4, -3, 0] }}
         transition={{ duration: 0.5 }}
         className="absolute end-0 bottom-14"
       >
         <PriceTag amount={125000} size="lg" variant="tag" />
-      </motion.div>
+      </m.div>
     </div>
   );
 }

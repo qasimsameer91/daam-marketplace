@@ -45,17 +45,27 @@ interface ListingCardProps {
   /** Eager-load the image (first row above the fold). */
   priority?: boolean;
   className?: string;
+  onFavoriteToggle?: (value: boolean) => void;
+  headingLevel?: 2 | 3;
 }
 
 /**
  * Listing card (plan §13.3): photo 4:5 → price + Daam Meter → model · variant →
  * PTA · condition · battery → area, city · time · verification. The whole card is one link.
  */
-export function ListingCard({ listing, now, priority = false, className }: ListingCardProps) {
+export function ListingCard({
+  listing,
+  now,
+  priority = false,
+  className,
+  onFavoriteToggle,
+  headingLevel = 3,
+}: ListingCardProps) {
   const t = useTranslations("ListingCard");
   const format = useFormatter();
   const showFeatured = listing.isFeatured && canBePromoted(listing.ptaStatus);
   const title = `${listing.modelName} · ${listing.variantLabel}`;
+  const Heading = headingLevel === 2 ? "h2" : "h3";
 
   return (
     <article
@@ -73,7 +83,8 @@ export function ListingCard({ listing, now, priority = false, className }: Listi
             src={listing.imageUrl}
             alt={title}
             fill
-            priority={priority}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : undefined}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
             className="object-cover transition-transform duration-(--duration-slow) ease-standard group-hover:scale-[1.03] reduced-motion:transition-none reduced-motion:group-hover:scale-100"
           />
@@ -86,6 +97,7 @@ export function ListingCard({ listing, now, priority = false, className }: Listi
         {showFeatured ? <FeaturedTag className="absolute start-0 top-2" /> : null}
         <FavoriteButton
           initialFavorited={listing.isFavorited}
+          onToggle={onFavoriteToggle}
           className="absolute end-0.5 top-0.5"
         />
       </div>
@@ -96,14 +108,15 @@ export function ListingCard({ listing, now, priority = false, className }: Listi
           <DaamMeter band={listing.daamBand} />
         </div>
 
-        <h3 className="line-clamp-1 text-sm font-medium">
+        <Heading className="line-clamp-1 text-sm font-medium">
           <Link
             href={listing.href}
+            prefetch={false}
             className="outline-none after:absolute after:inset-0 after:rounded-card focus-visible:after:ring-2 focus-visible:after:ring-ring"
           >
             {title}
           </Link>
-        </h3>
+        </Heading>
 
         <div className="flex flex-wrap gap-1.5">
           <PtaBadge

@@ -1,6 +1,22 @@
 ﻿# Daam continuation audit
 
-Reviewed on November 10, 2026. Scope: resume **Phase 2: UI/UX Design System** from `PHASE_PROMPTS.md`. The attached continuation prompt describes a broader audit workflow; its phase numbering is separate from the project's implementation phases. No later implementation phase was started.
+## Phase 3 readiness — November 10, 2026
+
+Production review repaired heading/label accessibility, preview form confirmations, initial browse rendering, image priority, excess prefetching and the blocking theme request. Account/sell translations now stay in the app layout, removing a login sample phone number from public listing HTML. See `PHASE_3_READINESS.md` for measurements and validation. Mobile performance still needs work before Phase 4. Earlier snapshots below are historical.
+
+## Current snapshot — November 10, 2026
+
+Git now contains `29a1b30` (Phase 2), `0ba7224` (Phase 3A shell/home/browse) and `dc197ab` (Phase 3B listing details/profiles/info pages). Claude then added the uncommitted Phase 3C sell wizard. Its last browser invocation was interrupted, so that result was unknown.
+
+This continuation preserved that work and verified the six-step local wizard. Fixes: ambiguous photo-cover test selector, production prerendering around the wizard's client-time read using Suspense, unsafe raw stored-draft recovery, and misleading mock-publish success text. Completion is explicitly a frontend preview, without publication or moderation submission. IMEIs and photo URLs are excluded from draft saving/restoration.
+
+The following continuation now implements Phase 3C dashboard/account/messaging/notifications/login shells. Dashboard, listing tabs, favourites, settings, verification/shop previews, notifications and message threads use only explicit in-memory sample state. OTP accepts a demo code without authenticating or sending SMS; real identity uploads/account deletion/session revocation are unavailable. Chat safety reads seed content blocks. App preview routes use noindex.
+
+Lint, typecheck, 142 unit tests, 16 account browser cases and the production build pass. Existing sell/design regression cases also verify the shared layout and card changes. Next: Phase 3 readiness/performance review before Phase 4. No secrets, database state, dependencies or deployment changed during this continuation. Physical-device and human Urdu sign-offs remain deferred by the user.
+
+## Historical Phase 2 audit
+
+The following is the original Phase 2 discovery record; it does not describe current Phase 3 progress.
 
 ## Evidence and architecture
 

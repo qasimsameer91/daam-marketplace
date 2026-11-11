@@ -3,6 +3,10 @@
 Daam (دام, "price") is a premium marketplace in Pakistan for used, refurbished and new mobile phones. Tagline: *Sahi phone. Sahi daam.*
 The full spec is in `docs/DAAM_MASTER_PLAN.md`; read the relevant section before starting any task. Per-phase task prompts are in `docs/PHASE_PROMPTS.md`.
 
+## Shared agent handoff
+
+Read `PROJECT_HANDOFF.md` before starting work. At the end of each work session, add a dated entry there identifying the agent, changes, checks actually run and results, current uncommitted work, outstanding issues, and the next step. Distinguish reported results from those independently verified. Never record secrets or sensitive personal data.
+
 ## Stack
 - Next.js (latest stable, App Router, RSC by default), TypeScript `strict`
 - Tailwind CSS v4 (tokens in `@theme`), shadcn/ui, Lucide icons

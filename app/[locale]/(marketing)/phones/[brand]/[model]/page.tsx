@@ -5,9 +5,11 @@ import { BrowsePage } from "@/components/marketplace/browse-page";
 import { PriceTag } from "@/components/daam/price-tag";
 import { PtaBadge } from "@/components/daam/pta-badge";
 import { ConditionChip } from "@/components/daam/condition-chip";
+import { getCatalog } from "@/lib/data/catalog";
 export default async function Page({ params }: PageProps<"/[locale]/phones/[brand]/[model]">) {
   const { brand, model } = await params;
-  const entry = models.find((m) => m.slug === model && m.brand === brand);
+  const catalog = await getCatalog();
+  const entry = (catalog?.models ?? models).find((m) => m.slug === model && m.brand === brand);
   if (!entry) notFound();
   const t = await getTranslations("Market");
   const rows = listings.filter((l) => l.model === model);

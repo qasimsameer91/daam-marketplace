@@ -1,6 +1,8 @@
 # Phase 3 readiness review
 
-Reviewed November 10, 2026. The mock frontend is implemented. The mobile performance exit gate remains open; Phase 4 has not started.
+> Historical measurements from before commit `b18420e`. See `../PROJECT_HANDOFF.md` for Claude's later reported results and the current Phase 4 status.
+
+Reviewed November 10, 2026. At this snapshot, the mock frontend was implemented, the mobile performance exit gate remained open and Phase 4 had not started.
 
 ## Changes
 

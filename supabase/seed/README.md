@@ -2,6 +2,8 @@
 
 CSV files that the Phase 4 seed script loads into a fresh database (`pnpm db:reset`). They follow `docs/DAAM_MASTER_PLAN.md` sections 5, 6, 7, 11 and 12.
 
+Run `python scripts/generate_seed.py` from the repository root after changing a CSV. This regenerates `supabase/seed.sql` for the Supabase local seed configuration. The script checks for ambiguous/missing model references, and the generated SQL checks inserted row counts. A database reset destroys the target's data; use it only after confirming the target is disposable.
+
 The catalog is data, not code. After launch, admins manage it in the admin panel, which also does CSV import and export. These files are only the starting set.
 
 > **Before production:** a human must check every row where `needs_review = true`, and every Urdu string. See [Review checklist](#review-checklist).

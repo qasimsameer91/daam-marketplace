@@ -1,14 +1,16 @@
 import { getTranslations } from "next-intl/server";
 import { brands, listings } from "@/lib/mock/marketplace";
 import { BrandTile } from "@/components/daam/brand-tile";
+import { getCatalog } from "@/lib/data/catalog";
 export default async function Page() {
   const t = await getTranslations("Market");
+  const catalog = await getCatalog();
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 lg:px-8">
       <h1 className="mb-3 text-4xl font-semibold">{t("allBrands")}</h1>
       <p className="mb-8 text-sm text-muted-foreground">{t("demo")}</p>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
-        {brands.map((b) => (
+        {(catalog?.brands ?? brands).map((b) => (
           <BrandTile
             key={b.slug}
             name={b.name}

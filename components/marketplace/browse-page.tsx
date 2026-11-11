@@ -3,12 +3,13 @@ import { connection } from "next/server";
 import { getTranslations } from "next-intl/server";
 import { BrowseClient, type BrowseScope } from "./browse-client";
 import { ListingCardSkeleton } from "@/components/daam/listing-card-skeleton";
+import { getCatalog } from "@/lib/data/catalog";
 
 async function BrowseResults({ scope }: { scope: BrowseScope }) {
   // Render URL-dependent results on the server for the incoming request. A static
   // useSearchParams boundary otherwise sends only skeletons until hydration.
   await connection();
-  return <BrowseClient scope={scope} />;
+  return <BrowseClient scope={scope} catalog={await getCatalog()} />;
 }
 export async function BrowsePage({ title, scope = {} }: { title?: string; scope?: BrowseScope }) {
   const t = await getTranslations("Market");

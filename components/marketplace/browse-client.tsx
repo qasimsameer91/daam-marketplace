@@ -1,10 +1,18 @@
 "use client";
 import { useId } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { parseAsBoolean, parseAsInteger, parseAsString, useQueryStates } from "nuqs";
 import { AnimatePresence, m, LazyMotion, domMax } from "motion/react";
 import { SearchX, SlidersHorizontal, X } from "lucide-react";
-import { listings, models, brands, cities, areas, mockNow } from "@/lib/mock/marketplace";
+import {
+  listings,
+  models as mockModels,
+  brands as mockBrands,
+  cities,
+  areas,
+  mockNow,
+} from "@/lib/mock/marketplace";
+import type { Catalog } from "@/lib/data/catalog";
 import { filterListings, type BrowseFilters } from "@/lib/domain/browse";
 import { PTA_STATUSES, NETWORK_LOCKS } from "@/lib/domain/pta";
 import { PHONE_CONDITIONS } from "@/lib/domain/condition";
@@ -71,11 +79,15 @@ function FilterControls({
   filters,
   update,
   scope,
+  catalog,
 }: {
   filters: BrowseFilters;
   update: Update;
   scope: BrowseScope;
+  catalog: Catalog | null;
 }) {
+  const { brands, models } = catalog ?? { brands: mockBrands, models: mockModels };
+  const locale = useLocale();
   const t = useTranslations("Market");
   const pta = useTranslations("Pta");
   const condition = useTranslations("Condition");
@@ -168,17 +180,33 @@ function FilterControls({
       {!scope.city &&
         select(
           "city",
-          cities.map((value) => ({ value, label: t(`cities.${value}`) })),
+          catalog
+            ? catalog.cities.map((city) => ({
+                value: city.slug,
+                label: locale === "ur" ? city.nameUr : city.nameEn,
+              }))
+            : cities.map((value) => ({ value, label: t(`cities.${value}`) })),
         )}
       {select(
         "area",
-        areas
-          .filter(
-            (area) =>
-              !filters.city ||
-              listings.some((l) => l.citySlug === filters.city && l.areaSlug === area),
-          )
-          .map((value) => ({ value, label: value })),
+        catalog
+          ? [
+              ...new Map(
+                catalog.areas
+                  .filter((area) => !filters.city || area.citySlug === filters.city)
+                  .map((area) => [
+                    area.slug,
+                    { value: area.slug, label: locale === "ur" ? area.nameUr : area.nameEn },
+                  ]),
+              ).values(),
+            ]
+          : areas
+              .filter(
+                (area) =>
+                  !filters.city ||
+                  listings.some((l) => l.citySlug === filters.city && l.areaSlug === area),
+              )
+              .map((value) => ({ value, label: value })),
       )}
       {select(
         "condition",
@@ -228,7 +256,14 @@ function FilterControls({
   );
 }
 
-export function BrowseClient({ scope = {} }: { scope?: BrowseScope }) {
+export function BrowseClient({
+  scope = {},
+  catalog = null,
+}: {
+  scope?: BrowseScope;
+  catalog?: Catalog | null;
+}) {
+  const { models } = catalog ?? { models: mockModels };
   const ready = useHydrated();
   const t = useTranslations("Market");
   const common = useTranslations("Common");
@@ -251,7 +286,7 @@ export function BrowseClient({ scope = {} }: { scope?: BrowseScope }) {
       <div className="grid gap-8 lg:grid-cols-[224px_minmax(0,1fr)]">
         <aside className="hidden lg:block">
           <h2 className="mb-5 font-semibold">{t("filters")}</h2>
-          <FilterControls filters={filters} update={update} scope={scope} />
+          <FilterControls filters={filters} update={update} scope={scope} catalog={catalog} />
         </aside>
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-3">
@@ -276,7 +311,12 @@ export function BrowseClient({ scope = {} }: { scope?: BrowseScope }) {
                   <DrawerDescription>{t("demo")}</DrawerDescription>
                 </DrawerHeader>
                 <div className="overflow-y-auto px-4 pb-6">
-                  <FilterControls filters={filters} update={update} scope={scope} />
+                  <FilterControls
+                    filters={filters}
+                    update={update}
+                    scope={scope}
+                    catalog={catalog}
+                  />
                 </div>
                 <DrawerClose asChild>
                   <Button className="m-4 shrink-0">{common("close")}</Button>

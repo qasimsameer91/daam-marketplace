@@ -1,6 +1,8 @@
 ﻿# Daam remaining work
 
-Current scope: Phase 3 readiness/performance. Updated November 10, 2026. Phase 2 records below are historical.
+> Historical snapshot. For the latest agent handoff and Phase 4 status, read `../PROJECT_HANDOFF.md` first.
+
+Current scope at this snapshot: Phase 3 readiness/performance. Updated November 10, 2026. Phase 2 records below are historical.
 
 ## Current Claude handoff
 

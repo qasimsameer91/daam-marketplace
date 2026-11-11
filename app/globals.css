@@ -2,6 +2,71 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* CSS-only motion for the home/browse critical path, so those pages don't load the motion runtime. */
+@keyframes daam-reveal {
+  from {
+    opacity: 0.001;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes daam-favorite-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes daam-tag-swing {
+  0% {
+    transform: rotate(-8deg);
+  }
+  40% {
+    transform: rotate(4deg);
+  }
+  70% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Fade + 8px rise on load (CSS-only; content stays visible without JS or under reduced motion). */
+@utility reveal-on-load {
+  @media not (prefers-reduced-motion: reduce) {
+    animation: daam-reveal 0.32s var(--ease-standard) both;
+  }
+}
+
+/* Heart pop on toggle (plan §14). Paused under reduced motion. */
+@utility favorite-pop {
+  @media not (prefers-reduced-motion: reduce) {
+    animation: daam-favorite-pop var(--duration-base) var(--ease-standard);
+  }
+}
+
+/* Hero price-tag swing on load, desktop-only parallax via --px/--py set in JS. */
+@utility hero-tag {
+  @media not (prefers-reduced-motion: reduce) {
+    animation: daam-tag-swing var(--duration-hero) var(--ease-standard);
+  }
+}
+@utility hero-parallax {
+  transform: translate3d(var(--px, 0), var(--py, 0), 0) rotate(-6deg);
+  transition: transform var(--duration-hero) var(--ease-standard);
+  @media (prefers-reduced-motion: reduce) {
+    transform: rotate(-6deg);
+  }
+}
+
 @keyframes page-enter {
   from {
     opacity: 0;

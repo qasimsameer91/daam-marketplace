@@ -1,19 +1,16 @@
-"use client";
-import { m } from "motion/react";
 import type { ReactNode } from "react";
-import { useDaamMotion } from "@/hooks/use-daam-motion";
-import { staggerDelay } from "@/lib/motion";
+import { MAX_STAGGERED_ITEMS, STAGGER_SECONDS } from "@/lib/motion";
+
+/**
+ * Fade + 8px rise on load, CSS-only so the listing grid doesn't pull the motion runtime (plan §14).
+ * Server component: without JS the content is still rendered; the animation is a progressive
+ * enhancement, disabled under reduced motion in CSS. Stagger caps at 8 items × 30ms.
+ */
 export function Reveal({ children, index }: { children: ReactNode; index: number }) {
-  const { reduced } = useDaamMotion();
+  const delay = Math.min(Math.max(index, 0), MAX_STAGGERED_ITEMS - 1) * STAGGER_SECONDS;
   return (
-    <m.div
-      initial={false}
-      whileInView={reduced ? { opacity: 1 } : { opacity: [0.65, 1], y: [8, 0] }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.2, delay: staggerDelay(index, reduced) }}
-      className="min-w-0"
-    >
+    <div style={{ animationDelay: `${delay}s` }} className="min-w-0 reveal-on-load">
       {children}
-    </m.div>
+    </div>
   );
 }

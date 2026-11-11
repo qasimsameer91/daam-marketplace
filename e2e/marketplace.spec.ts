@@ -16,7 +16,9 @@ for (const locale of ["en", "ur"] as const) {
     ]) {
       const response = await page.goto(`/${locale}${route}`);
       expect(response?.status()).toBe(200);
-      await expect(page.locator("main h1")).toBeVisible();
+      // `.first()`: a route transition can momentarily mount the entering + exiting heading
+      // together. The SSR HTML and settled DOM both have exactly one <main> h1.
+      await expect(page.locator("main h1").first()).toBeVisible();
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
         true,
       );

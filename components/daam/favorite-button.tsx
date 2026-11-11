@@ -1,12 +1,9 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import { m } from "motion/react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { usePrefersReducedMotion } from "@/hooks/use-daam-motion";
+import { useRef, useState } from "react";
 import { useHydrated } from "@/hooks/use-hydrated";
-import { spring } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface FavoriteButtonProps {
@@ -16,16 +13,19 @@ interface FavoriteButtonProps {
   className?: string;
 }
 
-/** Heart toggle on listing cards: a 44px tap target around a 36px visual. */
+/**
+ * Heart toggle on listing cards: a 44px tap target around a 36px visual. The pop is a CSS
+ * animation (no motion runtime), restarted each toggle; reduced motion is handled in CSS.
+ */
 export function FavoriteButton({
   initialFavorited = false,
   onToggle,
   className,
 }: FavoriteButtonProps) {
   const t = useTranslations("ListingCard");
-  const reduced = usePrefersReducedMotion();
   const hydrated = useHydrated();
   const [favorited, setFavorited] = useState(initialFavorited);
+  const iconRef = useRef<HTMLSpanElement>(null);
 
   return (
     <button
@@ -37,6 +37,13 @@ export function FavoriteButton({
         const next = !favorited;
         setFavorited(next);
         onToggle?.(next);
+        // Restart the pop animation.
+        const el = iconRef.current;
+        if (el) {
+          el.classList.remove("favorite-pop");
+          void el.offsetWidth;
+          el.classList.add("favorite-pop");
+        }
       }}
       className={cn(
         "group/fav relative z-10 inline-flex size-11 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring",
@@ -44,19 +51,13 @@ export function FavoriteButton({
       )}
     >
       <span className="inline-flex size-9 items-center justify-center rounded-full bg-background/85 text-foreground shadow-sm backdrop-blur">
-        <m.span
-          key={String(favorited)}
-          initial={reduced ? { opacity: 0.4 } : { scale: 0.6 }}
-          animate={reduced ? { opacity: 1 } : { scale: 1 }}
-          transition={spring}
-          className="inline-flex"
-        >
+        <span ref={iconRef} className="inline-flex">
           <Heart
             aria-hidden
             strokeWidth={1.75}
             className={cn("size-5", favorited && "fill-current")}
           />
-        </m.span>
+        </span>
       </span>
     </button>
   );

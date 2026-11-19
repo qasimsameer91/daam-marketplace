@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Noto_Nastaliq_Urdu } from "next/font/google";
+import { Bricolage_Grotesque, Inter, Noto_Nastaliq_Urdu } from "next/font/google";
 import { notFound } from "next/navigation";
 import { locale as rootLocale } from "next/root-params";
 import { NextIntlClientProvider } from "next-intl";
@@ -12,14 +12,16 @@ import { getThemeScript } from "@/lib/design/theme-script";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Display face for headings, prices and the [ DAAM ] wordmark (the .dc.html design pack).
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 // Urdu only: not preloaded, and its variable is attached only on /ur, so English pages never download it.
@@ -61,14 +63,15 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       // theme-init.js may set data-theme before hydration.
       suppressHydrationWarning
       className={cn(
-        geistSans.variable,
-        geistMono.variable,
+        inter.variable,
+        bricolage.variable,
         locale === "ur" && notoNastaliq.variable,
         "h-full antialiased",
       )}
     >
       <head>
-        {/* Trusted, tracked public asset: apply the theme without a blocking network round trip. */}
+        {/* Trusted, tracked public asset: apply the theme without a blocking network round trip.
+            React warns about <script> children in dev only; it still runs on first server paint. */}
         <script>{await getThemeScript()}</script>
       </head>
       <body className="flex min-h-full flex-col">

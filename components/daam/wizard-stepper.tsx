@@ -41,7 +41,7 @@ export function WizardStepper({ steps, current, className }: WizardStepperProps)
         className="h-1.5 w-full overflow-hidden rounded-full bg-muted"
       >
         <div
-          className="h-full w-full origin-left rounded-full bg-lime transition-transform duration-(--duration-slow) ease-standard rtl:origin-right reduced-motion:transition-none"
+          className="h-full w-full origin-left rounded-full bg-clay transition-transform duration-(--duration-slow) ease-standard rtl:origin-right reduced-motion:transition-none"
           style={{ transform: `scaleX(${progress})` }}
         />
       </div>

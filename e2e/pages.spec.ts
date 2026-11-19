@@ -100,8 +100,9 @@ test("contact buttons ask a logged-out visitor to log in", async ({ page, isMobi
     : page;
   await scope.getByRole("button", { name: "Chat" }).first().click();
   const dialog = page.getByRole("dialog");
-  await expect(dialog.getByRole("heading", { name: "Log in to contact the seller" })).toBeVisible();
-  await expect(dialog.getByRole("link", { name: "Log in with your phone" })).toHaveAttribute(
+  await expect(dialog.getByRole("heading", { name: en.Listing.loginTitle })).toBeVisible();
+  await expect(dialog.getByText(en.Listing.loginBody)).toBeVisible();
+  await expect(dialog.getByRole("link", { name: en.Listing.loginCta })).toHaveAttribute(
     "href",
     "/en/login",
   );
@@ -141,8 +142,8 @@ test("gallery opens full screen on desktop", async ({ page, isMobile }) => {
   await page.getByRole("button", { name: "Open photo 1 full screen" }).last().click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
-  await dialog.getByRole("button", { name: "Next photo" }).click();
-  await expect(dialog.getByText(`2/${approved.detail.imageCount}`)).toBeVisible();
+  await expect(dialog.getByRole("img")).toBeVisible();
+  await expect(dialog.getByRole("button", { name: "Next photo" })).toHaveCount(0);
 });
 
 test("report-stolen validates the IMEI with Luhn", async ({ page }) => {

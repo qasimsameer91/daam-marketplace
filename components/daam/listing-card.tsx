@@ -1,19 +1,12 @@
-import { Smartphone } from "lucide-react";
 import Image from "next/image";
-import { useFormatter, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import type { PhoneCondition } from "@/lib/domain/condition";
 import type { DaamBand } from "@/lib/domain/daam-meter";
-import { canBePromoted, type NetworkLock, type PtaStatus } from "@/lib/domain/pta";
+import type { NetworkLock, PtaStatus } from "@/lib/domain/pta";
+import { formatPKR } from "@/lib/domain/pricing";
 import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
-import { BatteryPill } from "./battery-pill";
-import { ConditionChip } from "./condition-chip";
-import { DaamMeter } from "./daam-meter";
-import { FavoriteButton } from "./favorite-button";
-import { FeaturedTag } from "./featured-tag";
-import { PriceTag } from "./price-tag";
-import { PtaBadge } from "./pta-badge";
-import { VerifiedBadge, type VerificationKind } from "./verified-badge";
+import { SaveStar } from "./save-star";
 
 /** Public fields a card needs. No phone numbers or IMEI data ever reach this shape. */
 export interface ListingCardData {
@@ -33,14 +26,18 @@ export interface ListingCardData {
   area: string | null;
   publishedAt: string;
   imageUrl: string | null;
+  /** Only local demonstration fixtures; never set for seller uploads. */
+  isDemo?: boolean;
   isFeatured: boolean;
-  verification: VerificationKind | null;
+  verification: VerificationKindLike | null;
   isFavorited?: boolean;
 }
 
+type VerificationKindLike = "shop" | "id" | string;
+
 interface ListingCardProps {
   listing: ListingCardData;
-  /** Request time, for "2 hours ago" (passed in so pages stay cacheable). */
+  /** Request time, kept for API compatibility. */
   now: Date;
   /** Eager-load the image (first row above the fold). */
   priority?: boolean;
@@ -50,100 +47,93 @@ interface ListingCardProps {
 }
 
 /**
- * Listing card (plan §13.3): photo 4:5 → price + Daam Meter → model · variant →
- * PTA · condition · battery → area, city · time · verification. The whole card is one link.
+ * Listing card — hard-edge editorial spec (Daam Market / Browse .dc.html):
+ * placeholder ("Seller's photo") → name → storage → lime price chip →
+ * PTA badge + battery → ◉ city · condition. The whole card is one link.
  */
 export function ListingCard({
   listing,
-  now,
   priority = false,
   className,
   onFavoriteToggle,
   headingLevel = 3,
 }: ListingCardProps) {
   const t = useTranslations("ListingCard");
-  const format = useFormatter();
-  const showFeatured = listing.isFeatured && canBePromoted(listing.ptaStatus);
-  const title = `${listing.modelName} · ${listing.variantLabel}`;
+  const pta = useTranslations("Pta");
+  const condition = useTranslations("Condition");
+  const approved = listing.ptaStatus === "pta_approved";
   const Heading = headingLevel === 2 ? "h2" : "h3";
 
   return (
     <article
       data-slot="listing-card"
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-card border border-border bg-card text-card-foreground",
-        "transition-transform duration-(--duration-base) ease-standard hover:-translate-y-0.5 hover:shadow-lift",
-        "reduced-motion:transition-none reduced-motion:hover:translate-y-0",
+        "group relative flex flex-col border-2 border-ink bg-white",
+        "transition-transform duration-200 ease-standard hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]",
+        "reduced-motion:transition-none reduced-motion:hover:translate-y-0 reduced-motion:hover:shadow-none",
         className,
       )}
     >
-      <div className="relative aspect-[4/5] overflow-hidden bg-muted">
+      <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-[7px] border-b-2 border-ink bg-sand">
         {listing.imageUrl ? (
           <Image
             src={listing.imageUrl}
-            alt={title}
+            alt={listing.isDemo ? t("illustrativeImage") : listing.modelName}
             fill
             loading={priority ? "eager" : "lazy"}
-            fetchPriority={priority ? "high" : undefined}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-            className="object-cover transition-transform duration-(--duration-slow) ease-standard group-hover:scale-[1.03] reduced-motion:transition-none reduced-motion:group-hover:scale-100"
+            className="object-cover"
           />
         ) : (
-          <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
-            <Smartphone aria-hidden className="size-10" strokeWidth={1.25} />
-            <span className="text-xs">{t("noPhoto")}</span>
-          </div>
+          <>
+            <span className="flex size-11 items-center justify-center rounded-full border-2 border-ink/40 text-[20px] text-ink/50">
+              ⌁
+            </span>
+            <span className="text-xs font-semibold text-ink/50">{t("sellerPhoto")}</span>
+          </>
         )}
-        {showFeatured ? <FeaturedTag className="absolute start-0 top-2" /> : null}
-        <FavoriteButton
-          initialFavorited={listing.isFavorited}
+        <SaveStar
+          initialSaved={listing.isFavorited}
           onToggle={onFavoriteToggle}
-          className="absolute end-0.5 top-0.5"
+          className="absolute end-[10px] top-[10px]"
         />
       </div>
 
-      <div className="flex flex-1 flex-col gap-2 p-3">
-        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-          <PriceTag amount={listing.pricePkr} short size="md" />
-          <DaamMeter band={listing.daamBand} />
-        </div>
-
-        <Heading className="line-clamp-1 text-sm font-medium">
+      <div className="flex flex-1 flex-col px-[15px] pt-[14px] pb-4">
+        <Heading className="font-display text-xl font-bold tracking-[-0.4px]">
           <Link
             href={listing.href}
             prefetch={false}
-            className="outline-none after:absolute after:inset-0 after:rounded-card focus-visible:after:ring-2 focus-visible:after:ring-ring"
+            className="outline-none after:absolute after:inset-0 focus-visible:after:ring-2 focus-visible:after:ring-ring"
           >
-            {title}
+            {listing.modelName}
           </Link>
         </Heading>
-
-        <div className="flex flex-wrap gap-1.5">
-          <PtaBadge
-            status={listing.ptaStatus}
-            networkLock={listing.networkLock}
-            className="h-auto min-h-6 max-w-full py-1 whitespace-normal"
-          />
-          <ConditionChip
-            condition={listing.condition}
-            className="h-auto min-h-6 max-w-full py-1 whitespace-normal"
-          />
-          {listing.batteryHealth !== null ? <BatteryPill health={listing.batteryHealth} /> : null}
-        </div>
-
-        <div className="mt-auto flex items-center gap-1.5 pt-1 text-xs text-muted-foreground">
-          <span className="min-w-0 truncate">
-            {listing.area
-              ? t("location", { area: listing.area, city: listing.city })
-              : listing.city}
-            {" · "}
-            <time dateTime={listing.publishedAt}>
-              {format.relativeTime(new Date(listing.publishedAt), now)}
-            </time>
+        <div className="mt-0.5 text-[13px] font-semibold text-slate">{listing.variantLabel}</div>
+        <div className="mt-[11px]">
+          <span className="bg-lime [box-decoration-break:clone] px-[7px] py-[3px] font-display text-[17px] font-bold">
+            {formatPKR(listing.pricePkr)}
           </span>
-          {listing.verification ? (
-            <VerifiedBadge kind={listing.verification} iconOnly className="ms-auto" />
+        </div>
+        <div className="mt-[10px] flex flex-wrap gap-[6px]">
+          <span
+            className={cn(
+              "border-[1.5px] border-ink px-2 py-[3px] text-[11px] font-bold",
+              approved ? "bg-success" : "bg-danger",
+            )}
+          >
+            {pta(`status.${listing.ptaStatus}`)}
+          </span>
+          {listing.batteryHealth !== null ? (
+            <span className="border-[1.5px] border-ink bg-white px-2 py-[3px] text-[11px] font-bold">
+              🔋 {listing.batteryHealth}%
+            </span>
           ) : null}
+        </div>
+        <div className="mt-auto flex items-center gap-[7px] border-t-[1.5px] border-ink/[0.18] pt-[11px] text-[12.5px] font-semibold text-slate">
+          <span className="min-w-0 truncate">◉ {listing.city}</span>
+          <span className="opacity-40">|</span>
+          <span className="shrink-0">{condition(listing.condition)}</span>
         </div>
       </div>
     </article>

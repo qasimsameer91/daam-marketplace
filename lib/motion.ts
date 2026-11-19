@@ -15,7 +15,7 @@ export const duration = {
 } as const;
 
 export const ease = {
-  standard: [0.2, 0, 0, 1],
+  standard: [0.16, 1, 0.3, 1],
   emphasized: [0.3, 0, 0, 1],
 } as const satisfies Record<string, readonly [number, number, number, number]>;
 

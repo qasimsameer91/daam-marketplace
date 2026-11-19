@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/lib/i18n/navigation";
 import type { MockProfile, MockShop } from "@/lib/mock/people";
 import { cn } from "@/lib/utils";
+import { SellerSafetyActions } from "./seller-safety-actions";
 import { StarRating } from "./star-rating";
 
 export function initials(name: string): string {
@@ -90,6 +91,8 @@ export function SellerCard({ profile, shop, cityName, className }: SellerCardPro
           <ArrowUpRight aria-hidden />
         </Link>
       </Button>
+
+      <SellerSafetyActions sellerName={name} />
     </section>
   );
 }

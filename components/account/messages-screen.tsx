@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { MessageCircle, Send, ArrowLeft } from "lucide-react";
+import { MessageCircle, Send, ArrowLeft, ShieldCheck, ArrowUpRight } from "lucide-react";
 import { usePreviewAccount } from "./preview-provider";
 import { previewThreads } from "@/lib/mock/account";
 import { listings } from "@/lib/mock/marketplace";
@@ -49,12 +49,12 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
     <div className="mx-auto w-full max-w-7xl space-y-6 px-4 py-8 md:px-6 lg:px-8">
       <PreviewNotice />
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-semibold">{t("title")}</h1>
+        <h1 className="text-3xl font-semibold tracking-display md:text-4xl">{t("title")}</h1>
         <Button asChild variant="ghost">
           <Link href="/dashboard">{shell("openDashboard")}</Link>
         </Button>
       </div>
-      <main className="grid min-w-0 gap-6 md:grid-cols-[260px_minmax(0,1fr)]">
+      <main className="grid min-w-0 gap-5 md:grid-cols-[280px_minmax(0,1fr)]">
         <nav aria-label={t("title")} className={cn("space-y-3", thread && "hidden md:block")}>
           {previewThreads.map((th) => (
             <Link
@@ -62,17 +62,26 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
               href={`/messages/${th.id}`}
               aria-current={th.id === threadId ? "page" : undefined}
               className={cn(
-                "block rounded-card border border-border p-4",
-                th.id === threadId ? "bg-muted" : "bg-card",
+                "group flex items-start gap-3 rounded-card border border-border p-4 transition-colors hover:bg-muted/60",
+                th.id === threadId ? "border-foreground/30 bg-muted" : "bg-card",
               )}
             >
-              <p className="font-semibold">{th.name}</p>
-              <p className="mt-2 truncate text-sm text-muted-foreground">
-                {listings.find((l) => l.id === th.listingId)?.modelName}
-              </p>
-              <span className="mt-2 inline-block text-xs text-muted-foreground">
-                {shell("sampleConversation")}
+              <span
+                aria-hidden
+                className="grid size-11 shrink-0 place-items-center rounded-full bg-ink text-sm font-semibold text-paper"
+              >
+                {th.name.charAt(0)}
               </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate font-semibold">{th.name}</span>
+                <span className="mt-1 block truncate text-sm text-muted-foreground">
+                  {listings.find((l) => l.id === th.listingId)?.modelName}
+                </span>
+                <span className="mt-2 block text-xs text-muted-foreground">
+                  {shell("sampleConversation")}
+                </span>
+              </span>
+              <ArrowUpRight aria-hidden className="size-4 shrink-0 text-muted-foreground" />
             </Link>
           ))}
         </nav>
@@ -81,8 +90,8 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
             <EmptyState icon={MessageCircle} title={t("choose")} description={t("previewNote")} />
           </div>
         ) : (
-          <section className="min-w-0 rounded-card border border-border bg-card">
-            <header className="space-y-3 border-b border-border p-4">
+          <section className="min-w-0 overflow-hidden rounded-card border border-border bg-card">
+            <header className="space-y-4 border-b border-border bg-sand/60 p-5 text-foreground">
               <Link
                 href="/messages"
                 className="inline-flex min-h-11 items-center gap-2 text-sm md:hidden"
@@ -90,17 +99,28 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
                 <ArrowLeft aria-hidden className="size-4 rtl:rotate-180" />
                 {t("back")}
               </Link>
-              <h2 className="font-semibold">{thread.name}</h2>
-              <Link
-                href={listing.href}
-                className="inline-block text-sm underline underline-offset-4"
-              >
-                {t("about", { title: listing.modelName })}
-              </Link>
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden
+                  className="grid size-12 shrink-0 place-items-center rounded-full border border-border bg-surface font-semibold"
+                >
+                  {thread.name.charAt(0)}
+                </span>
+                <div className="min-w-0">
+                  <h2 className="truncate text-lg font-semibold">{thread.name}</h2>
+                  <Link
+                    href={listing.href}
+                    className="inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                  >
+                    {t("about", { title: listing.modelName })}
+                  </Link>
+                </div>
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Button
                   variant="outline"
                   size="sm"
+                  className="border-border text-foreground hover:bg-surface"
                   onClick={() => {
                     setBlocked((old) =>
                       isBlocked ? old.filter((id) => id !== thread.id) : [...old, thread.id],
@@ -110,21 +130,34 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
                 >
                   {isBlocked ? shell("unblock") : t("block")}
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => setNotice(shell("reportLocal"))}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-foreground hover:bg-surface"
+                  onClick={() => setNotice(shell("reportLocal"))}
+                >
                   {t("report")}
                 </Button>
               </div>
             </header>
-            <div className="space-y-4 p-4">
-              <aside className="rounded-card bg-muted p-4 text-sm">
-                <h3 className="mb-2 font-semibold">{t("safetyTitle")}</h3>
-                <p>{safety}</p>
+            <div className="space-y-4 p-4 md:p-6">
+              <aside className="flex gap-3 rounded-card border border-border bg-muted/50 p-4 text-sm">
+                <ShieldCheck aria-hidden className="mt-0.5 size-5 shrink-0" />
+                <div>
+                  <h3 className="mb-1 font-semibold">{t("safetyTitle")}</h3>
+                  <p className="text-muted-foreground">{safety}</p>
+                </div>
               </aside>
-              <div role="log" aria-label={t("title")} aria-live="polite" className="space-y-4">
-                <div className="w-fit max-w-[90%] rounded-card bg-muted p-4 text-sm">
+              <div
+                role="log"
+                aria-label={t("title")}
+                aria-live="polite"
+                className="min-h-48 space-y-4 rounded-card bg-muted/30 p-4 md:p-5"
+              >
+                <div className="w-fit max-w-[90%] rounded-card rounded-ss-sm bg-card p-4 text-sm shadow-sm">
                   {shell("sampleMessage")}
                 </div>
-                <div className="w-fit max-w-full space-y-3 rounded-card border border-border p-4">
+                <div className="w-fit max-w-full space-y-3 rounded-card border border-border bg-card p-4 shadow-sm">
                   <p className="text-sm font-semibold">{t("offer")}</p>
                   <p dir="ltr" className="font-mono text-xl">
                     {formatPKR(thread.offer)}
@@ -151,7 +184,7 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
                   .map((m) => (
                     <div
                       key={m.id}
-                      className="ms-auto w-fit max-w-[90%] rounded-card bg-secondary p-4 text-sm break-words text-secondary-foreground"
+                      className="ms-auto w-fit max-w-[90%] rounded-card rounded-se-sm bg-secondary p-4 text-sm break-words text-secondary-foreground"
                     >
                       {m.offer ? (
                         <span className="font-mono" dir="ltr">

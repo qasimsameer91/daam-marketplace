@@ -2,6 +2,7 @@ import "server-only";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { parseCsv, type CsvRow } from "@/lib/csv";
+import type { Catalog } from "@/lib/data/catalog";
 
 /**
  * TEMPORARY: the sell wizard's catalog, read from the seed CSVs until Phase 4 serves brands,
@@ -88,6 +89,31 @@ export async function getSellCatalog(): Promise<SellCatalog> {
       slug: a.slug ?? "",
       nameEn: a.name_en ?? "",
       nameUr: a.name_ur ?? "",
+    })),
+  };
+}
+
+/**
+ * The full seed catalog in the browse `Catalog` shape, so the browse filters list every
+ * brand's whole model line (not just the handful that appear in mock listings) when Supabase
+ * isn't configured. Replaced by `getCatalog()` once Supabase serves the catalog.
+ */
+export async function getSeedBrowseCatalog(): Promise<Catalog> {
+  const sc = await getSellCatalog();
+  return {
+    brands: sc.brands,
+    models: sc.models.map((m) => ({
+      slug: m.slug,
+      brand: m.brandSlug,
+      name: m.name,
+      aliases: m.aliases,
+    })),
+    cities: sc.cities,
+    areas: sc.areas.map((a) => ({
+      slug: a.slug,
+      citySlug: a.citySlug,
+      nameEn: a.nameEn,
+      nameUr: a.nameUr,
     })),
   };
 }

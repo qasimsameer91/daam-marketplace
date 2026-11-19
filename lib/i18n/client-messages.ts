@@ -7,7 +7,16 @@ import type { Messages } from "next-intl";
 const SERVER_ONLY = ["Metadata", "Profile", "Shop", "DevDesign"] as const;
 /** `Pages` is server-only except for the two client forms. */
 const CLIENT_PAGES = ["contact", "reportStolen"] as const;
-const APP_ONLY = ["Shell", "Sell", "Login", "Dashboard", "Messages", "Notifications"] as const;
+const APP_ONLY = [
+  "Shell",
+  "Sell",
+  "Login",
+  "Dashboard",
+  "Messages",
+  "Notifications",
+  "AdminCampaigns",
+  "Admin",
+] as const;
 
 export function pickClientMessages(
   messages: Messages,

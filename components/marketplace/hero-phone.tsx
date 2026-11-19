@@ -1,61 +1,54 @@
 "use client";
 
-import Image from "next/image";
-import { useRef, type CSSProperties, type PointerEvent } from "react";
-import { PriceTag } from "@/components/daam/price-tag";
+import { useRef, type PointerEvent } from "react";
 
-/**
- * Hero: a floating phone with a gently swinging price tag (CSS animations, no motion runtime).
- * Desktop pointer parallax sets --px/--py custom properties; reduced motion is handled in CSS.
- */
+/** A CSS-built three-dimensional phone; pointer movement is decorative only. */
 export function HeroPhone() {
-  const phoneRef = useRef<HTMLDivElement>(null);
+  const device = useRef<HTMLDivElement>(null);
 
-  const onMove = (e: PointerEvent<HTMLDivElement>) => {
+  function move(event: PointerEvent<HTMLDivElement>) {
     if (
-      e.pointerType !== "mouse" ||
+      event.pointerType !== "mouse" ||
       !matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)").matches
-    ) {
+    )
       return;
-    }
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - r.x) / r.width - 0.5) * 12;
-    const y = ((e.clientY - r.y) / r.height - 0.5) * 12;
-    phoneRef.current?.style.setProperty("--px", `${x}px`);
-    phoneRef.current?.style.setProperty("--py", `${y}px`);
-  };
+    const box = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - box.left) / box.width - 0.5;
+    const y = (event.clientY - box.top) / box.height - 0.5;
+    device.current?.style.setProperty("--hero-tilt-x", `${(-y * 9).toFixed(2)}deg`);
+    device.current?.style.setProperty("--hero-tilt-y", `${(x * 12).toFixed(2)}deg`);
+  }
 
-  const reset = () => {
-    phoneRef.current?.style.setProperty("--px", "0px");
-    phoneRef.current?.style.setProperty("--py", "0px");
-  };
+  function reset() {
+    device.current?.style.setProperty("--hero-tilt-x", "0deg");
+    device.current?.style.setProperty("--hero-tilt-y", "0deg");
+  }
 
   return (
-    <div
-      aria-hidden
-      className="relative mx-auto flex aspect-square w-full max-w-md items-center justify-center"
-      onPointerMove={onMove}
-      onPointerLeave={reset}
-    >
-      <div className="absolute inset-8 rounded-full border border-border" />
-      <div className="absolute inset-16 rounded-full border border-border" />
-      <div
-        ref={phoneRef}
-        style={{ "--px": "0px", "--py": "0px" } as CSSProperties}
-        className="relative h-[90%] w-[74%] hero-parallax overflow-hidden rounded-[2rem] shadow-lift"
-      >
-        <Image
-          src="/phone-preview.svg"
-          alt=""
-          fill
-          sizes="(min-width:768px) 360px, 70vw"
-          loading="eager"
-          fetchPriority="high"
-          className="object-cover"
-        />
+    <div className="hero-stage" aria-hidden="true" onPointerMove={move} onPointerLeave={reset}>
+      <div className="hero-stage-orbit hero-stage-orbit-outer" />
+      <div className="hero-stage-orbit hero-stage-orbit-inner" />
+      <div className="hero-stage-cross hero-stage-cross-start">+</div>
+      <div className="hero-stage-cross hero-stage-cross-end">+</div>
+      <div className="hero-device-entrance">
+        <div className="hero-device-float">
+          <div ref={device} className="hero-device" data-slot="hero-3d-phone">
+            <div className="hero-device-edge" />
+            <div className="hero-device-face">
+              <div className="hero-device-camera">
+                <span className="hero-camera-lens" />
+                <span className="hero-camera-lens" />
+                <span className="hero-camera-lens" />
+                <span className="hero-camera-flash" />
+              </div>
+              <span className="hero-device-mark">d.</span>
+            </div>
+            <div className="hero-device-front" />
+          </div>
+        </div>
       </div>
-      <div className="absolute end-0 bottom-14 origin-top hero-tag">
-        <PriceTag amount={125000} size="lg" variant="tag" />
+      <div className="hero-stage-index">
+        <span /> DAAM / 01
       </div>
     </div>
   );

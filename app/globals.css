@@ -2,82 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* CSS-only motion for the home/browse critical path, so those pages don't load the motion runtime. */
-@keyframes daam-reveal {
-  from {
-    opacity: 0.001;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes daam-favorite-pop {
-  0% {
-    transform: scale(0.6);
-  }
-  60% {
-    transform: scale(1.12);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes daam-tag-swing {
-  0% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(4deg);
-  }
-  70% {
-    transform: rotate(-3deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-/* Fade + 8px rise on load (CSS-only; content stays visible without JS or under reduced motion). */
-@utility reveal-on-load {
-  @media not (prefers-reduced-motion: reduce) {
-    animation: daam-reveal 0.32s var(--ease-standard) both;
-  }
-}
-
-/* Heart pop on toggle (plan §14). Paused under reduced motion. */
-@utility favorite-pop {
-  @media not (prefers-reduced-motion: reduce) {
-    animation: daam-favorite-pop var(--duration-base) var(--ease-standard);
-  }
-}
-
-/* Hero price-tag swing on load, desktop-only parallax via --px/--py set in JS. */
-@utility hero-tag {
-  @media not (prefers-reduced-motion: reduce) {
-    animation: daam-tag-swing var(--duration-hero) var(--ease-standard);
-  }
-}
-@utility hero-parallax {
-  transform: translate3d(var(--px, 0), var(--py, 0), 0) rotate(-6deg);
-  transition: transform var(--duration-hero) var(--ease-standard);
-  @media (prefers-reduced-motion: reduce) {
-    transform: rotate(-6deg);
-  }
-}
-
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /*
  * Daam design tokens (plan §4.3, §4.4, §4.5, §14).
  * Raw hex values live ONLY in this file. Components use token utilities
@@ -108,26 +32,39 @@
 }
 
 @theme {
-  /* ---- Brand palette (§4.3) ---- */
-  --color-ink: #0e0f12;
-  --color-paper: #f7f6f2;
-  --color-lime: #d7ff3f;
-  --color-graphite: #2a2c31;
-  --color-slate: #6b6f76;
-  --color-mist: #e7e6e1;
-  --color-success: #12b76a;
-  --color-warning: #f59e0b;
-  --color-danger: #e5484d;
-  --color-info: #3b82f6;
-  /* Dark-mode surfaces (§4.3 "Dark mode") */
-  --color-night: #0b0c0e;
-  --color-night-surface: #15171b;
-  --color-night-text: #f2f1ec;
+  /* ---- Brand palette (DAAM editorial: ink / ivory / lime — from the .dc.html design pack) ---- */
+  --color-ink: #2b0f1c; /* primary text, 2px borders, dark fills, footers */
+  --color-paper: #f4efe4; /* ivory page ground */
+  --color-lime: #d8f500; /* CTAs, price chips, active states, highlights */
+  --color-graphite: #3a1826; /* dark plum surface (dark-mode cards) */
+  --color-slate: #6a5560; /* secondary / muted text */
+  --color-mist: #e3dccb; /* light dividers, neutral chips */
+  --color-clay: #ad7456;
+  --color-clay-ink: #915b3f;
+  --color-sand: #efe9dc; /* placeholder beige (image placeholders) */
+  --color-pearl: #eeece8;
+  --color-body: #44303a; /* paragraph ink */
+  /* Status badge fills (pastel bg + dark ink text, over a 2px ink border) */
+  --color-success: #cfe8c4; /* PTA Approved */
+  --color-success-ink: #234016;
+  --color-warning: #f3e0b8; /* scheduled / pending */
+  --color-warning-ink: #6b4e12;
+  --color-danger: #f3d9c4; /* Non-PTA / caution */
+  --color-danger-ink: #8a3b1f;
+  --color-info: #cfe0ef;
+  --color-live: #3ea76a; /* admin live dot */
+  /* Dark-mode surfaces */
+  --color-night: #1a0912;
+  --color-night-surface: #3a1826;
+  --color-night-text: #f4efe4;
 
-  /* ---- Typography (§4.4) ---- */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
-  --font-urdu: var(--font-noto-nastaliq), "Noto Naskh Arabic", var(--font-geist-sans), serif;
+  /* ---- Typography: Bricolage Grotesque (display + prices) + Inter (UI/body) ---- */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-heading: var(--font-display);
+  /* Prices, specs and grades use the display face (big, tight, editorial). */
+  --font-mono: var(--font-bricolage), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-urdu: var(--font-noto-nastaliq), "Noto Naskh Arabic", var(--font-inter), serif;
 
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
@@ -151,13 +88,13 @@
   --text-6xl--line-height: 4.75rem;
   --tracking-display: -0.02em;
 
-  /* ---- Shape (§4.5) ---- */
-  --radius-card: 14px;
-  --radius-button: 10px;
-  --radius-chip: 9999px;
+  /* ---- Shape: hard-edged editorial look (radius 0 everywhere) ---- */
+  --radius-card: 0px;
+  --radius-button: 0px;
+  --radius-chip: 0px;
 
   /* ---- Motion (§14) ---- */
-  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
   --animate-shimmer: daam-shimmer 1.4s var(--ease-standard) infinite;
 
@@ -180,30 +117,33 @@
   /* ---- Semantic tokens: light ---- */
   --background: var(--color-paper);
   --foreground: var(--color-ink);
-  --surface: color-mix(in oklab, var(--color-paper) 35%, white);
+  --surface: #ffffff;
   --card: var(--surface);
   --card-foreground: var(--color-ink);
   --popover: var(--surface);
   --popover-foreground: var(--color-ink);
+  /* Primary CTA = lime fill with ink text (the .dc.html signature). */
   --primary: var(--color-lime);
   --primary-foreground: var(--color-ink);
   --secondary: var(--color-ink);
   --secondary-foreground: var(--color-paper);
-  --muted: var(--color-mist);
+  --muted: var(--color-sand);
   --muted-foreground: var(--color-slate);
-  --accent: var(--color-mist);
+  --accent: var(--color-sand);
   --accent-foreground: var(--color-ink);
   --destructive: var(--color-danger);
   --destructive-foreground: var(--color-ink);
-  /* Danger as TEXT on light surfaces needs darkening to pass WCAG AA (raw danger is ~3.6:1). */
-  --destructive-text: color-mix(in oklab, var(--color-danger) 70%, var(--color-ink));
-  --border: var(--color-mist);
-  --input: color-mix(in oklab, var(--color-mist) 60%, var(--color-slate));
+  /* Destructive as readable text on the ivory ground. */
+  --destructive-text: var(--color-danger-ink);
+  /* Signature 2px ink border on nearly every surface. */
+  --border: var(--color-ink);
+  --input: var(--color-ink);
   --ring: var(--color-ink);
-  --radius: 10px;
-  --shadow-lift: 0 10px 30px -12px color-mix(in oklab, var(--color-ink) 28%, transparent);
-  --skeleton-base: var(--color-mist);
-  --skeleton-shine: color-mix(in oklab, var(--color-mist) 40%, white);
+  --radius: 0px;
+  /* Hard editorial drop shadow (6px 6px 0 ink) used on card hover. */
+  --shadow-lift: 6px 6px 0 var(--color-ink);
+  --skeleton-base: var(--color-sand);
+  --skeleton-shine: color-mix(in oklab, var(--color-sand) 40%, white);
   color-scheme: light;
 }
 
@@ -372,7 +312,14 @@
     line-height: 1.5;
   }
   :where(h1, h2, h3, h4) {
+    font-family: var(--font-display);
     text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  /* Urdu headings keep the Nastaliq face, not the Latin display font. */
+  :lang(ur) :where(h1, h2, h3, h4) {
+    font-family: var(--font-urdu);
+    letter-spacing: normal;
   }
   @media (prefers-reduced-motion: reduce) {
     *,
@@ -380,5 +327,217 @@
     *::after {
       scroll-behavior: auto !important;
     }
+  }
+}
+
+/* Reference-pack art direction. The consumer shell boots into the light palette. */
+.editorial-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+:lang(ur) .editorial-serif {
+  font-family: var(--font-urdu);
+  font-style: normal;
+  letter-spacing: normal;
+}
+.editorial-section {
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+}
+.editorial-text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-underline-offset: 5px;
+}
+.editorial-text-link:hover {
+  text-decoration: underline;
+}
+.nav-editorial-link {
+  position: relative;
+  color: var(--color-graphite);
+}
+.nav-editorial-link::after {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 5px;
+  height: 1px;
+  background: var(--color-clay);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 220ms var(--ease-standard);
+}
+.nav-editorial-link:hover::after,
+.nav-editorial-link[aria-current]::after {
+  transform: scaleX(1);
+}
+.editorial-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 560px;
+  border-radius: 28px;
+  background: var(--color-sand);
+}
+.editorial-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: 51%;
+  padding: clamp(36px, 5vw, 70px) clamp(28px, 4vw, 62px);
+}
+.editorial-headline {
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.065em;
+}
+.editorial-headline em {
+  margin-top: 6px;
+}
+:lang(ur) .editorial-headline {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.9;
+  letter-spacing: normal;
+}
+.editorial-art-frame {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  inset-inline-end: -6%;
+  width: 71%;
+  mask-image: linear-gradient(to right, transparent, black 27%);
+  transform: translate3d(var(--art-x, 0px), var(--art-y, 0px), 0);
+  transition: transform 320ms var(--ease-standard);
+}
+:dir(rtl) .editorial-art-frame {
+  mask-image: linear-gradient(to left, transparent, black 27%);
+}
+.editorial-art-float {
+  position: absolute;
+  inset: 0;
+}
+.editorial-art {
+  object-position: 65% center;
+}
+.editorial-orb {
+  position: absolute;
+  top: 15%;
+  inset-inline-start: 23%;
+  width: 40px;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, white 60%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    white,
+    color-mix(in srgb, var(--color-clay) 15%, transparent) 65%
+  );
+  opacity: 0.7;
+}
+.reveal-on-load {
+  height: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .editorial-art-float {
+    animation: editorial-float 7s ease-in-out infinite alternate;
+  }
+  .editorial-orb {
+    animation: editorial-float 6s ease-in-out infinite alternate-reverse;
+  }
+  .editorial-hero[data-paused="true"] :is(.editorial-art-float, .editorial-orb) {
+    animation-play-state: paused;
+  }
+  .editorial-hero-copy > * {
+    animation: editorial-enter 650ms var(--ease-standard) both;
+  }
+  .editorial-hero-copy > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+  .editorial-hero-copy > :nth-child(3) {
+    animation-delay: 140ms;
+  }
+  .editorial-hero-copy > :nth-child(4) {
+    animation-delay: 190ms;
+  }
+  .reveal-on-load {
+    animation: editorial-enter 550ms var(--ease-standard) both;
+  }
+  @supports (animation-timeline: view()) {
+    .editorial-reveal {
+      animation: editorial-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 22%;
+    }
+  }
+  @keyframes editorial-float {
+    from {
+      transform: translateY(0) scale(1.025);
+    }
+    to {
+      transform: translateY(-8px) scale(1.04);
+    }
+  }
+  @keyframes page-enter {
+    from {
+      opacity: 0.75;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes editorial-enter {
+    from {
+      opacity: 0.5;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .editorial-hero-copy {
+    width: 57%;
+    padding: 45px 30px;
+  }
+  .editorial-hero {
+    min-height: 530px;
+  }
+}
+@media (max-width: 767px) {
+  .editorial-hero {
+    min-height: 680px;
+  }
+  .editorial-hero-copy {
+    width: 100%;
+    padding: 34px 25px 300px;
+  }
+  .editorial-headline {
+    font-size: clamp(2.4rem, 10vw, 3.3rem);
+  }
+  .editorial-art-frame {
+    top: auto;
+    bottom: -12px;
+    height: 310px;
+    width: 110%;
+    inset-inline-end: -5%;
+    mask-image: linear-gradient(to bottom, transparent, black 20%);
+  }
+  :dir(rtl) .editorial-art-frame {
+    mask-image: linear-gradient(to bottom, transparent, black 20%);
+  }
+  .editorial-art {
+    object-position: 65% center;
+  }
+  .editorial-orb {
+    width: 26px;
   }
 }

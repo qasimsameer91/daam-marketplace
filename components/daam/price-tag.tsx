@@ -37,7 +37,7 @@ export function PriceTag({
     <bdi
       dir="ltr"
       title={short ? fullText : undefined}
-      className={cn("font-mono font-semibold tabular-nums", sizes[size])}
+      className={cn("font-sans font-bold tracking-tight tabular-nums", sizes[size])}
     >
       {text}
     </bdi>

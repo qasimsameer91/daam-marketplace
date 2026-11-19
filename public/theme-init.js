@@ -1,5 +1,3 @@
-// Inlined by the locale layout before first paint. Keep in sync with hooks/use-theme.ts.
-try {
-  var t = localStorage.getItem("daam-theme");
-  if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
-} catch {}
+// The consumer product uses the approved light palette, independently of OS
+// and old saved preferences. The development gallery can opt into its preview.
+document.documentElement.dataset.theme = "light";

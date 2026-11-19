@@ -5,7 +5,11 @@ import { dirname, join } from "node:path";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const container = process.env.DAAM_DB_CONTAINER || "supabase_db_daam";
-for (const name of ["phase4_read_security.sql", "phase4_write_security.sql"]) {
+for (const name of [
+  "phase4_read_security.sql",
+  "phase4_write_security.sql",
+  "campaign_security.sql",
+]) {
   process.stdout.write(`Running ${name} against ${container} (fixtures roll back)\n`);
   const result = spawnSync(
     "docker",

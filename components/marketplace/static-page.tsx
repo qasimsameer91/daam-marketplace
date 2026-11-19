@@ -24,12 +24,14 @@ export function StaticPage({
   return (
     <main
       className={cn(
-        "mx-auto w-full px-4 py-10 md:px-6 md:py-14 lg:px-8",
+        "mx-auto w-full px-5 py-12 md:px-8 md:py-16 lg:px-10",
         wide ? "max-w-6xl" : "max-w-3xl",
       )}
     >
-      <header className="mb-8 flex flex-col gap-3">
-        <h1 className="text-3xl font-semibold tracking-display md:text-4xl">{title}</h1>
+      <header className="mb-10 flex flex-col gap-4 border-b border-border pb-9">
+        <h1 className="text-[clamp(2.2rem,4vw,3.7rem)] leading-tight font-semibold tracking-[-0.05em] rtl:leading-[1.8]">
+          {title}
+        </h1>
         {intro ? <p className="text-lg text-muted-foreground">{intro}</p> : null}
         {legalDraft ? (
           <p className="flex items-center gap-2 rounded-button bg-warning px-3 py-2 text-sm text-ink">
@@ -54,7 +56,10 @@ export function PageSection({
   children: ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className="flex flex-col gap-4">
+    <section
+      aria-labelledby={id}
+      className="flex flex-col gap-4 rounded-card border border-border bg-surface p-6 leading-relaxed md:p-8"
+    >
       <h2 id={id} className="text-xl font-semibold tracking-display">
         {title}
       </h2>

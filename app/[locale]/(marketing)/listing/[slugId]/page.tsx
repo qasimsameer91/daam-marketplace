@@ -6,7 +6,6 @@ import { BatteryPill } from "@/components/daam/battery-pill";
 import { ConditionChip } from "@/components/daam/condition-chip";
 import { DaamMeter } from "@/components/daam/daam-meter";
 import { ListingCard } from "@/components/daam/listing-card";
-import { PriceTag } from "@/components/daam/price-tag";
 import { SafetyCard } from "@/components/daam/safety-card";
 import { ContactActions } from "@/components/listing/contact-actions";
 import { CpidBanner } from "@/components/listing/cpid-banner";
@@ -32,6 +31,8 @@ import {
 import { findProfile, findShop } from "@/lib/mock/people";
 import { productOfferJsonLd } from "@/lib/seo/json-ld";
 import { absoluteUrl } from "@/lib/site";
+import { Suspense } from "react";
+import { CampaignBanner } from "@/components/marketplace/campaign-placement";
 
 const MEETUP_KEYS = [
   "public_place",
@@ -83,7 +84,9 @@ export default async function ListingPage({ params }: PageProps<"/[locale]/listi
   const d = listing.detail;
   const images = Array.from({ length: Math.max(d.imageCount, 1) }, (_, i) => ({
     src: listing.imageUrl ?? "/phone-preview.svg",
-    alt: `${title} (${t("gallery.photo", { n: i + 1, total: d.imageCount })})`,
+    alt: listing.isDemo
+      ? card("illustrativeImage")
+      : `${title} (${t("gallery.photo", { n: i + 1, total: d.imageCount })})`,
   }));
 
   return (
@@ -131,18 +134,28 @@ export default async function ListingPage({ params }: PageProps<"/[locale]/listi
         </ol>
       </nav>
 
+      <p className="mb-5 rounded-xl border border-border bg-sand/50 px-4 py-3 text-xs text-muted-foreground">
+        {market("demo")}
+      </p>
       <div className="grid gap-8 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:gap-12">
         <ListingGallery images={images} title={title} />
 
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 self-start rounded-card border border-border bg-surface p-5 md:p-7">
           {requiresCpidBanner(listing.ptaStatus) ? (
             <CpidBanner body={copy.get("cpid.banner") ?? ""} />
           ) : null}
 
           <div className="flex flex-col gap-3">
-            <h1 className="text-2xl font-semibold tracking-display md:text-3xl">{title}</h1>
-            <div className="flex flex-wrap items-end gap-x-4 gap-y-2">
-              <PriceTag amount={listing.pricePkr} size="lg" negotiable={d.isNegotiable} />
+            <div>
+              <h1 className="font-display text-[clamp(32px,4vw,52px)] leading-[0.95] font-extrabold tracking-[-1.6px] rtl:leading-[1.3]">
+                {listing.modelName}
+              </h1>
+              <div className="mt-1 text-lg font-semibold text-body">{listing.variantLabel}</div>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span className="bg-lime px-3 py-[5px] font-display text-[30px] font-extrabold text-ink">
+                {formatPKR(listing.pricePkr)}
+              </span>
               <DaamMeter band={listing.daamBand} size="md" range={d.daamRange} showUnknown />
             </div>
             <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
@@ -198,7 +211,10 @@ export default async function ListingPage({ params }: PageProps<"/[locale]/listi
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
         <div className="flex flex-col gap-8">
-          <section aria-labelledby="desc-title" className="flex flex-col gap-2">
+          <section
+            aria-labelledby="desc-title"
+            className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6"
+          >
             <h2 id="desc-title" className="text-xl font-semibold">
               {t("description")}
             </h2>
@@ -206,7 +222,10 @@ export default async function ListingPage({ params }: PageProps<"/[locale]/listi
             {/* Plain text only: user content is never rendered as HTML. */}
             <p className="text-base whitespace-pre-line">{d.description}</p>
           </section>
-          <section aria-labelledby="spec-title" className="flex flex-col gap-3">
+          <section
+            aria-labelledby="spec-title"
+            className="flex flex-col gap-3 rounded-card border border-border bg-surface p-6"
+          >
             <h2 id="spec-title" className="text-xl font-semibold">
               {t("specs")}
             </h2>
@@ -228,6 +247,9 @@ export default async function ListingPage({ params }: PageProps<"/[locale]/listi
         </aside>
       </div>
 
+      <Suspense fallback={null}>
+        <CampaignBanner placement="listing_page" locale={locale} />
+      </Suspense>
       <section aria-labelledby="similar-title" className="mt-14">
         <h2 id="similar-title" className="mb-5 text-2xl font-semibold tracking-display">
           {t("similar")}

@@ -16,7 +16,7 @@ const light = {
   foreground: c("ink"),
   muted: c("mist"),
   mutedForeground: c("slate"),
-  destructiveText: mixOklab(c("danger"), 0.7, c("ink")),
+  destructiveText: c("dangerInk"),
 };
 const dark = {
   background: c("night"),

@@ -16,3 +16,11 @@ id,name,slug,parent_slug,sort_order
 15,Nokia,nokia,,150
 16,Sony,sony,,160
 17,Other,other,,999
+18,LG,lg,,155
+19,Honor,honor,,134
+20,Nothing,nothing,,165
+21,Asus,asus,,168
+22,itel,itel,,170
+23,QMobile,qmobile,,175
+24,ZTE,zte,,178
+25,Lenovo,lenovo,,180

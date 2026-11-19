@@ -21,7 +21,7 @@ export default async function ForShopsPage() {
   const t = await getTranslations("Pages.forShops");
   return (
     <StaticPage title={t("title")} intro={t("intro")} wide>
-      <section className="flex flex-col gap-3 rounded-card bg-ink p-6 text-paper md:p-8">
+      <section className="flex flex-col gap-3 rounded-card bg-sand p-6 text-foreground md:p-8">
         <span className="flex size-10 items-center justify-center rounded-full bg-lime text-ink">
           <Award aria-hidden className="size-5" />
         </span>

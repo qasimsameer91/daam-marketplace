@@ -5,9 +5,9 @@ import type { Tone } from "@/lib/domain/pta";
  * (raw status colours are never used as text). Always pair with an icon + label.
  */
 export const toneClasses: Record<Tone, string> = {
-  success: "bg-success text-ink",
-  warning: "bg-warning text-ink",
-  danger: "bg-danger text-ink",
+  success: "bg-success/10 text-success-ink dark:bg-success dark:text-ink",
+  warning: "bg-warning/10 text-warning-ink dark:bg-warning dark:text-ink",
+  danger: "bg-danger/10 text-danger-ink dark:bg-danger dark:text-ink",
   neutral: "bg-muted text-foreground",
 };
 

@@ -44,6 +44,7 @@ function currentMonth(now: Date) {
  */
 export function SellWizard(data: SellData) {
   const t = useTranslations("Sell");
+  const r = useTranslations("Redesign");
   const tSteps = useTranslations("Sell.steps");
   const common = useTranslations("Common");
   const rtl = useLocale() === "ur";
@@ -155,8 +156,13 @@ export function SellWizard(data: SellData) {
   return (
     <SellFormProvider form={form} data={data}>
       <div className="flex flex-col gap-6">
-        <header className="flex flex-col gap-2">
-          <h1 className="text-3xl font-semibold tracking-display">{t("title")}</h1>
+        <header className="mb-5 flex flex-col items-center gap-4 text-center">
+          <p className="text-[0.65rem] font-bold tracking-[0.18em] text-clay-ink uppercase">
+            {r("sellEyebrow")}
+          </p>
+          <h1 className="text-[clamp(2.2rem,4vw,3.5rem)] leading-tight font-semibold tracking-[-0.05em] rtl:leading-[1.8]">
+            {t("title")}
+          </h1>
           <p className="text-muted-foreground">{t("intro")}</p>
           <p className="text-xs text-muted-foreground">{t("previewNote")}</p>
         </header>
@@ -176,81 +182,92 @@ export function SellWizard(data: SellData) {
 
         {typeof screen === "number" ? <WizardStepper steps={stepNames} current={screen} /> : null}
 
-        <form
-          noValidate
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (screen === "preview") publish();
-            else next();
-          }}
-          className="flex flex-col gap-6 pb-28 md:pb-0"
-        >
-          <h2
-            ref={headingRef}
-            tabIndex={-1}
-            className={screen === "success" ? "sr-only" : "text-xl font-semibold outline-none"}
+        <div className="grid items-start gap-6 lg:grid-cols-[0.75fr_1.25fr]">
+          <aside className="relative overflow-hidden rounded-card bg-sand p-6 lg:sticky lg:top-28 lg:min-h-[600px] lg:p-9">
+            <span className="font-mono text-xs text-clay-ink">0{stepIndex + 1} / 06</span>
+            <h2 className="mt-5 text-2xl leading-tight font-semibold tracking-display md:text-3xl rtl:leading-[1.8]">
+              {r("sellAside")}
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              {r("sellAsideBody")}
+            </p>
+          </aside>
+          <form
+            noValidate
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (screen === "preview") publish();
+              else next();
+            }}
+            className="flex min-w-0 flex-col gap-6 rounded-card border border-border bg-surface p-5 pb-28 md:p-8"
           >
-            {heading}
-          </h2>
+            <h2
+              ref={headingRef}
+              tabIndex={-1}
+              className={screen === "success" ? "sr-only" : "text-xl font-semibold outline-none"}
+            >
+              {heading}
+            </h2>
 
-          <div className="overflow-x-clip">
-            <AnimatePresence mode="wait" initial={false} custom={direction}>
-              <motion.div
-                key={String(screen)}
-                {...slide}
-                transition={{ duration: duration.base, ease: ease.standard }}
-              >
-                {screen === 0 ? <StepPhone /> : null}
-                {screen === 1 ? <StepPta /> : null}
-                {screen === 2 ? <StepCondition /> : null}
-                {screen === 3 ? <StepExtras maxMonth={currentMonth(now)} /> : null}
-                {screen === 4 ? <StepPhotos /> : null}
-                {screen === 5 ? <StepPrice /> : null}
-                {screen === "preview" ? (
-                  <SellPreview now={now} onEdit={(s) => go(WIZARD_STEPS.indexOf(s))} />
-                ) : null}
-                {screen === "success" ? (
-                  <SellSuccess title={publishedTitle} onAnother={startOver} />
-                ) : null}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {screen !== "success" ? (
-            <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-30 flex gap-3 border-t border-border bg-background/95 p-3 backdrop-blur md:static md:z-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
-              <Button
-                type="button"
-                variant="outline"
-                className="flex-1 md:flex-none"
-                disabled={screen === 0}
-                onClick={() =>
-                  go(screen === "preview" ? LAST : Math.max(0, (screen as number) - 1))
-                }
-              >
-                <ArrowLeft aria-hidden className="rtl:rotate-180" />
-                {common("back")}
-              </Button>
-              <Button type="submit" className="flex-1 md:ms-auto md:flex-none">
-                {screen === "preview" ? (
-                  <>
-                    <Check aria-hidden />
-                    {t("publish")}
-                  </>
-                ) : screen === LAST ? (
-                  <>
-                    <Eye aria-hidden />
-                    {t("toPreview")}
-                  </>
-                ) : (
-                  <>
-                    {common("next")}
-                    <ArrowRight aria-hidden className="rtl:rotate-180" />
-                  </>
-                )}
-              </Button>
+            <div className="overflow-x-clip">
+              <AnimatePresence mode="wait" initial={false} custom={direction}>
+                <motion.div
+                  key={String(screen)}
+                  {...slide}
+                  transition={{ duration: duration.base, ease: ease.standard }}
+                >
+                  {screen === 0 ? <StepPhone /> : null}
+                  {screen === 1 ? <StepPta /> : null}
+                  {screen === 2 ? <StepCondition /> : null}
+                  {screen === 3 ? <StepExtras maxMonth={currentMonth(now)} /> : null}
+                  {screen === 4 ? <StepPhotos /> : null}
+                  {screen === 5 ? <StepPrice /> : null}
+                  {screen === "preview" ? (
+                    <SellPreview now={now} onEdit={(s) => go(WIZARD_STEPS.indexOf(s))} />
+                  ) : null}
+                  {screen === "success" ? (
+                    <SellSuccess title={publishedTitle} onAnother={startOver} />
+                  ) : null}
+                </motion.div>
+              </AnimatePresence>
             </div>
-          ) : null}
-        </form>
+
+            {screen !== "success" ? (
+              <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom))] z-30 flex gap-3 border-t border-border bg-background/95 p-3 backdrop-blur md:static md:z-auto md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="flex-1 md:flex-none"
+                  disabled={screen === 0}
+                  onClick={() =>
+                    go(screen === "preview" ? LAST : Math.max(0, (screen as number) - 1))
+                  }
+                >
+                  <ArrowLeft aria-hidden className="rtl:rotate-180" />
+                  {common("back")}
+                </Button>
+                <Button type="submit" className="flex-1 md:ms-auto md:flex-none">
+                  {screen === "preview" ? (
+                    <>
+                      <Check aria-hidden />
+                      {t("publish")}
+                    </>
+                  ) : screen === LAST ? (
+                    <>
+                      <Eye aria-hidden />
+                      {t("toPreview")}
+                    </>
+                  ) : (
+                    <>
+                      {common("next")}
+                      <ArrowRight aria-hidden className="rtl:rotate-180" />
+                    </>
+                  )}
+                </Button>
+              </div>
+            ) : null}
+          </form>
+        </div>
       </div>
     </SellFormProvider>
   );

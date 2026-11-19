@@ -16,6 +16,7 @@ import type {
 } from "@/lib/domain/condition";
 import type { PtaCheckSource, PtaRegType } from "@/lib/domain/pta";
 import { DESIGN_NOW, sampleListings } from "./design-samples";
+import { EXTRA_PHONES } from "./extra-listings";
 
 export const mockNow = DESIGN_NOW;
 export const brands = [
@@ -32,9 +33,17 @@ export const brands = [
   ["tecno", "Tecno"],
   ["infinix", "Infinix"],
   ["huawei", "Huawei"],
+  ["honor", "Honor"],
   ["motorola", "Motorola"],
   ["nokia", "Nokia"],
   ["sony", "Sony"],
+  ["lg", "LG"],
+  ["nothing", "Nothing"],
+  ["asus", "Asus"],
+  ["itel", "itel"],
+  ["qmobile", "QMobile"],
+  ["zte", "ZTE"],
+  ["lenovo", "Lenovo"],
   ["other", "Other"],
 ].map(([slug, name]) => ({ slug: slug!, name: name! }));
 export const cities = [
@@ -64,6 +73,47 @@ export const models = [
   { slug: "redmi-note-13", brand: "redmi", name: "Redmi Note 13", aliases: ["note 13"] },
   { slug: "pixel-7-pro", brand: "google", name: "Pixel 7 Pro", aliases: ["p7p", "pixel 7p"] },
   { slug: "galaxy-a54", brand: "samsung", name: "Galaxy A54", aliases: ["a54"] },
+  // LG (Korean Android sets are common in Pakistan — carrier-locked LG U+ / SKT / KT).
+  { slug: "lg-v50-thinq", brand: "lg", name: "LG V50 ThinQ 5G", aliases: ["v50", "lg v50"] },
+  { slug: "lg-v60-thinq", brand: "lg", name: "LG V60 ThinQ 5G", aliases: ["v60", "lg v60"] },
+  { slug: "lg-g8-thinq", brand: "lg", name: "LG G8 ThinQ", aliases: ["g8", "lg g8"] },
+  { slug: "lg-velvet", brand: "lg", name: "LG Velvet", aliases: ["velvet"] },
+  {
+    slug: "lg-v50-thinq-korean",
+    brand: "lg",
+    name: "LG V50 ThinQ (Korean / LG U+)",
+    aliases: ["lg u+", "lgu+", "korean v50", "v50 skt", "v50 kt"],
+  },
+  {
+    slug: "lg-v60-thinq-korean",
+    brand: "lg",
+    name: "LG V60 ThinQ (Korean / LG U+)",
+    aliases: ["lg u+", "lgu+", "korean v60"],
+  },
+  // Samsung Japan (docomo / au) sets.
+  {
+    slug: "galaxy-s23-jp",
+    brand: "samsung",
+    name: "Galaxy S23 (Japan / docomo)",
+    aliases: ["s23 jp", "s23 japan"],
+  },
+  {
+    slug: "galaxy-note20-ultra-jp",
+    brand: "samsung",
+    name: "Galaxy Note20 Ultra (Japan / au)",
+    aliases: ["note20 jp"],
+  },
+  { slug: "honor-magic6-pro", brand: "honor", name: "Honor Magic6 Pro", aliases: ["magic 6 pro"] },
+  { slug: "honor-90", brand: "honor", name: "Honor 90", aliases: ["honor90"] },
+  { slug: "nothing-phone-2", brand: "nothing", name: "Nothing Phone (2)", aliases: ["phone 2"] },
+  {
+    slug: "asus-rog-phone-7",
+    brand: "asus",
+    name: "Asus ROG Phone 7",
+    aliases: ["rog 7", "rog phone 7"],
+  },
+  { slug: "itel-a70", brand: "itel", name: "itel A70", aliases: ["a70"] },
+  { slug: "zte-nubia-z50", brand: "zte", name: "ZTE Nubia Z50", aliases: ["nubia z50"] },
 ];
 
 /** Extra detail shown on the listing page (plan §7.2 specification fields). */
@@ -236,10 +286,11 @@ const base = sampleListings.map((listing, i): MockListing => {
     box: i < 2,
     imeiOnFile: true,
     checked: i === 0,
-    imageUrl: "/phone-preview.svg",
+    imageUrl: null,
+    isDemo: true,
     sellerUsername,
     shopSlug: sellerUsername === "hafeez-mobile-hub" ? "hafeez-mobile-hub" : null,
-    detail: DETAILS[i]!,
+    detail: { ...DETAILS[i]!, imageCount: 1 },
   };
 });
 
@@ -257,6 +308,8 @@ export const listings: MockListing[] = [
     return {
       ...source,
       id: `mock-${i + 5}`,
+      imageUrl: null,
+      isDemo: true,
       slug,
       shortId,
       href: listingHref(slug, shortId),
@@ -289,9 +342,59 @@ export const listings: MockListing[] = [
       publishedAt: new Date(mockNow.getTime() - (i + 1) * 86400000).toISOString(),
       detail: {
         ...DETAILS[i % 2]!,
+        imageCount: 1,
         ptaCheckSource: "seller_declared",
         ptaCheckedAt: null,
         ptaRegType: ptaStatus === "pta_approved" ? "official_import" : null,
+      },
+    };
+  }),
+  // A diverse card per catalog model so Browse shows every brand's phones (not just a few).
+  ...EXTRA_PHONES.map((p, i): MockListing => {
+    const slug = slugFor(p.name, p.variant);
+    const shortId = shortIdFor(i + 100);
+    const sellerUsername = SELLERS[i % SELLERS.length]!;
+    const colors = ["black", "silver", "green"] as const;
+    return {
+      id: `extra-${i}`,
+      slug,
+      shortId,
+      href: listingHref(slug, shortId),
+      modelName: p.name,
+      variantLabel: p.variant,
+      pricePkr: p.price,
+      daamBand: (["great", "fair", "high"] as const)[i % 3]!,
+      ptaStatus: p.pta,
+      networkLock: p.lock,
+      condition: p.condition,
+      batteryHealth: p.battery,
+      city: p.city,
+      citySlug: p.city,
+      area: null,
+      areaSlug: "",
+      publishedAt: new Date(mockNow.getTime() - (i + 1) * 43200000).toISOString(),
+      imageUrl: null,
+      isDemo: true,
+      isFeatured: false,
+      isFavorited: false,
+      verification: sellerUsername === "hafeez-mobile-hub" ? "shop" : null,
+      brand: p.brand,
+      model: p.model,
+      storage: p.storage,
+      ram: p.ram,
+      color: colors[i % colors.length]!,
+      warranty: i % 4 === 0,
+      box: p.condition === "like_new",
+      imeiOnFile: true,
+      checked: false,
+      sellerUsername,
+      shopSlug: sellerUsername === "hafeez-mobile-hub" ? "hafeez-mobile-hub" : null,
+      detail: {
+        ...DETAILS[i % DETAILS.length]!,
+        imageCount: 1,
+        ptaCheckSource: "seller_declared",
+        ptaCheckedAt: null,
+        ptaRegType: p.pta === "pta_approved" ? "official_import" : null,
       },
     };
   }),

@@ -135,6 +135,70 @@ isOneToOne: false
       referencedColumns: ["id"]
     }
                   ]
+                },"campaign_banners": {
+                  Row: {
+                    "approved_at": string | null,"created_at": string,"created_by": string | null,"cta_en": string,"cta_ur": string,"cta_url": string,"description_en": string,"description_ur": string,"desktop_image_url": string | null,"ends_at": string,"id": string,"is_active": boolean,"mobile_image_url": string | null,"placement": string,"priority": number,"starts_at": string,"status": string,"subtitle_en": string,"subtitle_ur": string,"theme": string,"title_en": string,"title_ur": string,"updated_at": string,"updated_by": string | null
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "approved_at"?: string | null,"created_at"?: string,"created_by"?: string | null,"cta_en": string,"cta_ur": string,"cta_url": string,"description_en"?: string,"description_ur"?: string,"desktop_image_url"?: string | null,"ends_at": string,"id"?: string,"is_active"?: boolean,"mobile_image_url"?: string | null,"placement": string,"priority"?: number,"starts_at": string,"status"?: string,"subtitle_en"?: string,"subtitle_ur"?: string,"theme"?: string,"title_en": string,"title_ur": string,"updated_at"?: string,"updated_by"?: string | null
+                  }
+                  Update: {
+                    "approved_at"?: string | null,"created_at"?: string,"created_by"?: string | null,"cta_en"?: string,"cta_ur"?: string,"cta_url"?: string,"description_en"?: string,"description_ur"?: string,"desktop_image_url"?: string | null,"ends_at"?: string,"id"?: string,"is_active"?: boolean,"mobile_image_url"?: string | null,"placement"?: string,"priority"?: number,"starts_at"?: string,"status"?: string,"subtitle_en"?: string,"subtitle_ur"?: string,"theme"?: string,"title_en"?: string,"title_ur"?: string,"updated_at"?: string,"updated_by"?: string | null
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "campaign_banners_created_by_fkey"
+      columns: ["created_by"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "campaign_banners_created_by_fkey"
+      columns: ["created_by"]
+isOneToOne: false
+      referencedRelation: "public_profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "campaign_banners_updated_by_fkey"
+      columns: ["updated_by"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "campaign_banners_updated_by_fkey"
+      columns: ["updated_by"]
+isOneToOne: false
+      referencedRelation: "public_profiles"
+      referencedColumns: ["id"]
+    }
+                  ]
+                },"campaign_media": {
+                  Row: {
+                    "bytes": number,"created_at": string,"created_by": string,"height": number,"id": string,"storage_path": string,"width": number
+                  }
+                  ComputedFields: never
+                  Insert: {
+                    "bytes": number,"created_at"?: string,"created_by"?: string,"height": number,"id"?: string,"storage_path": string,"width": number
+                  }
+                  Update: {
+                    "bytes"?: number,"created_at"?: string,"created_by"?: string,"height"?: number,"id"?: string,"storage_path"?: string,"width"?: number
+                  }
+                  Relationships: [
+                    {
+      foreignKeyName: "campaign_media_created_by_fkey"
+      columns: ["created_by"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
+    },{
+      foreignKeyName: "campaign_media_created_by_fkey"
+      columns: ["created_by"]
+isOneToOne: false
+      referencedRelation: "public_profiles"
+      referencedColumns: ["id"]
+    }
+                  ]
                 },"cities": {
                   Row: {
                     "id": number,"is_major": boolean | null,"name_en": string,"name_ur": string,"province": string,"slug": string,"sort_order": number | null
@@ -1047,11 +1111,17 @@ isOneToOne: true
                 }
           }
           Functions: {
-            "can_access_chat_path":
+            "campaign_media_is_public":
+{ Args: { "p_path": string }; Returns: boolean
+                           },
+"can_access_chat_path":
 { Args: { "p_path": string }; Returns: boolean
                            },
 "can_access_conversation":
 { Args: { "p_conversation_id": string }; Returns: boolean
+                           },
+"can_mutate_listing_image":
+{ Args: { "p_path": string }; Returns: boolean
                            },
 "can_open_conversation":
 { Args: { "p_listing_id": string,"p_seller_id": string }; Returns: boolean
@@ -1148,6 +1218,9 @@ isOneToOne: true
       } },
 "owns_verification_paths":
 { Args: { "p_documents": Json,"p_user": string }; Returns: boolean
+                           },
+"safe_campaign_url":
+{ Args: { "value": string }; Returns: boolean
                            },
 "show_limit":
 { Args: Record<PropertyKey, never>; Returns: number

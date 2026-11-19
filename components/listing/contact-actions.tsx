@@ -60,10 +60,10 @@ export function ContactActions({ contact, variant = "inline", className }: Conta
             disabled={!enabled}
             title={enabled ? undefined : t("contactOff")}
             onClick={() => setOpen(true)}
-            className="w-full"
+            className={cn("w-full", bar && "min-w-0 px-2 text-xs [&>svg]:shrink-0")}
           >
             <Icon aria-hidden />
-            {t(key as "chat" | "whatsapp" | "call")}
+            <span className={cn(bar && "truncate")}>{t(key as "chat" | "whatsapp" | "call")}</span>
             {!enabled ? <span className="sr-only">({t("contactOff")})</span> : null}
           </Button>
         ))}

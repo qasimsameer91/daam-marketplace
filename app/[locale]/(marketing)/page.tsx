@@ -1,190 +1,162 @@
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  ShieldCheck,
-  Sparkles,
-  MapPin,
-  ArrowRight,
-  Store,
-} from "lucide-react";
-import { getTranslations, getLocale } from "next-intl/server";
+import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
-import { brands, cities, listings, mockNow } from "@/lib/mock/marketplace";
-import { Button } from "@/components/ui/button";
-import { BrandTile } from "@/components/daam/brand-tile";
-import { ListingCard } from "@/components/daam/listing-card";
-import { PtaBadge } from "@/components/daam/pta-badge";
-import { SearchBox } from "@/components/marketplace/search-box";
-import { HeroPhone } from "@/components/marketplace/hero-phone";
-import { Reveal } from "@/components/marketplace/reveal";
-import { getSeedContentBlocks } from "@/lib/content/seed-content-blocks";
-import { isAppLocale } from "@/lib/i18n/routing";
+import { listings } from "@/lib/mock/marketplace";
+import { formatPKR } from "@/lib/domain/pricing";
+import { HeroCarousel } from "@/components/marketplace/hero-carousel";
+import { MarketListingCard, type MarketCard } from "@/components/daam/market-listing-card";
+
+const CITY_LABEL: Record<string, string> = {
+  lahore: "Lahore",
+  karachi: "Karachi",
+  islamabad: "Islamabad",
+  faisalabad: "Faisalabad",
+  rawalpindi: "Rawalpindi",
+};
 
 export default async function HomePage() {
-  const t = await getTranslations("Market");
-  const locale = await getLocale();
-  const copy = await getSeedContentBlocks(isAppLocale(locale) ? locale : "en");
+  const t = await getTranslations("DaamHome");
+
+  const tabs = [t("tabAll"), t("tabUsed"), t("tabNew")];
+
+  const cards: MarketCard[] = listings.slice(0, 8).map((l) => {
+    const approved = l.ptaStatus === "pta_approved";
+    const isNew = l.box && l.condition === "like_new";
+    return {
+      id: l.id,
+      href: l.href,
+      name: `${l.modelName}`,
+      storage: `${l.storage} GB`,
+      price: formatPKR(l.pricePkr),
+      city: CITY_LABEL[l.citySlug] ?? l.city,
+      condition: isNew
+        ? t("condNew")
+        : l.condition === "like_new"
+          ? t("condVeryGood")
+          : t("condGood"),
+      badge: isNew ? t("badgeNew") : t("badgeUsed"),
+      pta: approved ? t("ptaApproved") : t("nonPta"),
+      ptaApproved: approved,
+      battery: l.batteryHealth ? `${l.batteryHealth}%` : "100%",
+    };
+  });
+
   return (
-    <main>
-      <section className="mx-auto grid max-w-7xl items-center gap-6 px-4 py-12 md:grid-cols-[1.2fr_1fr] md:px-6 md:py-20 lg:px-8">
-        <div>
-          <p className="mb-6 inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase">
-            <span className="size-2 rounded-full bg-success" />
-            {t("eyebrow")}
-          </p>
-          <h1 className="text-5xl font-bold tracking-display sm:text-6xl">
-            <span className="block">{t("heroStart")}</span>
-            <span className="mt-3 inline-block bg-lime px-2 pb-2 text-ink">{t("heroEnd")}</span>
+    <main className="mx-auto w-full max-w-[1440px]">
+      {/* HERO CAROUSEL */}
+      <section className="border-b-2 border-ink">
+        <HeroCarousel />
+        <div className="flex flex-wrap items-center gap-4 border-t-2 border-ink px-5 py-5 md:px-10">
+          <h1 className="font-display text-[clamp(22px,2.4vw,30px)] font-extrabold tracking-[-0.8px] md:me-auto">
+            {t("heroHeading")}
           </h1>
-          <p className="my-7 max-w-lg text-lg text-muted-foreground">{t("heroBody")}</p>
-          <SearchBox />
-          <div className="mt-4 flex flex-wrap gap-2 text-xs">
-            {["iPhone 14 Pro", "13 pm", "s23u"].map((q) => (
-              <Link
-                key={q}
-                href={`/phones?q=${encodeURIComponent(q)}`}
-                prefetch={false}
-                className="rounded-chip border border-border px-3 py-2 font-mono"
-              >
-                {q}
-                <ArrowUpRight aria-hidden className="ms-1 inline size-3" />
-              </Link>
-            ))}
-          </div>
+          <form className="flex min-w-full flex-1 gap-3 md:max-w-[620px] md:min-w-[320px]">
+            <div className="flex flex-1 items-center gap-[10px] border-2 border-ink bg-white px-4">
+              <span className="text-[17px] opacity-60">⌕</span>
+              <input
+                placeholder={t("searchPlaceholder")}
+                className="w-full border-none bg-transparent py-[13px] text-[15px] text-ink outline-none"
+              />
+            </div>
+            <Link
+              href="/phones"
+              className="flex items-center border-2 border-ink bg-lime px-6 font-display text-base font-bold whitespace-nowrap text-ink"
+            >
+              {t("findPhones")}
+            </Link>
+          </form>
         </div>
-        <HeroPhone />
       </section>
-      <div className="border-y border-border bg-muted/50">
-        <p className="mx-auto max-w-7xl px-4 py-3 text-xs text-muted-foreground md:px-6 lg:px-8">
-          {t("demo")}
-        </p>
-      </div>
-      <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
-        <div className="mb-7 flex flex-wrap items-end justify-between gap-3">
-          <h2 className="text-2xl font-semibold tracking-display">{t("brandTitle")}</h2>
+
+      {/* FILTER BAR */}
+      <section className="flex flex-wrap items-stretch border-b-2 border-ink">
+        <div className="flex items-stretch">
+          {tabs.map((label, i) => (
+            <Link
+              key={label}
+              href="/phones"
+              className={`px-[26px] py-[14px] font-display text-[15px] font-bold ${i > 0 ? "border-s-2 border-ink" : ""} ${i === 0 ? "bg-lime" : "bg-transparent"} text-ink`}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+        <div className="flex min-w-[280px] flex-1 flex-wrap items-center justify-end gap-[22px] border-s-2 border-ink px-5 py-3 md:px-10">
+          <label className="flex items-center gap-[10px] text-sm font-semibold">
+            {t("budget")}:
+            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+              <option>{t("budgetAny")}</option>
+              <option>{t("budgetU50")}</option>
+              <option>{t("budget50to100")}</option>
+              <option>{t("budgetOver100")}</option>
+            </select>
+          </label>
+          <label className="flex items-center gap-[10px] text-sm font-semibold">
+            {t("cityLabel")}:
+            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+              <option>Lahore</option>
+              <option>Karachi</option>
+              <option>Islamabad</option>
+              <option>Faisalabad</option>
+            </select>
+          </label>
+          <label className="flex items-center gap-[10px] text-sm font-semibold">
+            {t("sort")}:
+            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+              <option>{t("sortNewest")}</option>
+              <option>{t("sortLow")}</option>
+              <option>{t("sortHigh")}</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      {/* FRESH LISTINGS */}
+      <section className="px-5 pt-[34px] pb-12 md:px-10">
+        <div className="mb-[22px] flex items-end justify-between">
+          <h2 className="font-display text-[clamp(30px,3.6vw,46px)] font-extrabold tracking-[-1.5px]">
+            {t("fresh")}
+          </h2>
           <Link
-            href="/brands"
-            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium"
+            href="/phones"
+            className="flex items-center gap-[7px] border-b-2 border-ink pb-[3px] text-[15px] font-bold"
           >
-            {t("allBrands")}
-            <ArrowRight aria-hidden className="size-4 rtl:rotate-180" />
+            {t("viewAll")}
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
-          {brands.slice(0, 8).map((b) => (
-            <BrandTile
-              key={b.slug}
-              name={b.name}
-              href={`/phones/${b.slug}`}
-              count={listings.filter((l) => l.brand === b.slug).length}
-            />
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-6">
+          {cards.map((card) => (
+            <MarketListingCard key={card.id} card={card} />
           ))}
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-4 py-4 md:px-6 lg:px-8">
-        <div className="mb-7 flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <p className="mb-2 text-xs tracking-widest text-muted-foreground uppercase">
-              {t("browseNote")}
-            </p>
-            <h2 className="text-3xl font-semibold tracking-display">{t("fresh")}</h2>
-          </div>
-          <Button asChild variant="outline">
-            <Link href="/phones">
-              {t("viewAll")}
-              <ArrowUpRight aria-hidden />
-            </Link>
-          </Button>
-        </div>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
-          {listings.slice(0, 8).map((l, index) => (
-            <Reveal key={l.id} index={index}>
-              <ListingCard
-                key={l.id}
-                listing={{ ...l, city: t(`cities.${l.citySlug as (typeof cities)[number]}`) }}
-                now={mockNow}
-              />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-      <section id="safety" className="mt-16 border-y border-border bg-muted/40">
-        <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
-          <h2 className="max-w-xl text-3xl font-semibold tracking-display">{t("trustTitle")}</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">{t("trustBody")}</p>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {(
-              [
-                { key: "trustPta", Icon: ShieldCheck },
-                { key: "trustCondition", Icon: BadgeCheck },
-                { key: "trustPrice", Icon: Sparkles },
-                { key: "trustShops", Icon: Store },
-              ] as const
-            ).map(({ key, Icon }) => (
-              <div key={key} className="rounded-card border border-border bg-background p-5">
-                <Icon aria-hidden className="mb-5 size-6" />
-                <h3 className="font-semibold">{t(key)}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {key === "trustPta"
-                    ? copy.get("pta_check.seller_declared")
-                    : key === "trustShops"
-                      ? copy.get("safety.meetup.verified_shops")
-                      : key === "trustCondition"
-                        ? copy.get("safety.meetup.test_phone")
-                        : t("trustPriceBody")}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 pt-14 md:px-6 lg:px-8">
-        <div className="flex flex-col gap-5 rounded-card border border-border p-6 md:flex-row md:items-center md:justify-between md:p-8">
-          <div className="flex flex-col gap-3">
-            <h2 className="text-2xl font-semibold tracking-display">{t("ptaTeaserTitle")}</h2>
-            <p className="max-w-xl text-muted-foreground">{t("ptaTeaserBody")}</p>
-            <div className="flex flex-wrap gap-2">
-              <PtaBadge status="pta_approved" networkLock="factory_unlocked" />
-              <PtaBadge status="non_pta" networkLock="jv" />
-              <PtaBadge status="cpid_patched" />
-            </div>
-          </div>
-          <Button asChild variant="secondary" className="w-fit">
-            <Link href="/pta-guide">
-              {t("ptaTeaserCta")}
-              <ArrowRight aria-hidden className="rtl:rotate-180" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 py-14 md:px-6 lg:px-8">
-        <MapPin aria-hidden className="mb-4 size-6" />
-        <h2 className="text-3xl font-semibold">{t("cityTitle")}</h2>
-        <p className="mt-3 text-muted-foreground">{t("cityBody")}</p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {cities.map((city) => (
+
+      {/* CAMPAIGN STRIP */}
+      <section className="mb-[54px] px-5 md:px-10">
+        <div className="grid min-h-[300px] grid-cols-1 overflow-hidden border-2 border-ink md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+          <div className="flex flex-col justify-center gap-4 bg-ink px-11 py-[46px] text-paper">
+            <div className="text-[13px] font-bold tracking-[2px] text-lime">{t("forSellers")}</div>
+            <h3 className="font-display text-[clamp(28px,3.4vw,42px)] leading-none font-extrabold tracking-[-1px]">
+              {t("sellerTitle")}
+            </h3>
+            <p className="max-w-[360px] text-[15px] font-medium text-paper/80">{t("sellerBody")}</p>
             <Link
-              key={city}
-              href={`/${city}/phones`}
-              className="rounded-chip border border-border px-5 py-3 text-sm hover:bg-muted"
+              href="/sell"
+              prefetch={false}
+              className="self-start border-2 border-lime bg-lime px-[22px] py-3 font-display text-[15px] font-bold text-ink"
             >
-              {t(`cities.${city}`)}
+              {t("startSelling")}
             </Link>
-          ))}
-        </div>
-      </section>
-      <section className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col gap-6 rounded-card bg-ink p-7 text-paper md:flex-row md:items-center md:justify-between md:p-10">
-          <div>
-            <h2 className="text-3xl font-semibold">{t("shopTitle")}</h2>
-            <p className="mt-3 max-w-xl text-paper/75">{t("shopBody")}</p>
           </div>
-          <Button asChild size="lg">
-            <Link href="/for-shops">
-              {t("shopCta")}
-              <ArrowUpRight aria-hidden />
-            </Link>
-          </Button>
+          <div className="relative min-h-[220px] overflow-hidden">
+            <Image
+              src="/campaigns/seller-titanium.png"
+              alt=""
+              fill
+              sizes="(min-width:768px) 55vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
     </main>

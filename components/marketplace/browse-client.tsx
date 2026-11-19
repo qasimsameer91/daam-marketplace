@@ -284,8 +284,8 @@ export function BrowseClient({
   return (
     <LazyMotion features={domMax}>
       <div className="grid gap-8 lg:grid-cols-[224px_minmax(0,1fr)]">
-        <aside className="hidden lg:block">
-          <h2 className="mb-5 font-semibold">{t("filters")}</h2>
+        <aside className="hidden self-start rounded-card border border-border bg-surface p-5 lg:block">
+          <h2 className="mb-5 border-b border-border pb-5 font-semibold">{t("filters")}</h2>
           <FilterControls filters={filters} update={update} scope={scope} catalog={catalog} />
         </aside>
         <div className="min-w-0">
@@ -395,7 +395,7 @@ export function BrowseClient({
           ) : (
             <m.div
               layout={!reduced}
-              className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-4"
+              className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 xl:grid-cols-3"
             >
               <AnimatePresence initial={false}>
                 {results.map((listing, index) => (

@@ -29,7 +29,7 @@ export default async function SellPage() {
   const copy = Object.fromEntries(keys.map((k) => [k, blocks.get(k) ?? ""]));
 
   return (
-    <main className="mx-auto w-full max-w-3xl px-4 py-8 md:px-6 md:py-12">
+    <main className="mx-auto w-full max-w-6xl px-5 py-8 md:px-8 md:py-12">
       <Suspense
         fallback={
           <div role="status" aria-label={common("loading")} className="space-y-6">

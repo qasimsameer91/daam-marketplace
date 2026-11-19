@@ -68,41 +68,41 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* FILTER BAR */}
-      <section className="flex flex-wrap items-stretch border-b-2 border-ink">
-        <div className="flex items-stretch">
+      {/* FILTER BAR — stacks on mobile, horizontal .dc.html bar on md+ */}
+      <section className="flex flex-col border-b-2 border-ink md:flex-row md:flex-wrap md:items-stretch">
+        <div className="flex items-stretch border-b-2 border-ink md:border-b-0">
           {tabs.map((label, i) => (
             <Link
               key={label}
               href="/phones"
-              className={`px-[26px] py-[14px] font-display text-[15px] font-bold ${i > 0 ? "border-s-2 border-ink" : ""} ${i === 0 ? "bg-lime" : "bg-transparent"} text-ink`}
+              className={`flex-1 py-[14px] text-center font-display text-[15px] font-bold md:flex-none md:px-[26px] ${i > 0 ? "border-s-2 border-ink" : ""} ${i === 0 ? "bg-lime" : "bg-transparent"} text-ink`}
             >
               {label}
             </Link>
           ))}
         </div>
-        <div className="flex min-w-[280px] flex-1 flex-wrap items-center justify-end gap-[22px] border-s-2 border-ink px-5 py-3 md:px-10">
-          <label className="flex items-center gap-[10px] text-sm font-semibold">
+        <div className="flex flex-col gap-3 px-5 py-4 md:min-w-[280px] md:flex-1 md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-[22px] md:border-s-2 md:border-ink md:px-10 md:py-3">
+          <label className="flex items-center justify-between gap-[10px] text-sm font-semibold md:justify-start">
             {t("budget")}:
-            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+            <select className="min-w-0 flex-1 border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold md:flex-none">
               <option>{t("budgetAny")}</option>
               <option>{t("budgetU50")}</option>
               <option>{t("budget50to100")}</option>
               <option>{t("budgetOver100")}</option>
             </select>
           </label>
-          <label className="flex items-center gap-[10px] text-sm font-semibold">
+          <label className="flex items-center justify-between gap-[10px] text-sm font-semibold md:justify-start">
             {t("cityLabel")}:
-            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+            <select className="min-w-0 flex-1 border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold md:flex-none">
               <option>Lahore</option>
               <option>Karachi</option>
               <option>Islamabad</option>
               <option>Faisalabad</option>
             </select>
           </label>
-          <label className="flex items-center gap-[10px] text-sm font-semibold">
+          <label className="flex items-center justify-between gap-[10px] text-sm font-semibold md:justify-start">
             {t("sort")}:
-            <select className="border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold">
+            <select className="min-w-0 flex-1 border-2 border-ink bg-white px-3 py-[9px] text-sm font-semibold md:flex-none">
               <option>{t("sortNewest")}</option>
               <option>{t("sortLow")}</option>
               <option>{t("sortHigh")}</option>

@@ -17,6 +17,7 @@ import type {
 import type { PtaCheckSource, PtaRegType } from "@/lib/domain/pta";
 import { DESIGN_NOW, sampleListings } from "./design-samples";
 import { EXTRA_PHONES } from "./extra-listings";
+import { DAAM_PHONES } from "./daam-catalog";
 
 export const mockNow = DESIGN_NOW;
 export const brands = [
@@ -407,10 +408,75 @@ export const listings: MockListing[] = [
 
 export const areas = [...new Set(listings.map((l) => l.areaSlug).filter(Boolean))];
 
+const DAAM_CITIES = [
+  "lahore",
+  "karachi",
+  "islamabad",
+  "rawalpindi",
+  "faisalabad",
+  "multan",
+] as const;
+
+/**
+ * Daam's own box-packed catalogue (names + prices supplied by the owner). Brand-new, sealed,
+ * PTA-approved stock sold by Daam itself. Shown only in the "From Daam" box-packed category;
+ * images are placeholders (no third-party photos are shipped).
+ */
+export const daamListings: MockListing[] = DAAM_PHONES.map((p, i): MockListing => {
+  const slug = slugFor(p.name, "box");
+  const shortId = shortIdFor(i + 5000);
+  const storageMatch = p.name.match(/(\d+)\s?GB\)/i) ?? p.name.match(/(\d+)\s?TB\)/i);
+  return {
+    id: `daam-${i}`,
+    slug,
+    shortId,
+    href: listingHref(slug, shortId),
+    modelName: p.name,
+    variantLabel: "Box packed · New",
+    pricePkr: p.price,
+    daamBand: "fair",
+    ptaStatus: "pta_approved",
+    networkLock: "factory_unlocked",
+    condition: "brand_new",
+    batteryHealth: null,
+    city: DAAM_CITIES[i % DAAM_CITIES.length]!,
+    citySlug: DAAM_CITIES[i % DAAM_CITIES.length]!,
+    area: null,
+    areaSlug: "",
+    publishedAt: new Date(mockNow.getTime() - (i + 1) * 3600000).toISOString(),
+    imageUrl: null,
+    isDemo: true,
+    isFeatured: false,
+    isFavorited: false,
+    verification: null,
+    brand: p.brand,
+    model: slugFor(p.name, ""),
+    storage: storageMatch ? Number(storageMatch[1]) : 128,
+    ram: 0,
+    color: "black",
+    warranty: true,
+    box: true,
+    imeiOnFile: true,
+    checked: true,
+    soldByDaam: true,
+    sellerUsername: "daam-official",
+    shopSlug: null,
+    detail: {
+      ...DETAILS[0]!,
+      imageCount: 1,
+      ptaCheckSource: "seller_declared",
+      ptaCheckedAt: null,
+      ptaRegType: "official_import",
+    },
+  };
+});
+
 /** Resolve `/listing/[slug]-[shortId]`: the short id is the last dash-separated segment. */
 export function findListingBySlugId(slugId: string): MockListing | undefined {
   const shortId = slugId.slice(slugId.lastIndexOf("-") + 1);
-  return listings.find((l) => l.shortId === shortId);
+  return (
+    listings.find((l) => l.shortId === shortId) ?? daamListings.find((l) => l.shortId === shortId)
+  );
 }
 
 /** Same model first, then same brand; never the listing itself. */

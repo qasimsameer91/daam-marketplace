@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/lib/i18n/navigation";
 import { ListingCard } from "@/components/daam/listing-card";
-import { listings, cities, mockNow } from "@/lib/mock/marketplace";
+import { listings, daamListings, cities, mockNow } from "@/lib/mock/marketplace";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -17,9 +17,9 @@ export default async function BoxPackedPage({
   const active: "daam" | "sellers" = source === "sellers" ? "sellers" : "daam";
   const [t, market] = await Promise.all([getTranslations("BoxPacked"), getTranslations("Market")]);
 
-  const boxPacked = listings.filter((l) => l.box && l.condition === "like_new");
-  const fromDaam = boxPacked.filter((l) => l.soldByDaam);
-  const fromSellers = boxPacked.filter((l) => !l.soldByDaam);
+  // From Daam = Daam's own sealed catalogue; From sellers = box-packed listings from users/shops.
+  const fromDaam = daamListings;
+  const fromSellers = listings.filter((l) => l.box && l.condition === "like_new" && !l.soldByDaam);
   const shown = active === "daam" ? fromDaam : fromSellers;
 
   const cityLabel = (slug: string) =>

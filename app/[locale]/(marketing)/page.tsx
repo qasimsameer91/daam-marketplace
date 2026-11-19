@@ -17,7 +17,11 @@ const CITY_LABEL: Record<string, string> = {
 export default async function HomePage() {
   const t = await getTranslations("DaamHome");
 
-  const tabs = [t("tabAll"), t("tabUsed"), t("tabNew")];
+  const tabs: { label: string; href: string }[] = [
+    { label: t("tabAll"), href: "/phones" },
+    { label: t("tabUsed"), href: "/phones" },
+    { label: t("tabNew"), href: "/phones/box-packed" },
+  ];
 
   const cards: MarketCard[] = listings.slice(0, 8).map((l) => {
     const approved = l.ptaStatus === "pta_approved";
@@ -71,13 +75,13 @@ export default async function HomePage() {
       {/* FILTER BAR — stacks on mobile, horizontal .dc.html bar on md+ */}
       <section className="flex flex-col border-b-2 border-ink md:flex-row md:flex-wrap md:items-stretch">
         <div className="flex items-stretch border-b-2 border-ink md:border-b-0">
-          {tabs.map((label, i) => (
+          {tabs.map((tab, i) => (
             <Link
-              key={label}
-              href="/phones"
+              key={tab.label}
+              href={tab.href}
               className={`flex-1 py-[14px] text-center font-display text-[15px] font-bold md:flex-none md:px-[26px] ${i > 0 ? "border-s-2 border-ink" : ""} ${i === 0 ? "bg-lime" : "bg-transparent"} text-ink`}
             >
-              {label}
+              {tab.label}
             </Link>
           ))}
         </div>

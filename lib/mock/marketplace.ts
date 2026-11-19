@@ -157,6 +157,8 @@ export interface MockListing extends ListingCardData {
   /** Exactly one of these is set: individual seller or shop. */
   sellerUsername: string;
   shopSlug: string | null;
+  /** Box-packed phones sold by Daam itself (official stock) vs listed by sellers. */
+  soldByDaam?: boolean;
   detail: MockListingDetail;
 }
 
@@ -355,6 +357,7 @@ export const listings: MockListing[] = [
     const shortId = shortIdFor(i + 100);
     const sellerUsername = SELLERS[i % SELLERS.length]!;
     const colors = ["black", "silver", "green"] as const;
+    const boxPacked = p.condition === "like_new";
     return {
       id: `extra-${i}`,
       slug,
@@ -363,6 +366,8 @@ export const listings: MockListing[] = [
       modelName: p.name,
       variantLabel: p.variant,
       pricePkr: p.price,
+      // Roughly half of the box-packed stock is sold by Daam itself.
+      soldByDaam: boxPacked && i % 2 === 0,
       daamBand: (["great", "fair", "high"] as const)[i % 3]!,
       ptaStatus: p.pta,
       networkLock: p.lock,

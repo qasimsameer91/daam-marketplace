@@ -1219,7 +1219,16 @@
     "report": "Report",
     "read": "Read",
     "unread": "{count, plural, one {# unread message} other {# unread messages}}",
-    "previewNote": "Preview: messages aren't sent to anyone yet."
+    "previewNote": "Preview: messages aren't sent to anyone yet.",
+    "voiceRecord": "Record a voice message",
+    "voiceSend": "Send",
+    "voiceCancel": "Cancel",
+    "voiceMessage": "Voice message",
+    "recording": "Recording",
+    "photo": "Add a photo",
+    "reportSent": "Report submitted — our team will review it.",
+    "blockedToast": "Blocked. They can no longer message you.",
+    "unblockedToast": "Unblocked."
   },
   "Notifications": {
     "title": "Notifications",

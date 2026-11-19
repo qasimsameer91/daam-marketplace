@@ -24,6 +24,8 @@ export interface PreviewMessage {
   text: string;
   mine: boolean;
   offer?: number;
+  /** Voice note duration in seconds (preview only — no audio is recorded). */
+  voice?: number;
   decision?: "accepted" | "declined";
 }
 export interface PreviewListing {

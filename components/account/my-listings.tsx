@@ -35,10 +35,10 @@ export function MyListings() {
           setNotice(false);
         }}
       >
-        <div className="overflow-x-auto pb-2">
-          <TabsList>
+        <div className="pb-2">
+          <TabsList className="flex h-auto w-full flex-wrap justify-start gap-1">
             {statuses.map((s) => (
-              <TabsTrigger key={s} value={s}>
+              <TabsTrigger key={s} value={s} className="flex-none">
                 {t(`tabs.${s}`)} ({owned.filter((l) => l.status === s).length})
               </TabsTrigger>
             ))}

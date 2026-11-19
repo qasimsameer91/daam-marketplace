@@ -1219,7 +1219,16 @@
     "report": "رپورٹ کریں",
     "read": "پڑھ لیا",
     "unread": "{count, plural, other {# نہ پڑھے گئے پیغامات}}",
-    "previewNote": "پیش منظر: ابھی پیغامات کسی کو نہیں بھیجے جاتے۔"
+    "previewNote": "پیش منظر: ابھی پیغامات کسی کو نہیں بھیجے جاتے۔",
+    "voiceRecord": "وائس میسج ریکارڈ کریں",
+    "voiceSend": "بھیجیں",
+    "voiceCancel": "منسوخ",
+    "voiceMessage": "وائس میسج",
+    "recording": "ریکارڈنگ",
+    "photo": "تصویر شامل کریں",
+    "reportSent": "رپورٹ جمع ہو گئی — ہماری ٹیم جائزہ لے گی۔",
+    "blockedToast": "بلاک کر دیا۔ اب وہ آپ کو میسج نہیں کر سکتے۔",
+    "unblockedToast": "ان بلاک کر دیا۔"
   },
   "Notifications": {
     "title": "اطلاعات",

@@ -1228,7 +1228,12 @@
     "photo": "تصویر شامل کریں",
     "reportSent": "رپورٹ جمع ہو گئی — ہماری ٹیم جائزہ لے گی۔",
     "blockedToast": "بلاک کر دیا۔ اب وہ آپ کو میسج نہیں کر سکتے۔",
-    "unblockedToast": "ان بلاک کر دیا۔"
+    "unblockedToast": "ان بلاک کر دیا۔",
+    "online": "آن لائن",
+    "lastSeenMinutes": "{count, plural, =0 {ابھی} one {# منٹ} other {# منٹ}} پہلے دیکھا",
+    "lastSeenHours": "{count, plural, one {# گھنٹہ} other {# گھنٹے}} پہلے دیکھا",
+    "seen": "دیکھ لیا",
+    "sent": "بھیج دیا"
   },
   "Notifications": {
     "title": "اطلاعات",

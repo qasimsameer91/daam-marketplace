@@ -12,6 +12,8 @@ import {
   ImagePlus,
   Flag,
   Ban,
+  Check,
+  CheckCheck,
 } from "lucide-react";
 import { toast } from "sonner";
 import { usePreviewAccount, type PreviewMessage } from "./preview-provider";
@@ -184,12 +186,24 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
               </span>
               <div className="min-w-0 flex-1">
                 <h2 className="truncate leading-tight font-semibold">{thread.name}</h2>
-                <Link
-                  href={listing.href}
-                  className="block truncate text-xs text-muted-foreground underline underline-offset-2"
-                >
-                  {t("about", { title: listing.modelName })}
-                </Link>
+                <p className="flex items-center gap-1 truncate text-xs text-muted-foreground">
+                  {thread.online ? (
+                    <span className="inline-flex items-center gap-1">
+                      <span className="size-1.5 rounded-full bg-live" />
+                      {t("online")}
+                    </span>
+                  ) : (
+                    <span>
+                      {thread.lastSeenMinutes < 60
+                        ? t("lastSeenMinutes", { count: thread.lastSeenMinutes })
+                        : t("lastSeenHours", { count: Math.round(thread.lastSeenMinutes / 60) })}
+                    </span>
+                  )}
+                  <span className="opacity-40">·</span>
+                  <Link href={listing.href} className="truncate underline underline-offset-2">
+                    {listing.modelName}
+                  </Link>
+                </p>
               </div>
               <Button
                 variant="ghost"
@@ -279,6 +293,16 @@ export function MessagesScreen({ threadId, safety }: { threadId?: string; safety
                   )}
                 </div>
               ))}
+              {threadMessages.length > 0 ? (
+                <p className="ms-auto flex items-center gap-1 pe-1 text-[11px] text-muted-foreground">
+                  {thread.online ? (
+                    <CheckCheck aria-hidden className="size-3.5 text-live" />
+                  ) : (
+                    <Check aria-hidden className="size-3.5" />
+                  )}
+                  {thread.online ? t("seen") : t("sent")}
+                </p>
+              ) : null}
               <div ref={logEnd} />
             </div>
 

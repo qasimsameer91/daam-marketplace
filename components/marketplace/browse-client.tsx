@@ -33,6 +33,7 @@ import { useDaamMotion } from "@/hooks/use-daam-motion";
 import { Link } from "@/lib/i18n/navigation";
 import { staggerDelay } from "@/lib/motion";
 import { useHydrated } from "@/hooks/use-hydrated";
+import { cn } from "@/lib/utils";
 
 const stringKeys = [
   "q",
@@ -259,9 +260,12 @@ function FilterControls({
 export function BrowseClient({
   scope = {},
   catalog = null,
+  centerSearch = false,
 }: {
   scope?: BrowseScope;
   catalog?: Catalog | null;
+  /** Search tab: present the search bar as a centred hero row. */
+  centerSearch?: boolean;
 }) {
   const { models } = catalog ?? { models: mockModels };
   const ready = useHydrated();
@@ -289,14 +293,19 @@ export function BrowseClient({
           <FilterControls filters={filters} update={update} scope={scope} catalog={catalog} />
         </aside>
         <div className="min-w-0">
-          <div className="flex flex-wrap items-center gap-3">
+          <div
+            className={cn(
+              "flex flex-wrap items-center gap-3",
+              centerSearch && "mx-auto max-w-2xl justify-center",
+            )}
+          >
             <Input
               disabled={!ready}
               aria-label={t("q")}
               placeholder={t("searchPlaceholder")}
               value={query.q}
               onChange={(e) => update({ q: e.target.value })}
-              className="min-w-0 flex-1 basis-40"
+              className={cn("min-w-0 flex-1 basis-40", centerSearch && "h-12 basis-full text-base")}
             />
             <Drawer>
               <DrawerTrigger asChild>

@@ -1124,7 +1124,8 @@
       "nextBattery": "Add photos of the battery health screen to your iPhone listing",
       "nextPending": "One listing is waiting for review",
       "nextVerify": "Verify your ID to rank higher in search",
-      "sell": "Sell another phone"
+      "sell": "Sell another phone",
+      "editProfile": "Edit profile"
     },
     "listings": {
       "title": "My listings",

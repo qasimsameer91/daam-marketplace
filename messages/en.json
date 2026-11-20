@@ -293,7 +293,8 @@
     "trustPriceBody": "The Daam Meter shows whether a price is great, fair or above the market for that exact phone.",
     "ptaTeaserTitle": "PTA, explained in two minutes",
     "ptaTeaserBody": "PTA status and network lock are two separate facts. Know both before you pay.",
-    "ptaTeaserCta": "Read the PTA guide"
+    "ptaTeaserCta": "Read the PTA guide",
+    "newMobiles": "New mobiles"
   },
   "Metadata": {
     "title": "Daam: Sahi phone. Sahi daam.",

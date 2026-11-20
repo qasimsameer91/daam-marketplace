@@ -17,10 +17,10 @@ const CITY_LABEL: Record<string, string> = {
 export default async function HomePage() {
   const t = await getTranslations("DaamHome");
 
+  // Box-packed Daam stock lives on its own "New mobiles" page, not in the home/search flow.
   const tabs: { label: string; href: string }[] = [
     { label: t("tabAll"), href: "/phones" },
     { label: t("tabUsed"), href: "/phones" },
-    { label: t("tabNew"), href: "/phones/box-packed" },
   ];
 
   const cards: MarketCard[] = listings.slice(0, 8).map((l) => {

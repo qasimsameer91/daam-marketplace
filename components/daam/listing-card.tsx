@@ -33,6 +33,8 @@ export interface ListingCardData {
   isFavorited?: boolean;
   /** Discontinued / out-of-stock: shown with a "Not available" tag and dimmed. */
   unavailable?: boolean;
+  /** Daam's own box-packed stock — no chat/bid social proof shown. */
+  soldByDaam?: boolean;
 }
 
 type VerificationKindLike = "shop" | "id" | string;
@@ -147,7 +149,7 @@ export function ListingCard({
           <span className="opacity-40">|</span>
           <span className="shrink-0">{condition(listing.condition)}</span>
         </div>
-        {listing.unavailable ? null : (
+        {listing.unavailable || listing.soldByDaam ? null : (
           <div className="mt-[9px] flex items-center gap-3 text-[12px] font-semibold text-slate">
             <span>💬 {t("chatsCount", { count: chats })}</span>
             <span>🔨 {t("bidsCount", { count: bids })}</span>

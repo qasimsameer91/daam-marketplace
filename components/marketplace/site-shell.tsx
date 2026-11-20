@@ -30,6 +30,7 @@ export function SiteHeader() {
   const path = usePathname();
   const links = [
     ["/phones", t("allPhones")],
+    ["/phones/box-packed", t("newMobiles")],
     ["/sell", t("sell")],
     ["/brands", t("allBrands")],
     ["/pta-guide", t("pages.pta-guide")],

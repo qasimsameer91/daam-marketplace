@@ -17,6 +17,20 @@ export interface PreviewProfile {
   city: string;
   bio: string;
   whatsapp: boolean;
+  /** Contact — preview only; never rendered in public HTML (revealContact gate in production). */
+  phone: string;
+  phoneVerified: boolean;
+  email: string;
+  emailVerified: boolean;
+  /** Privacy — who can see the phone number, and whether online status is shown. */
+  showPhone: "all" | "onRequest";
+  showOnline: boolean;
+  /** Chat auto-reply shown to buyers who open a thread. */
+  autoReply: string;
+  /** Notification channels. */
+  notifPush: boolean;
+  notifEmail: boolean;
+  notifChat: boolean;
 }
 export interface PreviewMessage {
   id: string;
@@ -59,6 +73,16 @@ export function PreviewProvider({ children }: { children: ReactNode }) {
     city: "karachi",
     bio: "",
     whatsapp: true,
+    phone: "03XX XXXXXXX",
+    phoneVerified: false,
+    email: "",
+    emailVerified: false,
+    showPhone: "onRequest",
+    showOnline: true,
+    autoReply: "",
+    notifPush: true,
+    notifEmail: true,
+    notifChat: true,
   });
   const [owned, setOwned] = useState<PreviewListing[]>(
     listings.slice(0, 5).map((l, i) => ({

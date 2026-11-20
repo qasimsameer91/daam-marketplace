@@ -1,135 +1,91 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/lib/i18n/navigation";
 import { ListingCard } from "@/components/daam/listing-card";
-import { listings, daamListings, cities, mockNow } from "@/lib/mock/marketplace";
+import { DaamStore, type StorePhone } from "@/components/daam/daam-store";
+import { listings, daamListings, brands, cities, mockNow } from "@/lib/mock/marketplace";
+import { formatPKR } from "@/lib/domain/pricing";
+import { Link } from "@/lib/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("BoxPacked");
+  const t = await getTranslations("DaamStore");
   return { title: `${t("title")} | Daam` };
 }
 
 export default async function BoxPackedPage({
   searchParams,
 }: PageProps<"/[locale]/phones/box-packed">) {
-  const { source, page } = await searchParams;
+  const { source } = await searchParams;
   const active: "daam" | "sellers" = source === "sellers" ? "sellers" : "daam";
-  const [t, market, common] = await Promise.all([
-    getTranslations("BoxPacked"),
-    getTranslations("Market"),
-    getTranslations("Common"),
-  ]);
+  const [t, market] = await Promise.all([getTranslations("BoxPacked"), getTranslations("Market")]);
 
-  // From Daam = Daam's own sealed catalogue; From sellers = box-packed listings from users/shops.
-  const fromDaam = daamListings;
+  // From Daam = Daam's own sealed catalogue (secure store); From sellers = box-packed listings.
   const fromSellers = listings.filter((l) => l.box && l.condition === "like_new" && !l.soldByDaam);
-  const shown = active === "daam" ? fromDaam : fromSellers;
 
-  const PER_PAGE = 48;
-  const pageCount = Math.max(1, Math.ceil(shown.length / PER_PAGE));
-  const pageNum = Math.min(pageCount, Math.max(1, Number(page) || 1));
-  const pageItems = shown.slice((pageNum - 1) * PER_PAGE, pageNum * PER_PAGE);
-  const pageHref = (n: number) => `/phones/box-packed?source=${active}&page=${n}`;
+  const storePhones: StorePhone[] = daamListings.map((l) => ({
+    id: l.id,
+    href: l.href,
+    name: l.modelName,
+    price: l.pricePkr,
+    priceLabel: formatPKR(l.pricePkr),
+    brand: l.brand,
+    available: !l.unavailable,
+  }));
 
   const cityLabel = (slug: string) =>
     (cities as readonly string[]).includes(slug) ? market(`cities.${slug as "lahore"}`) : slug;
 
-  const cats = [
-    { key: "daam" as const, label: t("fromDaam"), desc: t("fromDaamDesc"), count: fromDaam.length },
-    {
-      key: "sellers" as const,
-      label: t("fromSellers"),
-      desc: t("fromSellersDesc"),
-      count: fromSellers.length,
-    },
+  const tabs = [
+    { key: "daam" as const, label: t("storeTab"), href: "/phones/box-packed" },
+    { key: "sellers" as const, label: t("sellersTab"), href: "/phones/box-packed?source=sellers" },
   ];
 
   return (
     <main className="mx-auto w-full max-w-[1440px] px-5 py-8 md:px-8 lg:px-10">
-      <h1 className="font-display text-[clamp(38px,5vw,64px)] leading-[0.95] font-extrabold tracking-[-2px] rtl:leading-[1.25]">
-        {t("title")}
-      </h1>
-      <p className="mt-3 max-w-[640px] text-[17px] font-medium text-body">{t("intro")}</p>
-
-      {/* CATEGORY CARDS / TABS */}
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {cats.map((c) => (
+      {/* TABS: Daam store vs seller listings */}
+      <div className="mb-6 flex border-2 border-ink">
+        {tabs.map((tab, i) => (
           <Link
-            key={c.key}
-            href={c.key === "daam" ? "/phones/box-packed" : "/phones/box-packed?source=sellers"}
-            aria-current={active === c.key ? "true" : undefined}
+            key={tab.key}
+            href={tab.href}
+            aria-current={active === tab.key ? "page" : undefined}
             className={cn(
-              "flex flex-col gap-1 border-2 border-ink p-5 transition-transform hover:-translate-y-1 reduced-motion:hover:translate-y-0",
-              active === c.key ? "bg-lime" : "bg-white",
+              "flex-1 py-[13px] text-center font-display text-[14px] font-bold md:text-[15px]",
+              i > 0 && "border-s-2 border-ink",
+              active === tab.key ? "bg-lime text-ink" : "bg-white text-ink",
             )}
           >
-            <span className="flex items-center justify-between font-display text-xl font-extrabold">
-              {c.label}
-              <span className="text-sm font-semibold text-ink/60">
-                {t("count", { count: c.count })}
-              </span>
-            </span>
-            <span className="text-sm font-medium text-body">{c.desc}</span>
+            {tab.label}
           </Link>
         ))}
       </div>
 
-      {/* RESULTS */}
-      <h2 className="mt-8 mb-4 font-display text-[clamp(22px,2.6vw,32px)] font-extrabold tracking-[-1px]">
-        {active === "daam" ? t("fromDaam") : t("fromSellers")}{" "}
-        <span className="text-slate">({shown.length})</span>
-      </h2>
-      {shown.length === 0 ? (
-        <p className="border-2 border-ink bg-white p-6 text-sm text-muted-foreground">
-          {t("empty")}
-        </p>
+      {active === "daam" ? (
+        <DaamStore phones={storePhones} brands={brands} />
       ) : (
-        <>
-          <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 lg:grid-cols-4">
-            {pageItems.map((l) => (
-              <ListingCard
-                key={l.id}
-                listing={{ ...l, city: cityLabel(l.citySlug) }}
-                now={mockNow}
-              />
-            ))}
-          </div>
-          {pageCount > 1 ? (
-            <nav
-              aria-label="Pagination"
-              className="mt-8 flex flex-wrap items-center justify-center gap-3"
-            >
-              {pageNum > 1 ? (
-                <Link
-                  href={pageHref(pageNum - 1)}
-                  className="border-2 border-ink bg-white px-4 py-2 font-display font-bold"
-                >
-                  ← {common("back")}
-                </Link>
-              ) : (
-                <span className="border-2 border-ink/30 px-4 py-2 font-display font-bold text-ink/30">
-                  ← {common("back")}
-                </span>
-              )}
-              <span className="text-sm font-semibold">
-                {t("pageOf", { page: pageNum, total: pageCount })}
-              </span>
-              {pageNum < pageCount ? (
-                <Link
-                  href={pageHref(pageNum + 1)}
-                  className="border-2 border-ink bg-white px-4 py-2 font-display font-bold"
-                >
-                  {common("next")} →
-                </Link>
-              ) : (
-                <span className="border-2 border-ink/30 px-4 py-2 font-display font-bold text-ink/30">
-                  {common("next")} →
-                </span>
-              )}
-            </nav>
-          ) : null}
-        </>
+        <section>
+          <h1 className="font-display text-[clamp(30px,4vw,48px)] leading-[0.95] font-extrabold tracking-[-1.5px] rtl:leading-[1.25]">
+            {t("fromSellers")}
+          </h1>
+          <p className="mt-3 mb-5 max-w-[640px] border-s-4 border-lime bg-sand/60 py-2 ps-3 text-[15px] font-medium text-body">
+            💬 {t("sellersNote")}
+          </p>
+          {fromSellers.length === 0 ? (
+            <p className="border-2 border-ink bg-white p-6 text-sm text-muted-foreground">
+              {t("empty")}
+            </p>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 lg:grid-cols-4">
+              {fromSellers.map((l) => (
+                <ListingCard
+                  key={l.id}
+                  listing={{ ...l, city: cityLabel(l.citySlug) }}
+                  now={mockNow}
+                />
+              ))}
+            </div>
+          )}
+        </section>
       )}
     </main>
   );

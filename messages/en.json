@@ -1437,6 +1437,32 @@
     "soldByDaam": "Sold by Daam",
     "count": "{count, plural, one {# phone} other {# phones}}",
     "empty": "No box-packed phones in this category yet.",
-    "pageOf": "Page {page} of {total}"
+    "pageOf": "Page {page} of {total}",
+    "storeTab": "New mobiles (box pack)",
+    "sellersTab": "From sellers",
+    "sellersNote": "These are listed by shops and people — you can chat with the seller and place a bid."
+  },
+  "DaamStore": {
+    "title": "New mobiles",
+    "intro": "Brand-new, sealed phones sold and backed by Daam. Buy with confidence — every set is official, PTA-approved stock.",
+    "searchPlaceholder": "Search new phones…",
+    "allBrands": "All brands",
+    "topModels": "Top models",
+    "hotDeals": "Hot right now",
+    "results": "{count, plural, one {# phone} other {# phones}}",
+    "noResults": "No phones match your search.",
+    "buyNow": "Buy now",
+    "addToCart": "Add to cart",
+    "inCart": "In cart",
+    "addedToCart": "Added to cart",
+    "notAvailable": "Not available",
+    "orderPlaced": "Order request sent — Daam will confirm your order shortly.",
+    "cart": "Cart",
+    "official": "Daam Official Store",
+    "secureBadge": "Secure checkout",
+    "loadMore": "Show more",
+    "priceLow": "Price: low to high",
+    "priceHigh": "Price: high to low",
+    "sortLabel": "Sort"
   }
 }

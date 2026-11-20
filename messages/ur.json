@@ -385,7 +385,10 @@
     "location": "{area}، {city}",
     "noPhoto": "ابھی تصویر نہیں",
     "favoriteCount": "{count, plural, other {# پسند}}",
-    "sellerPhoto": "بیچنے والے کی تصویر"
+    "sellerPhoto": "بیچنے والے کی تصویر",
+    "notAvailable": "دستیاب نہیں",
+    "chatsCount": "{count, plural, one {# چیٹ} other {# چیٹس}}",
+    "bidsCount": "{count, plural, one {# بولی} other {# بولیاں}}"
   },
   "BrandTile": {
     "descriptions": {
@@ -1432,6 +1435,7 @@
     "fromSellersDesc": "شاپس اور لوگوں کی لسٹ کردہ نئے سیل شدہ فون۔",
     "soldByDaam": "دام کی طرف سے فروخت",
     "count": "{count, plural, one {# فون} other {# فون}}",
-    "empty": "اس کیٹیگری میں ابھی کوئی باکس پیک فون نہیں۔"
+    "empty": "اس کیٹیگری میں ابھی کوئی باکس پیک فون نہیں۔",
+    "pageOf": "صفحہ {page} / {total}"
   }
 }

@@ -385,7 +385,10 @@
     "location": "{area}, {city}",
     "noPhoto": "No photo yet",
     "favoriteCount": "{count, plural, one {# save} other {# saves}}",
-    "sellerPhoto": "Seller's photo"
+    "sellerPhoto": "Seller's photo",
+    "notAvailable": "Not available",
+    "chatsCount": "{count, plural, one {# chat} other {# chats}}",
+    "bidsCount": "{count, plural, one {# bid} other {# bids}}"
   },
   "BrandTile": {
     "descriptions": {
@@ -1432,6 +1435,7 @@
     "fromSellersDesc": "Brand-new sealed phones listed by shops and people.",
     "soldByDaam": "Sold by Daam",
     "count": "{count, plural, one {# phone} other {# phones}}",
-    "empty": "No box-packed phones in this category yet."
+    "empty": "No box-packed phones in this category yet.",
+    "pageOf": "Page {page} of {total}"
   }
 }

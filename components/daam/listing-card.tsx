@@ -31,6 +31,8 @@ export interface ListingCardData {
   isFeatured: boolean;
   verification: VerificationKindLike | null;
   isFavorited?: boolean;
+  /** Discontinued / out-of-stock: shown with a "Not available" tag and dimmed. */
+  unavailable?: boolean;
 }
 
 type VerificationKindLike = "shop" | "id" | string;
@@ -63,6 +65,10 @@ export function ListingCard({
   const condition = useTranslations("Condition");
   const approved = listing.ptaStatus === "pta_approved";
   const Heading = headingLevel === 2 ? "h2" : "h3";
+  // Deterministic demo "social proof": how many people chatted / bid on this listing.
+  const seed = [...listing.id].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+  const chats = listing.unavailable ? 0 : seed % 37;
+  const bids = listing.unavailable ? 0 : seed % 11;
 
   return (
     <article
@@ -71,6 +77,7 @@ export function ListingCard({
         "group relative flex flex-col border-2 border-ink bg-white",
         "transition-transform duration-200 ease-standard hover:-translate-y-1 hover:shadow-[6px_6px_0_var(--color-ink)]",
         "reduced-motion:transition-none reduced-motion:hover:translate-y-0 reduced-motion:hover:shadow-none",
+        listing.unavailable && "opacity-70",
         className,
       )}
     >
@@ -97,6 +104,11 @@ export function ListingCard({
           onToggle={onFavoriteToggle}
           className="absolute end-[10px] top-[10px]"
         />
+        {listing.unavailable ? (
+          <span className="absolute start-[10px] top-[10px] border-[1.5px] border-ink bg-danger px-2 py-[3px] text-[11px] font-bold text-danger-ink">
+            {t("notAvailable")}
+          </span>
+        ) : null}
       </div>
 
       <div className="flex flex-1 flex-col px-[15px] pt-[14px] pb-4">
@@ -135,6 +147,12 @@ export function ListingCard({
           <span className="opacity-40">|</span>
           <span className="shrink-0">{condition(listing.condition)}</span>
         </div>
+        {listing.unavailable ? null : (
+          <div className="mt-[9px] flex items-center gap-3 text-[12px] font-semibold text-slate">
+            <span>💬 {t("chatsCount", { count: chats })}</span>
+            <span>🔨 {t("bidsCount", { count: bids })}</span>
+          </div>
+        )}
       </div>
     </article>
   );

@@ -459,6 +459,7 @@ export const daamListings: MockListing[] = DAAM_PHONES.map((p, i): MockListing =
     imeiOnFile: true,
     checked: true,
     soldByDaam: true,
+    unavailable: !p.available,
     sellerUsername: "daam-official",
     shopSlug: null,
     detail: {
@@ -469,7 +470,7 @@ export const daamListings: MockListing[] = DAAM_PHONES.map((p, i): MockListing =
       ptaRegType: "official_import",
     },
   };
-});
+}).sort((a, b) => Number(a.unavailable) - Number(b.unavailable));
 
 /** Resolve `/listing/[slug]-[shortId]`: the short id is the last dash-separated segment. */
 export function findListingBySlugId(slugId: string): MockListing | undefined {

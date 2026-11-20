@@ -13,14 +13,24 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BoxPackedPage({
   searchParams,
 }: PageProps<"/[locale]/phones/box-packed">) {
-  const { source } = await searchParams;
+  const { source, page } = await searchParams;
   const active: "daam" | "sellers" = source === "sellers" ? "sellers" : "daam";
-  const [t, market] = await Promise.all([getTranslations("BoxPacked"), getTranslations("Market")]);
+  const [t, market, common] = await Promise.all([
+    getTranslations("BoxPacked"),
+    getTranslations("Market"),
+    getTranslations("Common"),
+  ]);
 
   // From Daam = Daam's own sealed catalogue; From sellers = box-packed listings from users/shops.
   const fromDaam = daamListings;
   const fromSellers = listings.filter((l) => l.box && l.condition === "like_new" && !l.soldByDaam);
   const shown = active === "daam" ? fromDaam : fromSellers;
+
+  const PER_PAGE = 48;
+  const pageCount = Math.max(1, Math.ceil(shown.length / PER_PAGE));
+  const pageNum = Math.min(pageCount, Math.max(1, Number(page) || 1));
+  const pageItems = shown.slice((pageNum - 1) * PER_PAGE, pageNum * PER_PAGE);
+  const pageHref = (n: number) => `/phones/box-packed?source=${active}&page=${n}`;
 
   const cityLabel = (slug: string) =>
     (cities as readonly string[]).includes(slug) ? market(`cities.${slug as "lahore"}`) : slug;
@@ -75,11 +85,51 @@ export default async function BoxPackedPage({
           {t("empty")}
         </p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 lg:grid-cols-4">
-          {shown.map((l) => (
-            <ListingCard key={l.id} listing={{ ...l, city: cityLabel(l.citySlug) }} now={mockNow} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 gap-4 min-[360px]:grid-cols-2 lg:grid-cols-4">
+            {pageItems.map((l) => (
+              <ListingCard
+                key={l.id}
+                listing={{ ...l, city: cityLabel(l.citySlug) }}
+                now={mockNow}
+              />
+            ))}
+          </div>
+          {pageCount > 1 ? (
+            <nav
+              aria-label="Pagination"
+              className="mt-8 flex flex-wrap items-center justify-center gap-3"
+            >
+              {pageNum > 1 ? (
+                <Link
+                  href={pageHref(pageNum - 1)}
+                  className="border-2 border-ink bg-white px-4 py-2 font-display font-bold"
+                >
+                  ← {common("back")}
+                </Link>
+              ) : (
+                <span className="border-2 border-ink/30 px-4 py-2 font-display font-bold text-ink/30">
+                  ← {common("back")}
+                </span>
+              )}
+              <span className="text-sm font-semibold">
+                {t("pageOf", { page: pageNum, total: pageCount })}
+              </span>
+              {pageNum < pageCount ? (
+                <Link
+                  href={pageHref(pageNum + 1)}
+                  className="border-2 border-ink bg-white px-4 py-2 font-display font-bold"
+                >
+                  {common("next")} →
+                </Link>
+              ) : (
+                <span className="border-2 border-ink/30 px-4 py-2 font-display font-bold text-ink/30">
+                  {common("next")} →
+                </span>
+              )}
+            </nav>
+          ) : null}
+        </>
       )}
     </main>
   );

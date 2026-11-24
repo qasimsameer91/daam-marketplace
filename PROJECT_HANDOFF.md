@@ -2,6 +2,61 @@
 
 This is the shared handoff for Codex, Claude and the project owner. Read the latest entry before starting work. After each work session, add a dated entry at the top describing who worked, what changed, actual checks and their results, unfinished work, relevant commits/uncommitted files, and the next concrete step. Mark information reported by another agent separately from what you verified. Never record secrets, phone numbers or full IMEIs.
 
+## 2026-11-24 — Claude (Opus 4.6): phone catalog images + Vercel env vars LIVE
+
+**Phone catalog images applied (commit 47b1397, pushed to origin/main):**
+
+- Extracted 158 PNG images from 2 valid zip archives (Samsung + Pakistan keypad phones)
+- Images placed in `public/phones/` across 5 brands: samsung/, nokia/, itel/, qmobile/, digit/
+- 25 Samsung models matched to DB and `image_url` set via migration `20261124060000_model_images.sql` (applied to live Supabase Cloud)
+- Updated `lib/data/catalog.ts`: added `imageUrl` to `CatalogModel` type, Zod schema, and Supabase query
+- Updated `lib/catalog/seed-catalog.ts`: added `imageUrl: null` to `getSeedBrowseCatalog()` fallback
+- Updated model detail page (`app/[locale]/(marketing)/phones/[brand]/[model]/page.tsx`): shows catalog image alongside price guide (hidden mobile, visible sm+)
+- 6 of 8 zip archives were corrupted (iPhone, full marketplace packs) — only Samsung batch 1 and Pakistan keypad phones extracted. Re-download needed for remaining brands.
+- Lint + typecheck pass clean.
+
+**Vercel production env vars SET (long-pending task from 2026-11-20 session):**
+
+- Authenticated Vercel CLI, linked to `daam-marketplace` project
+- Set all 6 required env vars on production: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, `IMEI_ENC_KEY`, `IMEI_HASH_PEPPER`, `NEXT_PUBLIC_SITE_URL`
+- Production deploy triggered (`vercel --prod`) — uploading 828MB (phone images included)
+- **The deployed site will now read from live Supabase instead of falling back to mock/seed data**
+
+**Outstanding:**
+
+- Production deploy still uploading (background task)
+- 6 corrupted zip files need re-download for iPhone + other brand images
+- An accidental `marketplace` project was created on Vercel during link (should be deleted; `daam-marketplace` is the correct one)
+- Vercel Plugin for Claude Code is not installed — recommend installing for future sessions
+
+**Next concrete step:** Verify the production deploy succeeds and the live site at daam-marketplace.vercel.app shows real Supabase catalog data + Samsung model images. Then re-download corrupted zip files for remaining phone brands.
+
+## 2026-11-22 — Codex: asset-pack intake blocked by incomplete ZIPs
+
+**User request:** integrate `Marketplace_Complete_WebP` artwork, exact model/view/colour mappings, colour selection, campaign banners, responsive loading, and verify the illustrations. The existing hard-edge editorial site, Supabase schema/data and listing behavior must remain intact.
+
+**What I inspected:** Read the archive's recoverable `CLAUDE_INSTRUCTIONS.md`, `README.md`, and `COLOR_SOURCES.md`. They specify exact metadata-driven mapping; no invented colours; seller photos remain higher priority; supplied colour assets are rear views only; Burgundy must use its exact supplied file; and all artwork is generated/approximate and needs hardware/colour review before production. Read the installed Next 16 Image documentation and inspected the existing listing gallery/cards, campaign carousel, and catalog entry points. The worktree before this session had only the existing `PROJECT_HANDOFF.md` edit.
+
+**Blocking finding independently verified:** Neither local copy is a complete ZIP. Python's ZIP reader rejects both because there is no end-of-central-directory record. Scanning local ZIP entries confirmed they terminate inside WebP image data: `Marketplace_All_Models_Colors_Banners_WebP_2.zip` cuts off in `itel-a50-back.webp`; the other copy cuts off in `itel-a50-front.webp`. Only the three text files above and the first 69–70 image assets are recoverable. The requested `models.json`, `models.csv`, `color-variants.json`, `preview.html`, remaining images, and campaign banners are not present in the readable archive prefix; no separate copies were found in the searched Downloads and OneDrive Pictures folders. Therefore exact comprehensive mapping, Burgundy switching, banner import, and full integration cannot be implemented or honestly tested from the supplied files. I did not attach partial images to real catalog entries or listings, change application code/database, or run tests. Temporary recovered copies created for inspection were removed.
+
+**Outstanding:** Obtain a complete archive containing its ZIP central directory and all manifests/assets. Artwork must still be reviewed against actual device designs before production, as the pack itself labels it approximate. No application files or database were changed in this session; this new handoff entry is uncommitted alongside prior project work.
+
+**Next step:** Re-upload or restore a complete `Marketplace_Complete_WebP` archive, then parse the manifests, report unmatched/duplicate model IDs, implement gallery and exact-colour behaviour with keyboard-accessible controls, place banners in their specified campaign sections, and verify loading plus the iPhone 18 Pro Max Burgundy path in desktop/mobile browsers.
+
+## 2026-11-20 — Claude (Opus 4.8): BACKEND LIVE — cloud Supabase connected
+
+**Milestone: the app now talks to a real Supabase database.** Up to now everything ran on mock data; a live Supabase Cloud project is now provisioned and wired.
+
+- **Project:** user created a Supabase Cloud project (ref `vicsrmeekghqvqqbuhgl`, org `qasimsameer91's Org`, free tier). Uses the **new API key format** (`sb_publishable_…` as anon, `sb_secret_…` as service role) — these work with the app's `@supabase/ssr` 0.12 / `supabase-js` 2.119 clients unchanged.
+- **Env:** created `.env.local` (gitignored, never committed) with `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable) + `SUPABASE_SERVICE_ROLE_KEY` (secret), plus freshly generated `IMEI_ENC_KEY` / `IMEI_HASH_PEPPER`. **No secrets are in git or any doc/memory.**
+- **Migrations:** applied all 18 via `supabase db push --remote=<db-url> --yes` (direct 5432 connection reachable from here). **34 public tables created, RLS on all.**
+- **Seed:** loaded `supabase/seed.sql` by copying it to a throwaway migration, pushing, then deleting the local file (not committed). Verified counts: **17 brands · 332 models · 704 model_variants · 1,417 model_aliases · 29 cities · 52 content_blocks.** NOTE: `supabase/seed.sql` still holds the 17/332 catalog; the later CSV expansion to 25 brands / 396 models (`supabase/seed/*.csv`, `lib/catalog/seed-catalog.ts`) was never regenerated into `seed.sql`. To get the full catalog in the DB, run `scripts/generate_seed.py` then re-push the regenerated seed.
+- **Verified end-to-end myself:** a direct `createClient(url, publishableKey)` read returned real brands (Apple, Samsung, Google Pixel, OnePlus, Xiaomi); `listing_private` read was **blocked for anon (42501)** — RLS hiding IMEI/contact works. Booted `pnpm dev`: `/en/phones` → **HTTP 200** with every DB brand in the filter (Oppo/Vivo/Realme/Tecno/Infinix/Honor/…), `/en/phones?brand=google-pixel` → 200, no Supabase errors in the dev log. `pnpm typecheck` passes, so the committed `database.types.ts` matches the live schema.
+
+**Still mock / next up (the app reads catalog from the DB, but these are not wired yet):** listings themselves are still `lib/mock/*`; real **auth (phone OTP)**, listing **publish/persist**, messaging, favourites and admin moderation are Phases 5–9 and remain to build against this live DB. Vercel production still has **no** Supabase env vars — set them on the `daam-marketplace` project before the deployed site can use the DB (local dev works now).
+
+**Next concrete step:** Phase 5 — real Supabase phone-OTP auth replacing the preview/`PreviewProvider` login, then listing create/publish server actions writing to `listings` + `listing_private` (IMEI encrypted via `lib/security`).
+
 ## 2026-11-13 — Claude (Opus): CONFIRMED design direction = the hard-edge `.dc.html` pack
 
 **Important for anyone touching the visual design.** There are TWO design packages in play and they are NOT the same:

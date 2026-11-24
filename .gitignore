@@ -50,3 +50,8 @@ next-env.d.ts
 # supabase
 supabase/.temp
 supabase/.branches
+
+# source archives (too large for git; images are extracted to public/phones/)
+*.zip
+*.jpeg
+*.JPEG

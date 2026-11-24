@@ -107,6 +107,7 @@ export async function getSeedBrowseCatalog(): Promise<Catalog> {
       brand: m.brandSlug,
       name: m.name,
       aliases: m.aliases,
+      imageUrl: null,
     })),
     cities: sc.cities,
     areas: sc.areas.map((a) => ({

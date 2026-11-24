@@ -1,0 +1,26 @@
+-- Populate model image_url for Samsung models with AI-generated catalog illustrations
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a12-front.png' WHERE slug = 'galaxy-a12';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a14-front.png' WHERE slug = 'galaxy-a14';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a15-front.png' WHERE slug = 'galaxy-a15';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a16-front.png' WHERE slug = 'galaxy-a16';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a32-front.png' WHERE slug = 'galaxy-a32';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a52-front.png' WHERE slug = 'galaxy-a52';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a53-5g-front.png' WHERE slug = 'galaxy-a53-5g';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a54-5g-front.png' WHERE slug = 'galaxy-a54-5g';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a55-5g-front.png' WHERE slug = 'galaxy-a55-5g';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-a56-5g-front.png' WHERE slug = 'galaxy-a56-5g';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s21-front.png' WHERE slug = 'galaxy-s21';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s22-front.png' WHERE slug = 'galaxy-s22';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s23-front.png' WHERE slug = 'galaxy-s23';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s24-front.png' WHERE slug = 'galaxy-s24';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s25-front.png' WHERE slug = 'galaxy-s25';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s26-front.png' WHERE slug = 'galaxy-s26';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s22-ultra-front.png' WHERE slug = 'galaxy-s22-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s23-ultra-front.png' WHERE slug = 'galaxy-s23-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s24-ultra-front.png' WHERE slug = 'galaxy-s24-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s25-ultra-front.png' WHERE slug = 'galaxy-s25-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-s26-ultra-front.png' WHERE slug = 'galaxy-s26-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-note10-plus-front.png' WHERE slug = 'galaxy-note10-plus';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-note20-ultra-front.png' WHERE slug = 'galaxy-note20-ultra';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-z-fold7-front.png' WHERE slug = 'galaxy-z-fold7';
+UPDATE public.models SET image_url = '/phones/samsung/galaxy-z-flip7-front.png' WHERE slug = 'galaxy-z-flip7';

@@ -5,7 +5,13 @@ import { z } from "zod";
 import type { Database } from "@/lib/supabase/database.types";
 
 export type CatalogBrand = { slug: string; name: string };
-export type CatalogModel = { slug: string; brand: string; name: string; aliases: string[] };
+export type CatalogModel = {
+  slug: string;
+  brand: string;
+  name: string;
+  aliases: string[];
+  imageUrl: string | null;
+};
 export type CatalogCity = { slug: string; nameEn: string; nameUr: string };
 export type CatalogArea = CatalogCity & { citySlug: string };
 export type Catalog = {
@@ -17,7 +23,13 @@ export type Catalog = {
 
 const brandRows = z.array(z.object({ id: z.number(), slug: z.string(), name: z.string() }));
 const modelRows = z.array(
-  z.object({ id: z.number(), brand_id: z.number(), slug: z.string(), name: z.string() }),
+  z.object({
+    id: z.number(),
+    brand_id: z.number(),
+    slug: z.string(),
+    name: z.string(),
+    image_url: z.string().nullable(),
+  }),
 );
 const aliasRows = z.array(z.object({ model_id: z.number(), alias: z.string() }));
 const cityRows = z.array(
@@ -50,7 +62,11 @@ export async function getCatalog(): Promise<Catalog | null> {
       .eq("is_active", true)
       .order("sort_order")
       .order("id"),
-    client.from("models").select("id, brand_id, slug, name").eq("is_active", true).order("id"),
+    client
+      .from("models")
+      .select("id, brand_id, slug, name, image_url")
+      .eq("is_active", true)
+      .order("id"),
     client.from("cities").select("id, slug, name_en, name_ur").order("sort_order").order("id"),
     client.from("areas").select("city_id, slug, name_en, name_ur").order("id"),
   ]);
@@ -101,6 +117,7 @@ export async function getCatalog(): Promise<Catalog | null> {
               brand,
               name: model.name,
               aliases: aliasesByModel.get(model.id) ?? [],
+              imageUrl: model.image_url,
             },
           ]
         : [];

@@ -1,0 +1,12 @@
+*.zip
+*.jpeg
+*.JPEG
+playwright-report/
+test-results/
+e2e/
+docs/
+scripts/
+.github/
+.husky/
+PROJECT_HANDOFF.md
+AGENTS.md
